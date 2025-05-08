@@ -40,19 +40,6 @@ const Index = () => {
         </div>
       </div>
       
-      {/* CTA Section */}
-      <section className="bg-hilbert-dark py-16 text-white relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Secure Your Financial Future?</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Schedule a consultation with one of our expert financial advisors today.
-          </p>
-          <Button className="bg-hilbert-blue hover:bg-blue-700 text-white text-lg px-8 py-6">
-            Get Started Now
-          </Button>
-        </div>
-      </section>
-      
       {/* Background Image at Bottom */}
       <div className="relative w-full h-64 md:h-96">
         <div 
