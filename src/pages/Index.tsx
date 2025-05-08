@@ -19,7 +19,7 @@ const Index = () => {
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{ 
             backgroundImage: "url('/public/lovable-uploads/4a59f06e-96bc-4bee-a3b8-2c0cfe76ba39.png')",
-            opacity: 0.3
+            opacity: 0.2
           }}
         ></div>
         
@@ -38,74 +38,98 @@ const Index = () => {
               </div>
               
               {/* Client Type Selection */}
-              <div className="mt-12 mb-12">
-                <h2 className="text-xl font-bold font-italic mb-6 text-gray-800">Select Client Type</h2>
-                <div className="flex flex-col sm:flex-row justify-center gap-6 max-w-xl mx-auto">
+              <div className="mt-36 mb-12">
+                
+                <h2 className="text-xl mb-6 text-gray-800 italic">Lets start by selecting your application type</h2>
+                <div className="flex flex-col sm:flex-row justify-center gap-6 max-w-5xl mx-auto">
+                  
+                  {/* Individual Card */}
                   <div 
-                    className={`border-2 rounded-lg p-5 cursor-pointer transition-all duration-200 flex-1 shadow-md hover:shadow-lg hover:translate-y-[-5px]
-                      ${selectedOption === 'individual' 
-                        ? 'border-hilbert-blue bg-blue-700 transform scale-105 border-[3px]' 
-                        : 'border-gray-300 bg-white hover:border-blue-300 hover:bg-blue-50'}`}
-                    style={{ borderWidth: selectedOption === 'individual' ? '3px' : '2px' }}
+                    className="bg-white rounded-xl p-6 shadow-md relative transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] flex-1"
                     onClick={() => {
                       setSelectedOption('individual');
                       navigate('/client-classification?type=individual');
                     }}
                   >
-                    <div className="flex justify-center mb-3">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={selectedOption === 'individual' ? 'text-white' : 'text-gray-500'}>
-                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="12" cy="7" r="4"></circle>
-                      </svg>
+                    <div className="flex justify-center mb-4">
+                      <div className="bg-blue-100 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-900">
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                      </div>
                     </div>
-                    <h3 className={`text-lg font-medium text-center ${selectedOption === 'individual' ? 'text-white' : 'text-gray-700'}`}>Individual</h3>
-                    <p className={`text-xs mt-1 text-center ${selectedOption === 'individual' ? 'text-blue-100' : 'text-gray-500'}`}>Personal investment accounts for individual clients</p>
+                    <h3 className="text-xl font-medium text-center text-gray-900 mb-2">Individual</h3>
+                    <p className="text-sm text-center text-gray-600 mb-8">Personal investment accounts for individual clients seeking wealth growth and portfolio diversification.</p>
+                    <div className="absolute bottom-4 right-4">
+                      <div className="bg-orange-400 hover:bg-orange-500 p-2 rounded-full cursor-pointer transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                          <path d="M5 12h14"></path>
+                          <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                   
+                  {/* Corporate Card */}
                   <div 
-                    className={`border-2 rounded-lg p-5 cursor-pointer transition-all duration-200 flex-1 shadow-md hover:shadow-lg hover:translate-y-[-5px]
-                      ${selectedOption === 'corporate' 
-                        ? 'border-hilbert-blue bg-blue-800 transform scale-105 border-[3px]' 
-                        : 'border-blue-300 bg-white hover:border-blue-300 hover:bg-blue-50'}`}
-                    style={{ borderWidth: selectedOption === 'corporate' ? '3px' : '2px' }}
+                    className="bg-white rounded-xl p-6 shadow-md relative transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] flex-1"
                     onClick={() => {
                       setSelectedOption('corporate');
                       navigate('/corporate-onboarding');
                     }}
                   >
-                    <div className="flex justify-center mb-3">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={selectedOption === 'corporate' ? 'text-white' : 'text-gray-500'}>
-                        <path d="M3 21h18"></path>
-                        <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
-                        <path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"></path>
-                      </svg>
+                    <div className="flex justify-center mb-4">
+                      <div className="bg-blue-100 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-900">
+                          <path d="M3 21h18"></path>
+                          <path d="M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16"></path>
+                          <path d="M9 21v-4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v4"></path>
+                        </svg>
+                      </div>
                     </div>
-                    <h3 className={`text-lg font-medium text-center ${selectedOption === 'corporate' ? 'text-white' : 'text-gray-700'}`}>Corporate</h3>
-                    <p className={`text-xs mt-1 text-center ${selectedOption === 'corporate' ? 'text-blue-100' : 'text-gray-500'}`}>Business accounts for companies and institutions</p>
+                    <h3 className="text-xl font-medium text-center text-gray-900 mb-2">Corporate</h3>
+                    <p className="text-sm text-center text-gray-600 mb-8">Business accounts for companies and institutions looking for strategic investment opportunities.</p>
+                    <div className="absolute bottom-4 right-4">
+                      <div className="bg-orange-400 hover:bg-orange-500 p-2 rounded-full cursor-pointer transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                          <path d="M5 12h14"></path>
+                          <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                   
+                  {/* Counterparty Card */}
                   <div 
-                    className={`border-2 rounded-lg p-5 cursor-pointer transition-all duration-200 flex-1 shadow-md hover:shadow-lg hover:translate-y-[-5px]
-                      ${selectedOption === 'counterparty' 
-                        ? 'border-hilbert-blue bg-blue-500 transform scale-105 border-[3px]' 
-                        : 'border-gray-300 bg-white hover:border-blue-300 hover:bg-blue-50'}`}
-                    style={{ borderWidth: selectedOption === 'counterparty' ? '3px' : '2px' }}
+                    className="bg-white rounded-xl p-6 shadow-md relative transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] flex-1"
                     onClick={() => {
                       setSelectedOption('counterparty');
                       navigate('/client-classification?type=counterparty');
                     }}
                   >
-                    <div className="flex justify-center mb-3">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={selectedOption === 'counterparty' ? 'text-white' : 'text-gray-500'}>
-                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                        <circle cx="9" cy="7" r="4"></circle>
-                        <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                      </svg>
+                    <div className="flex justify-center mb-4">
+                      <div className="bg-blue-100 p-4 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-blue-900">
+                          <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                          <circle cx="9" cy="7" r="4"></circle>
+                          <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                          <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                        </svg>
+                      </div>
                     </div>
-                    <h3 className={`text-lg font-medium text-center ${selectedOption === 'counterparty' ? 'text-white' : 'text-gray-700'}`}>Counterparty</h3>
-                    <p className={`text-xs mt-1 text-center ${selectedOption === 'counterparty' ? 'text-blue-100' : 'text-gray-500'}`}>Market counterparties and institutional partners</p>
+                    <h3 className="text-xl font-medium text-center text-gray-900 mb-2">Counterparty</h3>
+                    <p className="text-sm text-center text-gray-600 mb-8">Market counterparties and institutional partners requiring specialized financial solutions.</p>
+                    <div className="absolute bottom-4 right-4">
+                      <div className="bg-orange-400 hover:bg-orange-500 p-2 rounded-full cursor-pointer transition-colors">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
+                          <path d="M5 12h14"></path>
+                          <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                      </div>
+                    </div>
                   </div>
+                  
                 </div>
               </div>
             </div>
