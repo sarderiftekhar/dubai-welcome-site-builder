@@ -512,8 +512,7 @@ const CorporateOnboarding = () => {
                 <div className="bg-gray-50 p-4 rounded-md mb-6 border border-gray-200">
                   <div className="mb-4">
                     <div className="flex items-center mb-3">
-                      <label className="block text-sm font-medium text-gray-700">Client Name:</label>
-                      <input type="text" className="ml-2 w-full p-1 border border-gray-300 rounded-md" />
+                      <label className="block text-sm font-bold text-gray-700">Client Name</label>
                     </div>
                     
                     <p className="text-sm text-gray-700 mb-3">
@@ -1195,46 +1194,6 @@ const CorporateOnboarding = () => {
                           </tbody>
                         </table>
                       </div>
-                    </div>
-                  </div>
-
-                  {/* INVESTMENT RISK RATING SUMMARY */}
-                  <div className="bg-blue-100 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">Investment Risk Rating</h3>
-                    
-                    <div className="overflow-x-auto">
-                      <table className="min-w-full bg-white border border-gray-300">
-                        <thead>
-                          <tr>
-                            <th className="py-2 px-4 border-b bg-green-100 text-center">Investment Profile</th>
-                            <th className="py-2 px-4 border-b bg-green-200 text-center">Conservative</th>
-                            <th className="py-2 px-4 border-b bg-blue-100 text-center">Moderate</th>
-                            <th className="py-2 px-4 border-b bg-yellow-100 text-center">Balanced</th>
-                            <th className="py-2 px-4 border-b bg-orange-100 text-center">Growth</th>
-                            <th className="py-2 px-4 border-b bg-red-100 text-center">Aggressive</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td className="py-2 px-4 border-b text-center">Score</td>
-                            <td className="py-2 px-4 border-b text-center">Less than or Equal to 13</td>
-                            <td className="py-2 px-4 border-b text-center">14-19</td>
-                            <td className="py-2 px-4 border-b text-center">20-26</td>
-                            <td className="py-2 px-4 border-b text-center">27-32</td>
-                            <td className="py-2 px-4 border-b text-center">&gt;32</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                    
-                    <div className="mt-4">
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Total Score (System Calculated)</label>
-                      <input type="text" className="w-full p-2 border border-gray-300 rounded-md bg-gray-100" readOnly disabled />
-                    </div>
-                    
-                    <div className="mt-4">
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Risk Profile (System Calculated)</label>
-                      <input type="text" className="w-full p-2 border border-gray-300 rounded-md bg-gray-100" readOnly disabled />
                     </div>
                   </div>
                 </div>
