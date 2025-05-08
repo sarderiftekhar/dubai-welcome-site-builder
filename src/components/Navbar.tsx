@@ -1,34 +1,111 @@
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   return (
-    <nav className="bg-white bg-opacity-95 shadow-sm fixed w-full z-10">
+    <nav className="bg-white bg-opacity-95 shadow-sm fixed w-full z-50" style={{ zIndex: 9999 }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-20">
           <div className="flex-shrink-0 flex items-center">
-            <Link to="/" className="flex items-center">
+            <a 
+              href="/" 
+              style={{ 
+                cursor: 'pointer',
+                display: 'block',
+                position: 'relative',
+                zIndex: 9999
+              }}
+              title="Go to Home Page"
+            >
               <img 
-                src="/public/lovable-uploads/2fab491a-3fc7-4f12-9727-31796472405a.png" 
-                alt="Hilbert Investment Solutions" 
+                src="/lovable-uploads/2fab491a-3fc7-4f12-9727-31796472405a.png" 
+                alt="Hilbert Investment Solutions - Home" 
                 className="h-12" 
+                style={{ transition: 'opacity 0.2s' }}
+                onMouseOver={(e) => e.currentTarget.style.opacity = '0.8'}
+                onMouseOut={(e) => e.currentTarget.style.opacity = '1'}
               />
-            </Link>
+            </a>
           </div>
           
           {/* Desktop menu */}
-          <div className="hidden md:flex md:items-center md:space-x-6">
-            <Link to="/terms" className="text-hilbert-dark hover:text-hilbert-blue hover:underline font-medium transition-colors text-xs italic transform hover:scale-105 duration-200 cursor-pointer">
+          <div className="hidden md:flex md:items-center md:space-x-6" style={{ position: 'relative', zIndex: 9999 }}>
+            <a 
+              href="/terms" 
+              style={{ 
+                cursor: 'pointer',
+                color: '#333',
+                fontSize: '0.75rem',
+                fontWeight: 500,
+                transition: 'color 0.2s',
+                position: 'relative',
+                zIndex: 9999
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.color = '#3b82f6';
+                e.currentTarget.style.textDecoration = 'underline';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.color = '#333';
+                e.currentTarget.style.textDecoration = 'none';
+              }}
+            >
               Terms & Conditions
-            </Link>
-            <Link to="/privacy" className="text-hilbert-dark hover:text-hilbert-blue hover:underline font-medium transition-colors text-xs italic transform hover:scale-105 duration-200 cursor-pointer">
+            </a>
+            <a 
+              href="/privacy" 
+              style={{ 
+                cursor: 'pointer',
+                color: '#333',
+                fontSize: '0.75rem',
+                fontWeight: 500,
+                transition: 'color 0.2s',
+                position: 'relative',
+                zIndex: 9999
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.color = '#3b82f6';
+                e.currentTarget.style.textDecoration = 'underline';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.color = '#333';
+                e.currentTarget.style.textDecoration = 'none';
+              }}
+            >
               Privacy Policy
-            </Link>
-            <Button className="bg-hilbert-blue hover:bg-blue-700 text-white text-sm py-1 px-3 transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer">
-              Get Started
+            </a>
+            <Button 
+              onClick={() => window.location.href = '/login'}
+              style={{ 
+                cursor: 'pointer',
+                backgroundColor: '#1e40af',
+                color: 'white',
+                fontSize: '0.875rem',
+                padding: '0.25rem 0.75rem',
+                display: 'flex',
+                alignItems: 'center',
+                borderRadius: '0.375rem',
+                transition: 'all 0.2s',
+                position: 'relative',
+                zIndex: 9999
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = '#1e3a8a';
+                e.currentTarget.style.transform = 'scale(1.05)';
+                e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = '#1e40af';
+                e.currentTarget.style.transform = 'scale(1)';
+                e.currentTarget.style.boxShadow = 'none';
+              }}
+            >
+              <svg className="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+              </svg>
+              Login
             </Button>
           </div>
           
@@ -36,7 +113,26 @@ const Navbar = () => {
           <div className="md:hidden flex items-center">
             <button
               type="button"
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
+              style={{ 
+                cursor: 'pointer',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                padding: '0.5rem',
+                borderRadius: '0.375rem',
+                color: '#9ca3af',
+                transition: 'all 0.2s',
+                position: 'relative',
+                zIndex: 9999
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.color = '#6b7280';
+                e.currentTarget.style.backgroundColor = '#f3f4f6';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.color = '#9ca3af';
+                e.currentTarget.style.backgroundColor = 'transparent';
+              }}
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <span className="sr-only">Open main menu</span>
@@ -55,17 +151,84 @@ const Navbar = () => {
       </div>
       
       {/* Mobile menu */}
-      <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:hidden`}>
+      <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:hidden`} style={{ position: 'relative', zIndex: 9999 }}>
         <div className="pt-1 pb-2 space-y-0.5 bg-white">
-          <Link to="/terms" className="block pl-3 pr-4 py-1 text-xs font-medium text-hilbert-dark hover:bg-gray-50">
+          <a 
+            href="/terms" 
+            style={{ 
+              cursor: 'pointer',
+              display: 'block',
+              paddingLeft: '0.75rem',
+              paddingRight: '1rem',
+              paddingTop: '0.25rem',
+              paddingBottom: '0.25rem',
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              color: '#333',
+              transition: 'all 0.2s',
+              position: 'relative',
+              zIndex: 9999
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.color = '#3b82f6';
+              e.currentTarget.style.backgroundColor = '#f9fafb';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.color = '#333';
+              e.currentTarget.style.backgroundColor = 'transparent';
+            }}
+          >
             Terms & Conditions
-          </Link>
-          <Link to="/privacy" className="block pl-3 pr-4 py-1 text-xs font-medium text-hilbert-dark hover:bg-gray-50">
+          </a>
+          <a 
+            href="/privacy" 
+            style={{ 
+              cursor: 'pointer',
+              display: 'block',
+              paddingLeft: '0.75rem',
+              paddingRight: '1rem',
+              paddingTop: '0.25rem',
+              paddingBottom: '0.25rem',
+              fontSize: '0.75rem',
+              fontWeight: 500,
+              color: '#333',
+              transition: 'all 0.2s',
+              position: 'relative',
+              zIndex: 9999
+            }}
+            onMouseOver={(e) => {
+              e.currentTarget.style.color = '#3b82f6';
+              e.currentTarget.style.backgroundColor = '#f9fafb';
+            }}
+            onMouseOut={(e) => {
+              e.currentTarget.style.color = '#333';
+              e.currentTarget.style.backgroundColor = 'transparent';
+            }}
+          >
             Privacy Policy
-          </Link>
+          </a>
           <div className="pl-3 pr-4 py-1">
-            <Button className="w-full bg-hilbert-blue hover:bg-blue-700 text-white text-sm py-1">
-              Get Started
+            <Button 
+              onClick={() => window.location.href = '/login'}
+              style={{ 
+                cursor: 'pointer',
+                width: '100%',
+                backgroundColor: '#1e40af',
+                color: 'white',
+                fontSize: '0.875rem',
+                padding: '0.25rem 0',
+                transition: 'background-color 0.2s',
+                position: 'relative',
+                zIndex: 9999
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.backgroundColor = '#1e3a8a';
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.backgroundColor = '#1e40af';
+              }}
+            >
+              Login
             </Button>
           </div>
         </div>

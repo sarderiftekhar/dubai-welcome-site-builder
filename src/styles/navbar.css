@@ -1,0 +1,35 @@
+/* Navbar explicit styles */
+
+.nav-link {
+  cursor: pointer !important;
+  transition: color 0.2s ease, transform 0.2s ease !important;
+}
+
+.nav-link:hover {
+  color: #3b82f6 !important;
+  text-decoration: underline !important;
+}
+
+.nav-button {
+  cursor: pointer !important;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.nav-button:hover {
+  background-color: #2563eb !important;
+  transform: scale(1.05) !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+.logo-link:hover img {
+  opacity: 0.8 !important;
+}
+
+.mobile-toggle {
+  cursor: pointer !important;
+}
+
+.mobile-toggle:hover {
+  color: #6b7280 !important;
+  background-color: #f3f4f6 !important;
+} 
