@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -21,20 +20,14 @@ const Navbar = () => {
           </div>
           
           {/* Desktop menu */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
-            <Link to="/" className="text-hilbert-dark hover:text-hilbert-blue font-medium transition-colors">
-              Home
+          <div className="hidden md:flex md:items-center md:space-x-6">
+            <Link to="/terms" className="text-hilbert-dark hover:text-hilbert-blue hover:underline font-medium transition-colors text-xs italic transform hover:scale-105 duration-200 cursor-pointer">
+              Terms & Conditions
             </Link>
-            <Link to="/services" className="text-hilbert-dark hover:text-hilbert-blue font-medium transition-colors">
-              Services
+            <Link to="/privacy" className="text-hilbert-dark hover:text-hilbert-blue hover:underline font-medium transition-colors text-xs italic transform hover:scale-105 duration-200 cursor-pointer">
+              Privacy Policy
             </Link>
-            <Link to="/about" className="text-hilbert-dark hover:text-hilbert-blue font-medium transition-colors">
-              About Us
-            </Link>
-            <Link to="/contact" className="text-hilbert-dark hover:text-hilbert-blue font-medium transition-colors">
-              Contact
-            </Link>
-            <Button className="bg-hilbert-blue hover:bg-blue-700 text-white">
+            <Button className="bg-hilbert-blue hover:bg-blue-700 text-white text-sm py-1 px-3 transition-all duration-300 transform hover:scale-105 hover:shadow-lg cursor-pointer">
               Get Started
             </Button>
           </div>
@@ -63,21 +56,15 @@ const Navbar = () => {
       
       {/* Mobile menu */}
       <div className={`${mobileMenuOpen ? 'block' : 'hidden'} md:hidden`}>
-        <div className="pt-2 pb-3 space-y-1 bg-white">
-          <Link to="/" className="block pl-3 pr-4 py-2 text-base font-medium text-hilbert-dark hover:bg-gray-50">
-            Home
+        <div className="pt-1 pb-2 space-y-0.5 bg-white">
+          <Link to="/terms" className="block pl-3 pr-4 py-1 text-xs font-medium text-hilbert-dark hover:bg-gray-50">
+            Terms & Conditions
           </Link>
-          <Link to="/services" className="block pl-3 pr-4 py-2 text-base font-medium text-hilbert-dark hover:bg-gray-50">
-            Services
+          <Link to="/privacy" className="block pl-3 pr-4 py-1 text-xs font-medium text-hilbert-dark hover:bg-gray-50">
+            Privacy Policy
           </Link>
-          <Link to="/about" className="block pl-3 pr-4 py-2 text-base font-medium text-hilbert-dark hover:bg-gray-50">
-            About Us
-          </Link>
-          <Link to="/contact" className="block pl-3 pr-4 py-2 text-base font-medium text-hilbert-dark hover:bg-gray-50">
-            Contact
-          </Link>
-          <div className="pl-3 pr-4 py-2">
-            <Button className="w-full bg-hilbert-blue hover:bg-blue-700 text-white">
+          <div className="pl-3 pr-4 py-1">
+            <Button className="w-full bg-hilbert-blue hover:bg-blue-700 text-white text-sm py-1">
               Get Started
             </Button>
           </div>
