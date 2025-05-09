@@ -10,6 +10,17 @@ const CorporateOnboarding = () => {
   const [documentUploads, setDocumentUploads] = useState([
     { id: 1, type: '', file: null }
   ]);
+  // Add state to track UBO entries
+  const [uboEntries, setUboEntries] = useState([
+    { id: 1 }, 
+    { id: 2 }
+  ]);
+  // Add state to track Senior Management entries
+  const [seniorManagementEntries, setSeniorManagementEntries] = useState([
+    { id: 1 },
+    { id: 2 },
+    { id: 3 }
+  ]);
   
   const steps = [
     { id: 'kyc', label: 'KYC Form', icon: 'clipboard-list' },
@@ -371,16 +382,16 @@ const CorporateOnboarding = () => {
                       <table className="min-w-full bg-white border border-gray-300 mb-6">
                         <thead>
                           <tr className="bg-gray-100">
-                            <th className="py-3 px-4 border-b text-left">Name of the UBO <span className="text-[#0066FF]">*</span></th>
-                            <th className="py-3 px-4 border-b text-left">Shareholding % <span className="text-[#0066FF]">*</span></th>
-                            <th className="py-3 px-4 border-b text-left">Date of Birth <span className="text-[#0066FF]">*</span></th>
-                            <th className="py-3 px-4 border-b text-left">Nationality <span className="text-[#0066FF]">*</span></th>
-                            <th className="py-3 px-4 border-b text-left">Current Address <span className="text-[#0066FF]">*</span></th>
+                            <th className="py-3 px-4 border-b text-left">Name of the UBO <span className="text-[#0066FF]"></span></th>
+                            <th className="py-3 px-4 border-b text-left">Shareholding % <span className="text-[#0066FF]"></span></th>
+                            <th className="py-3 px-4 border-b text-left">Date of Birth <span className="text-[#0066FF]"></span></th>
+                            <th className="py-3 px-4 border-b text-left">Nationality <span className="text-[#0066FF]"></span></th>
+                            <th className="py-3 px-4 border-b text-left">Current Address <span className="text-[#0066FF]"></span></th>
                           </tr>
                         </thead>
                         <tbody>
-                          {[...Array(2)].map((_, index) => (
-                            <tr key={index}>
+                          {uboEntries.map((entry, index) => (
+                            <tr key={entry.id}>
                               <td className="py-3 px-4 border-b">
                                 <input type="text" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
@@ -410,6 +421,22 @@ const CorporateOnboarding = () => {
                           ))}
                         </tbody>
                       </table>
+                      <div className="flex justify-end mb-4">
+                        <button 
+                          className="px-4 py-2 bg-[#0066FF] text-white text-sm rounded-md hover:bg-[#0055DD] flex items-center"
+                          onClick={() => {
+                            const newUboEntry = {
+                              id: uboEntries.length > 0 ? Math.max(...uboEntries.map(entry => entry.id)) + 1 : 1
+                            };
+                            setUboEntries([...uboEntries, newUboEntry]);
+                          }}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
+                          </svg>
+                          Add More UBO
+                        </button>
+                      </div>
                     </div>
 
                     <h4 className="text-[#0066FF] font-semibold mb-4">Senior Management/Authorized Person</h4>
@@ -417,16 +444,16 @@ const CorporateOnboarding = () => {
                       <table className="min-w-full bg-white border border-gray-300">
                         <thead>
                           <tr className="bg-gray-100">
-                            <th className="py-3 px-4 border-b text-left">Name <span className="text-[#0066FF]">*</span></th>
-                            <th className="py-3 px-4 border-b text-left">Designation <span className="text-[#0066FF]">*</span></th>
-                            <th className="py-3 px-4 border-b text-left">Date of Birth <span className="text-[#0066FF]">*</span></th>
-                            <th className="py-3 px-4 border-b text-left">Nationality <span className="text-[#0066FF]">*</span></th>
-                            <th className="py-3 px-4 border-b text-left">Current Address <span className="text-[#0066FF]">*</span></th>
+                            <th className="py-3 px-4 border-b text-left">Name <span className="text-[#0066FF]"></span></th>
+                            <th className="py-3 px-4 border-b text-left">Designation <span className="text-[#0066FF]"></span></th>
+                            <th className="py-3 px-4 border-b text-left">Date of Birth <span className="text-[#0066FF]"></span></th>
+                            <th className="py-3 px-4 border-b text-left">Nationality <span className="text-[#0066FF]"></span></th>
+                            <th className="py-3 px-4 border-b text-left">Current Address <span className="text-[#0066FF]"></span></th>
                           </tr>
                         </thead>
                         <tbody>
-                          {[...Array(3)].map((_, index) => (
-                            <tr key={index}>
+                          {seniorManagementEntries.map((entry, index) => (
+                            <tr key={entry.id}>
                               <td className="py-3 px-4 border-b">
                                 <input type="text" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
@@ -456,6 +483,23 @@ const CorporateOnboarding = () => {
                           ))}
                         </tbody>
                       </table>
+                      <div className="flex justify-end my-4">
+                        <button 
+                          className="px-4 py-2 bg-[#0066FF] text-white text-sm rounded-md hover:bg-[#0055DD] flex items-center"
+                          onClick={() => {
+                            const newEntry = {
+                              id: seniorManagementEntries.length > 0 ? 
+                                Math.max(...seniorManagementEntries.map(entry => entry.id)) + 1 : 1
+                            };
+                            setSeniorManagementEntries([...seniorManagementEntries, newEntry]);
+                          }}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 5a1 1 0 011 1v3h3a1 1 0 110 2h-3v3a1 1 0 11-2 0v-3H6a1 1 0 110-2h3V6a1 1 0 011-1z" clipRule="evenodd" />
+                          </svg>
+                          Add more person
+                        </button>
+                      </div>
                     </div>
                   </div>
 
@@ -1104,13 +1148,39 @@ const CorporateOnboarding = () => {
                       <h4 className="font-semibold mb-2 text-red-600">6.1. Which of the following 5 hypothetical scenarios below best describes the level of risk you are willing to bear in regard to your investment?</h4>
                       
                       <div className="overflow-x-auto">
-                        <table className="min-w-full bg-white border border-gray-300">
+                        <table className="min-w-full bg-white border border-gray-300 w-full">
                           <thead>
-                            <tr className="bg-gray-100">
-                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
+                            <tr className="bg-gray-100 w-full">
+                              <th colSpan={6} className="py-3 px-4 border-b text-left w-full">Description</th>
+                            </tr>
+                            <tr>
+                              <th className="py-3 px-4 border-b w-2/6"></th>
+                              <th className="py-3 px-4 border-b text-center w-1/6">Scenario 1</th>
+                              <th className="py-3 px-4 border-b text-center w-1/6">Scenario 2</th>
+                              <th className="py-3 px-4 border-b text-center w-1/6">Scenario 3</th>
+                              <th className="py-3 px-4 border-b text-center w-1/6">Scenario 4</th>
+                              <th className="py-3 px-4 border-b text-center w-1/6">Scenario 5</th>
                             </tr>
                           </thead>
                           <tbody>
+                            <tr>
+                              <td className="py-3 px-4 border-b"></td>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="risk-scenario" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="risk-scenario" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="risk-scenario" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="risk-scenario" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="risk-scenario" className="h-5 w-5" />
+                              </td>
+                            </tr>
                             <tr>
                               <td className="py-3 px-4 border-b">Target annual return</td>
                               <td className="py-3 px-4 border-b text-center">1%</td>
