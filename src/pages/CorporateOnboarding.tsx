@@ -20,7 +20,7 @@ const CorporateOnboarding = () => {
   ];
 
   const renderIcon = (iconName: string, isCompleted: boolean, isActive: boolean) => {
-    const iconColor = isCompleted ? 'text-green-500' : isActive ? 'text-blue-600' : 'text-gray-400';
+    const iconColor = isCompleted ? 'text-green-500' : isActive ? 'text-[#0066FF]' : 'text-gray-400';
     
     switch(iconName) {
       case 'clipboard-list':
@@ -108,7 +108,7 @@ const CorporateOnboarding = () => {
                         isCompleted 
                           ? 'bg-green-100 border-2 border-green-500' 
                           : isActive 
-                            ? 'bg-blue-100 border-2 border-blue-600' 
+                            ? 'bg-[#E5F0FF] border-2 border-[#0066FF]' 
                             : 'bg-gray-100 border-2 border-gray-300'
                       }`}>
                         {renderIcon(step.icon, isCompleted, isActive)}
@@ -117,7 +117,7 @@ const CorporateOnboarding = () => {
                         isCompleted 
                           ? 'text-green-600' 
                           : isActive 
-                            ? 'text-blue-600' 
+                            ? 'text-[#0066FF]' 
                             : 'text-gray-500'
                       }`}>
                         {step.label}
@@ -141,8 +141,8 @@ const CorporateOnboarding = () => {
                 <h2 className="text-xl font-semibold mb-4">Know Your Customer – Corporate Due Diligence Form</h2>
                 <div className="space-y-6">
                   {/* CLIENT IDENTIFICATION DETAILS */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">CLIENT IDENTIFICATION DETAILS</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">CLIENT IDENTIFICATION DETAILS</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Full Name <span className="text-xs text-gray-500">as per the License</span></label>
@@ -178,8 +178,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* CLIENT IDENTIFICATION DOCUMENT DETAILS */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">CLIENT IDENTIFICATION DOCUMENT DETAILS</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">CLIENT IDENTIFICATION DOCUMENT DETAILS</h3>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">License Number</label>
@@ -201,8 +201,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* CONTACT DETAILS */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">CONTACT DETAILS</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">CONTACT DETAILS</h3>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
@@ -232,8 +232,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* BUSINESS ACTIVITY / FINANCIAL INFORMATION */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">BUSINESS ACTIVITY / FINANCIAL INFORMATION</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">BUSINESS ACTIVITY / FINANCIAL INFORMATION</h3>
                     <div className="grid grid-cols-1 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Type of Business Activities <span className="text-xs text-gray-500">as per the License</span></label>
@@ -263,8 +263,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* NATURE AND PURPOSE OF RELATIONSHIP */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">NATURE AND PURPOSE OF RELATIONSHIP WITH HILBERT INVESTMENT SOLUTIONS LTD</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">NATURE AND PURPOSE OF RELATIONSHIP WITH HILBERT INVESTMENT SOLUTIONS LTD</h3>
                     <div className="grid grid-cols-1 gap-4">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Purpose of relationship</label>
@@ -278,8 +278,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* CORPORATE SHAREHOLDING DETAILS */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">CORPORATE SHAREHOLDING DETAILS</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">CORPORATE SHAREHOLDING DETAILS</h3>
                     <div className="overflow-x-auto">
                       <table className="min-w-full bg-white border border-gray-300 mb-4">
                         <thead>
@@ -303,7 +303,7 @@ const CorporateOnboarding = () => {
                       </table>
                     </div>
 
-                    <h4 className="text-blue-800 font-semibold mb-2">Ultimate Beneficial Owner (UBO) Details</h4>
+                    <h4 className="text-[#0066FF] font-semibold mb-2">Ultimate Beneficial Owner (UBO) Details</h4>
                     <div className="overflow-x-auto">
                       <table className="min-w-full bg-white border border-gray-300 mb-4">
                         <thead>
@@ -339,7 +339,7 @@ const CorporateOnboarding = () => {
                       </table>
                     </div>
 
-                    <h4 className="text-blue-800 font-semibold mb-2">Senior Management/Authorized Person</h4>
+                    <h4 className="text-[#0066FF] font-semibold mb-2">Senior Management/Authorized Person</h4>
                     <div className="overflow-x-auto">
                       <table className="min-w-full bg-white border border-gray-300">
                         <thead>
@@ -377,8 +377,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* POLITICAL EXPOSED PERSON DECLARATION */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">POLITICAL EXPOSED PERSON DECLARATION</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">POLITICAL EXPOSED PERSON DECLARATION</h3>
                     <p className="text-sm text-gray-700 mb-4">
                       Are shareholders, senior management and/or authorized signatory entrusted with prominent public functions in United Arab Emirates or any other Foreign country such as Heads of States or Governments, Senior Politicians, Senior Government Officials, Judicial or Military Officials, Senior Executives of State-owned Corporations, and Senior Officials of Political Parties and persons who are, or have previously been, entrusted with the management of an international organization or any prominent function within such an organization?
                     </p>
@@ -395,8 +395,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* CLIENT DECLARATION */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">CLIENT DECLARATION</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">CLIENT DECLARATION</h3>
                     <p className="text-sm text-gray-700 mb-4">
                       I <span className="font-bold">(Company Name)</span>, represented by <span className="font-bold">(Authorized Representative's Full Name)</span>, hereby declares that the information provided above on behalf of the company is true, accurate, and complete to the best of our knowledge and belief. We acknowledge and understand that Hilbert Investment Solutions Ltd may process the company's personal information in accordance with the attached Privacy Notice for the purpose of providing services.
                     </p>
@@ -420,8 +420,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* Privacy Notice */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">PRIVACY NOTICE</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">PRIVACY NOTICE</h3>
                     <p className="text-sm mb-4">
                       Hilbert Investment Solutions Ltd ("the Company") takes privacy seriously and respects the privacy of every client 
                       for whom we provide services ("the Services"). In order to effectively provide the Services to you, the company 
@@ -432,7 +432,7 @@ const CorporateOnboarding = () => {
                       process personal information in order to provide the Services.
                     </p>
                     
-                    <h4 className="text-blue-700 font-bold mb-2">THE PERSONAL INFORMATION WE MAY HOLD</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-2">THE PERSONAL INFORMATION WE MAY HOLD</h4>
                     <p className="text-sm mb-3">
                       As a client (or potential client) of the Company, we may hold the following categories of personal information about 
                       you. This information may be considered sensitive due to its nature:
@@ -447,7 +447,7 @@ const CorporateOnboarding = () => {
                       <li>Information provided in the course of us providing the Services.</li>
                     </ul>
                     
-                    <h4 className="text-blue-700 font-bold mb-2">HOW WE MAY USE YOUR PERSONAL INFORMATION</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-2">HOW WE MAY USE YOUR PERSONAL INFORMATION</h4>
                     <p className="text-sm mb-3">
                       It is our legitimate interest to use your personal information to ensure the provision of the Services. As a Regulated 
                       Entity, we are also bound by legal, regulatory, and ethical obligations that necessitate the processing of your 
@@ -464,7 +464,7 @@ const CorporateOnboarding = () => {
                       <li>Supplying statutory information.</li>
                     </ul>
                     
-                    <h4 className="text-blue-700 font-bold mb-2">SHARING YOUR PERSONAL INFORMATION</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-2">SHARING YOUR PERSONAL INFORMATION</h4>
                     <p className="text-sm mb-3">
                       We may need to share your personal information with third parties. These third parties may include:
                     </p>
@@ -473,7 +473,7 @@ const CorporateOnboarding = () => {
                       <li>Third party professionals, such as arbitrators, accountants, tax professionals, advisors, counsel, court personnel.</li>
                     </ul>
                     
-                    <h4 className="text-blue-700 font-bold mb-2">SECURITY OF YOUR PERSONAL INFORMATION</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-2">SECURITY OF YOUR PERSONAL INFORMATION</h4>
                     <p className="text-sm mb-3">
                       We place a high priority on the security of your personal information and have implemented stringent measures to 
                       ensure its protection. Access to your information is restricted to authorized personnel with a designated legitimate need 
@@ -485,26 +485,26 @@ const CorporateOnboarding = () => {
                       to maintain the security and confidentiality of your data, earning and maintaining your trust.
                     </p>
                     
-                    <h4 className="text-blue-700 font-bold mb-2">RETENTION OF YOUR PERSONAL INFORMATION</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-2">RETENTION OF YOUR PERSONAL INFORMATION</h4>
                     <p className="text-sm mb-3">
                       We will retain pertinent records for a minimum duration of six years from the date of our last 
                       engagement with a client. However, in accordance with our legal, regulatory, or professional obligations, we may be 
                       required to retain such information for a longer period beyond the documented relationship.
                     </p>
                     
-                    <h4 className="text-blue-700 font-bold mb-2">YOUR RIGHTS IN RELATION TO YOUR PERSONAL INFORMATION</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-2">YOUR RIGHTS IN RELATION TO YOUR PERSONAL INFORMATION</h4>
                     <p className="text-sm mb-3">
                       Under certain circumstances, you may have rights regarding your personal information, including the right to access, 
                       correct, erase and limit the use of your personal information. If you have any questions or requests regarding your rights, please email us at 
-                      <a href="mailto:Hilbert@invetsolutions.ae" className="text-blue-600 mx-1">Hilbert@invetsolutions.ae</a>. 
+                      <a href="mailto:Hilbert@invetsolutions.ae" className="text-[#0066FF] mx-1">Hilbert@invetsolutions.ae</a>. 
                       We will address your concerns promptly and assist you accordingly.
                     </p>
                     
-                    <h4 className="text-blue-700 font-bold mb-2">DATA PRIVACY TEAM</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-2">DATA PRIVACY TEAM</h4>
                     <p className="text-sm mb-3">
                       We have appointed a Data Protection Officer (DPO) who is responsible for overseeing compliance with this Privacy 
                       Notice. If you have any inquiries or concerns regarding this Privacy Notice or the handling of your personal 
-                      information, please contact us via email at <a href="mailto:Hilbert@invetsolutions.ae" className="text-blue-600">Hilbert@invetsolutions.ae</a>.
+                      information, please contact us via email at <a href="mailto:Hilbert@invetsolutions.ae" className="text-[#0066FF]">Hilbert@invetsolutions.ae</a>.
                     </p>
                     <p className="text-sm">
                       Our Data Protection Officer will address your questions and provide assistance as necessary!
@@ -512,7 +512,7 @@ const CorporateOnboarding = () => {
                     
                     <div className="flex items-center mt-6">
                       <input type="checkbox" id="privacy-acknowledge" className="mr-3 h-5 w-5" />
-                      <label htmlFor="privacy-acknowledge" className="text-base font-medium text-blue-700">I acknowledge</label>
+                      <label htmlFor="privacy-acknowledge" className="text-base font-medium text-[#0066FF]">I acknowledge</label>
                     </div>
                   </div>
                 </div>
@@ -540,8 +540,8 @@ const CorporateOnboarding = () => {
                 
                 <div className="space-y-6">
                   {/* 1. INVESTMENT OBJECTIVES */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">1. INVESTMENT OBJECTIVES</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">1. INVESTMENT OBJECTIVES</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2">1.1. Which answer best describes your investment objective:</h4>
@@ -592,8 +592,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 2. INVESTMENT STAGE AND ABILITY */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">2. INVESTMENT STAGE AND ABILITY</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">2. INVESTMENT STAGE AND ABILITY</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2">2.1. Which of the following best describes your current stage of life?</h4>
@@ -656,8 +656,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 3. PRODUCT KNOWLEDGE AND EXPERIENCE */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">3. PRODUCT KNOWLEDGE AND EXPERIENCE</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">3. PRODUCT KNOWLEDGE AND EXPERIENCE</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2">3.1. Please indicate the level of knowledge and/or experience you have in the asset classes listed below:</h4>
@@ -951,8 +951,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 4. RESPONSE TO MARKET DECLINE */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">5. RESPONSE TO MARKET DECLINE</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">5. RESPONSE TO MARKET DECLINE</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">5.1. During market declines, I tend to sell portions of my riskier assets and invest the money in safer assets?</h4>
@@ -1004,8 +1004,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 6. RISK TOLERANCE, CAPITAL LOSS AND MARKET FLUCTUATION */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">6. RISK TOLERANCE, CAPITAL LOSS AND MARKET FLUCTUATION</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">6. RISK TOLERANCE, CAPITAL LOSS AND MARKET FLUCTUATION</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">6.1. Which of the following 5 hypothetical scenarios below best describes the level of risk you are willing to bear in regard to your investment?</h4>
@@ -1041,8 +1041,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 7. INVESTMENT TIME HORIZON */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">7. INVESTMENT TIME HORIZON</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">7. INVESTMENT TIME HORIZON</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">7.1. Investments have varying time horizons. Some investments have fixed, potentially long-dated time horizons. Some may even have lock-in periods. What is the longest time horizon you would consider for any investment in your portfolio? Please pick the one that applies.</h4>
@@ -1087,8 +1087,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 8. VOLATILITY OF RETURNS */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">8. VOLATILITY OF RETURNS</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">8. VOLATILITY OF RETURNS</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">8.1. Considering your time horizon (holding period) and return expectations, what degree of volatility of return do you believe you can accept:</h4>
@@ -1133,8 +1133,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 9. ASSETS UNDER ADVICE */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">9. ASSETS UNDER ADVICE</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">9. ASSETS UNDER ADVICE</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">9.1. What % of the assets is under the firm's advisory, compared to total Net-Worth?</h4>
@@ -1179,8 +1179,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 10. LIQUIDITY PREFERENCE */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">10. LIQUIDITY PREFERENCE</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">10. LIQUIDITY PREFERENCE</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">10.1. What % of your asset would you expect to withdraw to meet other financial needs within the coming 1 year?</h4>
@@ -1225,8 +1225,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 11. STABILITY OF INCOME */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">11. STABILITY OF INCOME</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">11. STABILITY OF INCOME</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">11.1. How secure is your current and future income from existing sources?</h4>
@@ -1271,8 +1271,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 12. FINANCIAL SITUATION */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">12. FINANCIAL SITUATION</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">12. FINANCIAL SITUATION</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">12.1. What % of total financial assets do you want to set aside for any anticipated liabilities which is not to be used for investment.</h4>
@@ -1318,8 +1318,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 13. LEVERAGE IN INVESTMENT */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">13. LEVERAGE IN INVESTMENT</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">13. LEVERAGE IN INVESTMENT</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">13.1. Do you currently use or intend to use leverage when investing?</h4>
@@ -1352,8 +1352,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 14. WHAT % OF TOTAL WEALTH ARE LIQUID BANKABLE ASSETS */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">14. WHAT % OF TOTAL WEALTH ARE LIQUID BANKABLE ASSETS?</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">14. WHAT % OF TOTAL WEALTH ARE LIQUID BANKABLE ASSETS?</h3>
                     
                     <div className="mb-4">
                       <div className="overflow-x-auto">
@@ -1410,12 +1410,12 @@ const CorporateOnboarding = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">PROFESSIONAL CLIENT CLASSIFICATION</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">PROFESSIONAL CLIENT CLASSIFICATION</h3>
                     <p className="mb-2 italic text-gray-700">I. In order to ascertain whether you are a "Professional Client", please tick all box(es) below, as applicable to you:</p>
                     
                     <div className="mb-4">
-                      <h4 className="font-semibold text-blue-700 mt-4 mb-2">Assessed Professional Client <span className="text-xs italic">(Please choose the description which fits you.)</span></h4>
+                      <h4 className="font-semibold text-[#0066FF] mt-4 mb-2">Assessed Professional Client <span className="text-xs italic">(Please choose the description which fits you.)</span></h4>
                       
                     </div>
                     
@@ -1496,8 +1496,8 @@ const CorporateOnboarding = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">DEEMED PROFESSIONAL CLIENT</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">DEEMED PROFESSIONAL CLIENT</h3>
                     <p className="mb-2 italic">An undertaking that satisfies any of the following:</p>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
@@ -1601,8 +1601,8 @@ const CorporateOnboarding = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">OTHER CLASSIFICATIONS</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">OTHER CLASSIFICATIONS</h3>
                     
                     {/* Convert to 3-column table */}
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
@@ -1674,12 +1674,12 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* PART A - Entity Account Holder */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">PART A - Entity Account Holder</h3>
+                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">PART A - Entity Account Holder</h3>
                     <p className="mb-2 italic text-gray-700">(For joint or multiple account holders, complete a separate form for each entity account holder)</p>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
-                      <h4 className="font-semibold text-blue-700 mb-3">General Information</h4>
+                      <h4 className="font-semibold text-[#0066FF] mb-3">General Information</h4>
                       
                       <div className="grid grid-cols-1 gap-4 mb-4">
                         <div>
@@ -1715,7 +1715,7 @@ const CorporateOnboarding = () => {
                         </div>
                       </div>
                       
-                      <h4 className="font-semibold text-blue-700 mb-3 mt-4">Mailing Address (if different from the Registered Address)</h4>
+                      <h4 className="font-semibold text-[#0066FF] mb-3 mt-4">Mailing Address (if different from the Registered Address)</h4>
                       
                       <div className="grid grid-cols-1 gap-4 mb-4">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -1755,6 +1755,7 @@ const CorporateOnboarding = () => {
                     </div>
 
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <h4 className="font-semibold text-[#0066FF] mb-3">Tax Residence</h4>
                       <h4 className="font-semibold text-blue-700 mb-3">Tax Residence</h4>
                       <p className="mb-2 italic text-gray-700">(If the entity has multiple countries of tax residency, please list out all the relevant information below)</p>
                       
@@ -2557,7 +2558,7 @@ const CorporateOnboarding = () => {
                                   }}
                                 />
                                 <button 
-                                  className="mt-3 px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700"
+                                  className="mt-3 px-4 py-2 bg-[#0066FF] text-white text-sm rounded-md hover:bg-[#0055DD]"
                                   onClick={() => {
                                     // Trigger the hidden file input
                                     const fileInput = document.querySelectorAll('input[type="file"]')[index] as HTMLInputElement;
@@ -2578,7 +2579,7 @@ const CorporateOnboarding = () => {
                               >
                                 Add More
                               </button>
-                              <button className="px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700">
+                              <button className="px-4 py-2 bg-[#0066FF] text-white text-sm rounded-md hover:bg-[#0055DD]">
                                 Upload Document
                               </button>
                             </div>
@@ -2665,26 +2666,39 @@ const CorporateOnboarding = () => {
               Previous
             </Button>
             
-            <Button 
-              className="bg-blue-600 hover:bg-blue-700 text-white"
-              onClick={() => {
-                const currentIndex = steps.findIndex(step => step.id === activeStep);
-                if (currentIndex < steps.length - 1) {
-                  setActiveStep(steps[currentIndex + 1].id);
-                } else {
-                  // Submit form logic would go here
-                  alert('Form submitted successfully!');
-                }
-              }}
-            >
-              {activeStep === steps[steps.length - 1].id ? 'Submit' : 'Next'}
-            </Button>
+            <div className="flex space-x-3">
+              <Button 
+                variant="outline"
+                className="text-[#0066FF] hover:text-[#0055DD] border-[#0066FF]"
+                onClick={() => {
+                  // Save draft logic would go here
+                  alert('Draft saved successfully!');
+                }}
+              >
+                Save draft
+              </Button>
+              
+              <Button 
+                className="bg-[#0066FF] hover:bg-[#0055DD] text-white"
+                onClick={() => {
+                  const currentIndex = steps.findIndex(step => step.id === activeStep);
+                  if (currentIndex < steps.length - 1) {
+                    setActiveStep(steps[currentIndex + 1].id);
+                  } else {
+                    // Submit form logic would go here
+                    alert('Form submitted successfully!');
+                  }
+                }}
+              >
+                {activeStep === steps[steps.length - 1].id ? 'Submit' : 'Next'}
+              </Button>
+            </div>
           </div>
         </div>
       </div>
       
       <div className="text-center">
-        <p className="text-sm text-gray-600 font-thin italic mb-2">
+        <p className="text-sm text-[#0066FF] font-thin italic mb-2">
           Hilbert Investment Solutions Ltd is regulated by the Dubai Financial Services Authority (DFSA) for the conduct of its business in and from the Dubai International Financial Centre (DIFC)
         </p>
       </div>

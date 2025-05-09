@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import Satoshi font */
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Variable.ttf') format('truetype');
+  font-weight: 300 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-VariableItalic.ttf') format('truetype');
+  font-weight: 300 900;
+  font-style: italic;
+  font-display: swap;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -90,6 +107,7 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Satoshi', sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }

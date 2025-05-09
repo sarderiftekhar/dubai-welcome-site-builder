@@ -48,7 +48,7 @@ const Index = () => {
                     className="bg-white rounded-xl p-6 shadow-md relative transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] flex-1"
                     onClick={() => {
                       setSelectedOption('individual');
-                      navigate('/client-classification?type=individual');
+                      navigate('#');
                     }}
                   >
                     <div className="flex justify-center mb-4">
@@ -62,7 +62,7 @@ const Index = () => {
                     <h3 className="text-xl font-medium text-center text-gray-900 mb-2">Individual</h3>
                     <p className="text-sm text-center text-gray-600 mb-8">Personal investment accounts for individual clients seeking wealth growth and portfolio diversification.</p>
                     <div className="absolute bottom-4 right-4">
-                      <div className="bg-orange-400 hover:bg-orange-500 p-2 rounded-full cursor-pointer transition-colors">
+                      <div className="bg-blue-400 hover:bg-blue-500 p-2 rounded-full cursor-pointer transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                           <path d="M5 12h14"></path>
                           <path d="m12 5 7 7-7 7"></path>
@@ -91,7 +91,7 @@ const Index = () => {
                     <h3 className="text-xl font-medium text-center text-gray-900 mb-2">Corporate</h3>
                     <p className="text-sm text-center text-gray-600 mb-8">Business accounts for companies and institutions looking for strategic investment opportunities.</p>
                     <div className="absolute bottom-4 right-4">
-                      <div className="bg-orange-400 hover:bg-orange-500 p-2 rounded-full cursor-pointer transition-colors">
+                      <div className="bg-blue-400 hover:bg-blue-500 p-2 rounded-full cursor-pointer transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                           <path d="M5 12h14"></path>
                           <path d="m12 5 7 7-7 7"></path>
@@ -105,7 +105,7 @@ const Index = () => {
                     className="bg-white rounded-xl p-6 shadow-md relative transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] flex-1"
                     onClick={() => {
                       setSelectedOption('counterparty');
-                      navigate('/client-classification?type=counterparty');
+                      navigate('#');
                     }}
                   >
                     <div className="flex justify-center mb-4">
@@ -121,7 +121,7 @@ const Index = () => {
                     <h3 className="text-xl font-medium text-center text-gray-900 mb-2">Counterparty</h3>
                     <p className="text-sm text-center text-gray-600 mb-8">Market counterparties and institutional partners requiring specialized financial solutions.</p>
                     <div className="absolute bottom-4 right-4">
-                      <div className="bg-orange-400 hover:bg-orange-500 p-2 rounded-full cursor-pointer transition-colors">
+                      <div className="bg-blue-400 hover:bg-blue-500 p-2 rounded-full cursor-pointer transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-white">
                           <path d="M5 12h14"></path>
                           <path d="m12 5 7 7-7 7"></path>
@@ -137,7 +137,7 @@ const Index = () => {
         </div>
       </div>
       <div className="text-center">
-          <p className="text-sm text-gray-600 font-thin italic mb-2">
+          <p className="text-sm text-[#0066FF] font-thin italic mb-2">
             Hilbert Investment Solutions Ltd is regulated by the Dubai Financial Services Authority (DFSA) for the conduct of its business in and from the Dubai International Financial Centre (DIFC)
            </p>
       </div>
