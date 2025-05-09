@@ -48,7 +48,7 @@ const Index = () => {
                     className="bg-white rounded-xl p-6 shadow-md relative transition-all duration-300 hover:shadow-xl hover:translate-y-[-5px] flex-1"
                     onClick={() => {
                       setSelectedOption('individual');
-                      navigate('#');
+                      navigate('/individual-onboarding');
                     }}
                   >
                     <div className="flex justify-center mb-4">
