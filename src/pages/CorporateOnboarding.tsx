@@ -6,6 +6,10 @@ import { Button } from '@/components/ui/button';
 
 const CorporateOnboarding = () => {
   const [activeStep, setActiveStep] = useState('kyc');
+  // Add state to track document uploads
+  const [documentUploads, setDocumentUploads] = useState([
+    { id: 1, type: '', file: null }
+  ]);
   
   const steps = [
     { id: 'kyc', label: 'KYC Form', icon: 'clipboard-list' },
@@ -62,6 +66,16 @@ const CorporateOnboarding = () => {
       isActive: stepId === activeStep,
       isCompleted: stepIndex < activeIndex
     };
+  };
+
+  // Add a function to handle adding more document uploads
+  const addMoreDocuments = () => {
+    const newUpload = {
+      id: documentUploads.length + 1,
+      type: '',
+      file: null
+    };
+    setDocumentUploads([...documentUploads, newUpload]);
   };
 
   return (
@@ -2475,50 +2489,158 @@ const CorporateOnboarding = () => {
               <div>
                 <h2 className="text-xl font-semibold mb-4">Document Upload</h2>
                 <div className="space-y-6">
-                  <div className="border-b pb-4">
-                    <p className="mb-2 text-sm text-gray-600">Please upload the following required documents to complete your application:</p>
+                  <div className="bg-gray-50 p-4 rounded-md mb-6 border border-gray-200">
+                    <div className="mb-4">
+                      <p className="text-md text-gray-700 mb-3">
+                        Please upload the required documents to complete your application. Only one file can be uploaded at a time.
+                      </p>
+                      <p className="text-md text-gray-700 mb-3">
+                        Acceptable file formats: <span className="font-semibold">PDF, JPEG, PNG</span>
+                      </p>
+                      <p className="text-md text-gray-700 mb-3">
+                        Maximum file size: <span className="font-semibold">10MB</span> per upload
+                      </p>
+                    </div>
                   </div>
                   
-                  <div className="space-y-6">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Certificate of Incorporation</label>
-                      <div className="flex items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-md">
-                        <div className="text-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                          </svg>
-                          <p className="mt-1 text-sm text-gray-600">Drag and drop or click to upload</p>
-                          <p className="mt-1 text-xs text-gray-500">PDF, JPG, or PNG up to 10MB</p>
-                          <button className="mt-3 px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700">Browse Files</button>
+                  <div className="bg-blue-50 p-4 rounded-md mb-6">
+                    <h3 className="text-blue-800 font-bold text-lg mb-4">UPLOAD DOCUMENT</h3>
+                    
+                    {documentUploads.map((upload, index) => (
+                      <div key={upload.id} className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                        <div className="grid grid-cols-1 gap-6">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">Document Type</label>
+                            <select 
+                              className="w-full p-2 border border-gray-300 rounded-md"
+                              value={upload.type}
+                              onChange={(e) => {
+                                const newUploads = [...documentUploads];
+                                newUploads[index].type = e.target.value;
+                                setDocumentUploads(newUploads);
+                              }}
+                            >
+                              <option value="">Select document type</option>
+                              <option value="license">License</option>
+                              <option value="certificate">Certificate of Incorporation</option>
+                              <option value="directors">Register of Directors</option>
+                              <option value="shareholders">Register of Shareholders</option>
+                              <option value="moa">MOA/AOA</option>
+                              <option value="org_chart">Org chart</option>
+                              <option value="ownership_chart">Ownership chart</option>
+                              <option value="financials">Audited Financials (latest 2 years) OR Company Bank statement (last 12 months) with management accounts</option>
+                              <option value="ubo_id">UBO/directors/Shareholders/Authorised signatory ID docs (Passport, Visa, Emirates ID/National ID)</option>
+                              <option value="ubo_address">UBO/directors/Shareholders/Authorised signatory proof of address not more than 3 months old</option>
+                              <option value="tax_id">Tax Identification Number (if applicable)</option>
+                            </select>
+                          </div>
+                          
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">Upload File</label>
+                            <div className="flex items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-md bg-gray-50">
+                              <div className="text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                </svg>
+                                <p className="mt-1 text-sm text-gray-600">Drag and drop your file here, or click to browse</p>
+                                <p className="mt-1 text-xs text-gray-500">PDF, JPEG, or PNG up to 10MB</p>
+                                <input 
+                                  type="file" 
+                                  className="hidden" 
+                                  accept=".pdf,.jpeg,.jpg,.png"
+                                  onChange={(e) => {
+                                    if (e.target.files && e.target.files[0]) {
+                                      const newUploads = [...documentUploads];
+                                      newUploads[index].file = e.target.files[0];
+                                      setDocumentUploads(newUploads);
+                                    }
+                                  }}
+                                />
+                                <button 
+                                  className="mt-3 px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700"
+                                  onClick={() => {
+                                    // Trigger the hidden file input
+                                    const fileInput = document.querySelectorAll('input[type="file"]')[index] as HTMLInputElement;
+                                    fileInput.click();
+                                  }}
+                                >
+                                  Browse Files
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {index === documentUploads.length - 1 && (
+                            <div className="flex justify-end space-x-3">
+                              <button 
+                                className="px-4 py-2 bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-md hover:bg-gray-200"
+                                onClick={addMoreDocuments}
+                              >
+                                Add More
+                              </button>
+                              <button className="px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700">
+                                Upload Document
+                              </button>
+                            </div>
+                          )}
                         </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="bg-blue-50 p-4 rounded-md mb-6">
+                    <h3 className="text-blue-800 font-bold text-lg mb-4">REQUIRED DOCUMENTS</h3>
+                    
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <h4 className="font-semibold text-blue-700 mb-3">For Corporates:</h4>
+                      <p className="mb-2">All the incorporations documents:</p>
+                      <ul className="list-disc pl-6 space-y-2">
+                        <li>License</li>
+                        <li>Certificate of Incorporation</li>
+                        <li>Register of Directors</li>
+                        <li>Register of Shareholders</li>
+                        <li>MOA/AOA</li>
+                        <li>Org chart</li>
+                        <li>Ownership chart</li>
+                        <li>Audited Financials' (latest 2 years) OR Company Bank statement (last 12 months) with management accounts.</li>
+                        <li>UBO/directors/Shareholders/Authorised signatory ID docs (Passport, Visa, Emirates ID/National ID)</li>
+                        <li>UBO/directors/Shareholders/Authorised signatory proof of address not more than 3 months old</li>
+                        <li>Tax Identification Number (if applicable)</li>
+                      </ul>
+                      
+                      <div className="mt-4 bg-yellow-50 p-3 rounded-md border border-yellow-200">
+                        <p className="font-semibold">Important Notes:</p>
+                        <ul className="list-disc pl-6 mt-2">
+                          <li>ID documents, address proof and income documents needs to be certified.</li>
+                          <li>If structure is multi-layer, need to unfold all the layers and reach out till UBO (Ultimate Beneficiary Owner)</li>
+                        </ul>
                       </div>
                     </div>
                     
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">Memorandum and Articles of Association</label>
-                      <div className="flex items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-md">
-                        <div className="text-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                          </svg>
-                          <p className="mt-1 text-sm text-gray-600">Drag and drop or click to upload</p>
-                          <p className="mt-1 text-xs text-gray-500">PDF, JPG, or PNG up to 10MB</p>
-                          <button className="mt-3 px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700">Browse Files</button>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">List of Directors and Authorized Signatories</label>
-                      <div className="flex items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-md">
-                        <div className="text-center">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
-                          </svg>
-                          <p className="mt-1 text-sm text-gray-600">Drag and drop or click to upload</p>
-                          <p className="mt-1 text-xs text-gray-500">PDF, JPG, or PNG up to 10MB</p>
-                          <button className="mt-3 px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700">Browse Files</button>
-                        </div>
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <h4 className="font-semibold text-blue-700 mb-3">Uploaded Documents</h4>
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full divide-y divide-gray-200">
+                          <thead className="bg-gray-50">
+                            <tr>
+                              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Document Type</th>
+                              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File Name</th>
+                              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date Uploaded</th>
+                              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            {/* Example row - this will be replaced with real data */}
+                            <tr>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">No documents uploaded yet</td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
+                            </tr>
+                          </tbody>
+                        </table>
                       </div>
                     </div>
                   </div>
