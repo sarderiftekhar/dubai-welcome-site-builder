@@ -666,7 +666,7 @@ const CorporateOnboarding = () => {
                     <p className="text-sm mb-3">
                       Under certain circumstances, you may have rights regarding your personal information, including the right to access, 
                       correct, erase and limit the use of your personal information. If you have any questions or requests regarding your rights, please email us at
-                      <a href="mailto:Hilbert@invetsolutions.ae" className="text-[#0066FF] mx-1">Hilbert@invetsolutions.ae</a>. 
+                      <a href="mailto:Hilbert@invetsolutions.ae" className="text-[#0066FF] mx-1">contact@hilbert-is.com</a>. 
                       We will address your concerns promptly and assist you accordingly.
                     </p>
                     
@@ -674,7 +674,7 @@ const CorporateOnboarding = () => {
                     <p className="text-sm mb-3">
                       We have appointed a Data Protection Officer (DPO) who is responsible for overseeing compliance with this Privacy 
                       Notice. If you have any inquiries or concerns regarding this Privacy Notice or the handling of your personal 
-                      information, please contact us via email at <a href="mailto:Hilbert@invetsolutions.ae" className="text-[#0066FF]">Hilbert@invetsolutions.ae</a>.
+                      information, please contact us via email at <a href="mailto:contact@hilbert-is.com" className="text-[#0066FF]">Hilbert@invetsolutions.ae</a>.
                     </p>
                     <p className="text-sm">
                       Our Data Protection Officer will address your questions and provide assistance as necessary!
