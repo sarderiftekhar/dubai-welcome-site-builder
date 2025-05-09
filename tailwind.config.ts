@@ -110,7 +110,7 @@ export default {
 				'fade-in': 'fade-in 0.8s ease-out'
 			},
 			backgroundImage: {
-				'dubai-skyline': "url('/public/lovable-uploads/4a59f06e-96bc-4bee-a3b8-2c0cfe76ba39.png')"
+				'dubai-skyline': "url('uploads/4a59f06e-96bc-4bee-a3b8-2c0cfe76ba39.png')"
 			}
 		}
 	},

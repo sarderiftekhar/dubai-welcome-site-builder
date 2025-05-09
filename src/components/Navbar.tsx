@@ -20,7 +20,7 @@ const Navbar = () => {
               title="Go to Home Page"
             >
               <img 
-                src="/lovable-uploads/2fab491a-3fc7-4f12-9727-31796472405a.png" 
+                src="/uploads/2fab491a-3fc7-4f12-9727-31796472405a.png" 
                 alt="Hilbert Investment Solutions - Home" 
                 className="h-12" 
                 style={{ transition: 'opacity 0.2s' }}

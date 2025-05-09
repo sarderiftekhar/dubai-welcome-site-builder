@@ -1,73 +1,98 @@
-# Welcome to your Lovable project
+# Dubai Welcome Site Builder
 
-## Project info
+## Project Overview
+This is a client onboarding application for Hilbert Investment Solutions, built to facilitate the onboarding process for different types of clients (Individual, Corporate, and Counterparty). The application provides a user-friendly interface for clients to complete their registration and classification processes.
 
-**URL**: https://lovable.dev/projects/aada87cc-c772-43e6-a7c2-2bacce005f4f
+## Features
+- **Multi-client Support**: Handles different onboarding flows for individual clients, corporate entities, and counterparties
+- **Corporate Onboarding**: Complete workflow for corporate client registration and documentation
+- **Client Classification**: Process for classifying clients according to regulatory requirements
+- **Responsive Design**: Mobile-friendly interface that works across all device sizes
+- **Modern UI**: Clean, professional interface built with React and Tailwind CSS
 
-## How can I edit this code?
+## Tech Stack
+- **Frontend Framework**: React 18 with TypeScript
+- **Routing**: React Router 6
+- **Styling**: Tailwind CSS with shadcn/ui components
+- **State Management**: React Query for server state
+- **Form Handling**: React Hook Form with Zod validation
+- **Build Tool**: Vite
+- **Package Manager**: npm/bun
 
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/aada87cc-c772-43e6-a7c2-2bacce005f4f) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+## Project Structure
+```
+dubai-welcome-site-builder/
+├── public/                 # Static assets
+├── src/                    # Source code
+│   ├── components/         # Reusable UI components
+│   ├── hooks/              # Custom React hooks
+│   ├── lib/                # Utility functions and shared code
+│   ├── pages/              # Page components
+│   │   ├── Index.tsx                  # Landing page
+│   │   ├── ClientClassification.tsx   # Client classification process
+│   │   ├── CorporateOnboarding.tsx    # Corporate client onboarding
+│   │   └── NotFound.tsx               # 404 page
+│   ├── styles/             # CSS and style-related files
+│   ├── App.tsx             # Main application component and routing
+│   └── main.tsx            # Application entry point
+├── index.html              # HTML template
+├── tailwind.config.ts      # Tailwind CSS configuration
+├── tsconfig.json           # TypeScript configuration
+├── vite.config.ts          # Vite configuration
+└── package.json            # Project dependencies and scripts
 ```
 
-**Edit a file directly in GitHub**
+## Main Pages
+1. **Landing Page**: Welcome screen with options to select client type (Individual, Corporate, or Counterparty)
+2. **Corporate Onboarding**: Multi-step form for corporate client registration
+3. **Client Classification**: Process to classify clients according to regulatory requirements
+4. **404 Page**: Custom not found page
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Getting Started
 
-**Use GitHub Codespaces**
+### Prerequisites
+- Node.js (v16 or later)
+- npm or bun
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Installation
+1. Clone the repository
+   ```bash
+   git clone https://github.com/your-username/dubai-welcome-site-builder.git
+   cd dubai-welcome-site-builder
+   ```
 
-## What technologies are used for this project?
+2. Install dependencies
+   ```bash
+   npm install
+   # or
+   bun install
+   ```
 
-This project is built with:
+3. Start the development server
+   ```bash
+   npm run dev
+   # or
+   bun run dev
+   ```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+4. Open your browser and navigate to `http://localhost:5173`
 
-## How can I deploy this project?
+### Build
+To build the project for production:
+```bash
+npm run build
+# or
+bun run build
+```
 
-Simply open [Lovable](https://lovable.dev/projects/aada87cc-c772-43e6-a7c2-2bacce005f4f) and click on Share -> Publish.
+## Deployment
+The built files will be in the `dist` directory. These can be deployed to any static hosting service like Vercel, Netlify, or a traditional web server.
 
-## Can I connect a custom domain to my Lovable project?
+## Compliance Notice
+Hilbert Investment Solutions Ltd is regulated by the Dubai Financial Services Authority (DFSA) for the conduct of its business in and from the Dubai International Financial Centre (DIFC).
 
-Yes, you can!
+## License
+[Include license information here]
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+## Contact
+[Include contact information for project maintainers]

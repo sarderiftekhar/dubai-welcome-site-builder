@@ -28,7 +28,7 @@ const ClientClassification = () => {
           <div className="flex justify-between items-center border-b pb-4 mb-6">
             <h1 className="text-2xl text-gray-700 font-semibold">Client Classification Form</h1>
             <img 
-              src="/lovable-uploads/2fab491a-3fc7-4f12-9727-31796472405a.png" 
+              src="/uploads/2fab491a-3fc7-4f12-9727-31796472405a.png" 
               alt="Hilbert Investment Solutions" 
               className="h-12" 
             />
