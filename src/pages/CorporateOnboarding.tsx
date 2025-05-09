@@ -25,31 +25,31 @@ const CorporateOnboarding = () => {
     switch(iconName) {
       case 'clipboard-list':
         return (
-          <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" />
           </svg>
         );
       case 'check-circle':
         return (
-          <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
         );
       case 'users':
         return (
-          <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
           </svg>
         );
       case 'document-text':
         return (
-          <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
           </svg>
         );
       case 'upload':
         return (
-          <svg xmlns="http://www.w3.org/2000/svg" className={`h-8 w-8 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg xmlns="http://www.w3.org/2000/svg" className={`h-6 w-6 ${iconColor}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
           </svg>
         );
@@ -93,6 +93,17 @@ const CorporateOnboarding = () => {
           
           {/* Progress Steps */}
           <div className="mb-8">
+            <style>
+              {`
+                .step-label {
+                  text-decoration: none !important;
+                  border-bottom: none !important;
+                }
+                .step-label:hover {
+                  text-decoration: none !important;
+                }
+              `}
+            </style>
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
               {steps.map((step, index) => {
                 const { isActive, isCompleted } = getStepState(step.id);
@@ -103,6 +114,7 @@ const CorporateOnboarding = () => {
                     <button 
                       onClick={() => setActiveStep(step.id)} 
                       className={`flex flex-col items-center focus:outline-none ${isActive ? 'pointer-events-none' : 'cursor-pointer'}`}
+                      style={{ textDecoration: 'none' }}
                     >
                       <div className={`rounded-full p-2 mb-2 ${
                         isCompleted 
@@ -113,13 +125,16 @@ const CorporateOnboarding = () => {
                       }`}>
                         {renderIcon(step.icon, isCompleted, isActive)}
                       </div>
-                      <span className={`text-sm font-medium ${
-                        isCompleted 
-                          ? 'text-green-600' 
-                          : isActive 
-                            ? 'text-[#0066FF]' 
-                            : 'text-gray-500'
-                      }`}>
+                      <span 
+                        className={`text-sm font-medium no-underline step-label ${
+                          isCompleted 
+                            ? 'text-green-600' 
+                            : isActive 
+                              ? 'text-[#0066FF]' 
+                              : 'text-gray-500'
+                        }`}
+                        style={{ textDecoration: 'none', borderBottom: 'none' }}
+                      >
                         {step.label}
                       </span>
                     </button>
@@ -599,9 +614,9 @@ const CorporateOnboarding = () => {
             
             {activeStep === 'suitability' && (
               <div>
-                <h2 className="text-xl font-semibold mb-4">Suitability Assessment Questionnaire</h2>
+                <h2 className="text-lg font-semibold mb-4">Suitability Assessment Questionnaire</h2>
                 
-                <div className="bg-gray-50 p-4 rounded-md mb-6 border border-gray-200">
+                <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
                   <div className="mb-4">
                     {/* <div className="flex items-center mb-3">
                       <label className="block text-md font-bold text-gray-700">Client Name</label>
@@ -618,8 +633,8 @@ const CorporateOnboarding = () => {
                 
                 <div className="space-y-6">
                   {/* 1. INVESTMENT OBJECTIVES */}
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">1. INVESTMENT OBJECTIVES</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">1. INVESTMENT OBJECTIVES</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2">1.1. Which answer best describes your investment objective:</h4>
@@ -628,40 +643,40 @@ const CorporateOnboarding = () => {
                         <table className="min-w-full bg-white border border-gray-300">
                           <thead>
                             <tr className="bg-gray-100">
-                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-objective" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">Primarily capital preservation</td>
+                              <td className="py-3 px-4 border-b">Primarily capital preservation</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-objective" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">Primarily income generation along with slight capital growth</td>
+                              <td className="py-3 px-4 border-b">Primarily income generation along with slight capital growth</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-objective" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">To achieve a balance of income generation and capital growth</td>
+                              <td className="py-3 px-4 border-b">To achieve a balance of income generation and capital growth</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-objective" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">Primarily capital growth along with slight income generation</td>
+                              <td className="py-3 px-4 border-b">Primarily capital growth along with slight income generation</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-objective" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">Primarily high capital growth</td>
+                              <td className="py-3 px-4 border-b">Primarily high capital growth</td>
                             </tr>
                           </tbody>
                         </table>
@@ -670,8 +685,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 2. INVESTMENT STAGE AND ABILITY */}
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">2. INVESTMENT STAGE AND ABILITY</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">2. INVESTMENT STAGE AND ABILITY</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2">2.1. Which of the following best describes your current stage of life?</h4>
@@ -680,52 +695,52 @@ const CorporateOnboarding = () => {
                         <table className="min-w-full bg-white border border-gray-300">
                           <thead>
                             <tr className="bg-gray-100">
-                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">Single with few financial burdens. Ready to accumulate wealth for future short term and long-term goals.</td>
+                              <td className="py-3 px-4 border-b">Single with few financial burdens. Ready to accumulate wealth for future short term and long-term goals.</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">A couple without children. Preparing for the future by establishing a home. Expecting to have or already have a high purchase rate of household and consumer items.</td>
+                              <td className="py-3 px-4 border-b">A couple without children. Preparing for the future by establishing a home. Expecting to have or already have a high purchase rate of household and consumer items.</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">Young family with a home. You have a mortgage and have also built up some equity. You need to maintain your standard of living while raising children and need to maintain only small cash balances.</td>
+                              <td className="py-3 px-4 border-b">Young family with a home. You have a mortgage and have also built up some equity. You need to maintain your standard of living while raising children and need to maintain only small cash balances.</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">A family with school going children. You have a mortgage and have built up some savings.</td>
+                              <td className="py-3 px-4 border-b">A family with school going children. You have a mortgage and have built up some savings.</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">Mature family. You are in your peak earning years and your mortgage is under control. Your children have finished school or are in post-secondary education. You're ready to start thinking about your retirement goals.</td>
+                              <td className="py-3 px-4 border-b">Mature family. You are in your peak earning years and your mortgage is under control. Your children have finished school or are in post-secondary education. You're ready to start thinking about your retirement goals.</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">Preparing for retirement. You can now focus on your home and have few financial burdens; you want to ensure you can afford a comfortable retirement.</td>
+                              <td className="py-3 px-4 border-b">Preparing for retirement. You can now focus on your home and have few financial burdens; you want to ensure you can afford a comfortable retirement.</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">Retired. You rely on your pension, investments, savings and investments to maintain your lifestyle in retirement. You may already be receiving a government pension and/or Superannuation pension.</td>
+                              <td className="py-3 px-4 border-b">Retired. You rely on your pension, investments, savings and investments to maintain your lifestyle in retirement. You may already be receiving a government pension and/or Superannuation pension.</td>
                             </tr>
                           </tbody>
                         </table>
@@ -734,8 +749,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 3. PRODUCT KNOWLEDGE AND EXPERIENCE */}
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">3. PRODUCT KNOWLEDGE AND EXPERIENCE</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">3. PRODUCT KNOWLEDGE AND EXPERIENCE</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2">3.1. Please indicate the level of knowledge and/or experience you have in the asset classes listed below:</h4>
@@ -744,282 +759,282 @@ const CorporateOnboarding = () => {
                         <table className="min-w-full bg-white border border-gray-300">
                           <thead>
                             <tr className="bg-gray-100">
-                              <th className="py-2 px-4 border-b text-center">Product<br/>Type</th>
-                              <th className="py-2 px-4 border-b text-left">Investment Product</th>
-                              <th className="py-2 px-4 border-b text-center" colSpan={2}>Experience in the past 3<br/>years with any financial<br/>institution</th>
-                              <th className="py-2 px-4 border-b text-center" colSpan={3}>Knowledge<br/>(relevant education or investment<br/>experience)</th>
+                              <th className="py-3 px-4 border-b text-center">Product<br/>Type</th>
+                              <th className="py-3 px-4 border-b text-left">Investment Product</th>
+                              <th className="py-3 px-4 border-b text-center" colSpan={2}>Experience in the past 3<br/>years with any financial<br/>institution</th>
+                              <th className="py-3 px-4 border-b text-center" colSpan={3}>Knowledge<br/>(relevant education or investment<br/>experience)</th>
                             </tr>
                             <tr className="bg-gray-100">
-                              <th className="py-2 px-4 border-b"></th>
-                              <th className="py-2 px-4 border-b"></th>
-                              <th className="py-2 px-4 border-b text-center">Yes</th>
-                              <th className="py-2 px-4 border-b text-center">No</th>
-                              <th className="py-2 px-4 border-b text-center">Limited</th>
-                              <th className="py-2 px-4 border-b text-center">Moderate</th>
-                              <th className="py-2 px-4 border-b text-center">Good</th>
+                              <th className="py-3 px-4 border-b"></th>
+                              <th className="py-3 px-4 border-b"></th>
+                              <th className="py-3 px-4 border-b text-center">Yes</th>
+                              <th className="py-3 px-4 border-b text-center">No</th>
+                              <th className="py-3 px-4 border-b text-center">Limited</th>
+                              <th className="py-3 px-4 border-b text-center">Moderate</th>
+                              <th className="py-3 px-4 border-b text-center">Good</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">1</td>
-                              <td className="py-2 px-4 border-b">Deposits</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="deposits-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="deposits-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="deposits-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="deposits-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="deposits-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">1</td>
+                              <td className="py-3 px-4 border-b">Deposits</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="deposits-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="deposits-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="deposits-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="deposits-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="deposits-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Money market instruments</td>  
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="money-market-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="money-market-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="money-market-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="money-market-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="money-market-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Money market instruments</td>  
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="money-market-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="money-market-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="money-market-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="money-market-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="money-market-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Foreign Exchange (Spot)</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="forex-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="forex-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="forex-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="forex-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="forex-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Foreign Exchange (Spot)</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forex-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forex-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forex-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forex-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forex-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">2</td>
-                              <td className="py-2 px-4 border-b">Government bonds</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="gov-bonds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="gov-bonds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="gov-bonds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="gov-bonds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="gov-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">2</td>
+                              <td className="py-3 px-4 border-b">Government bonds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="gov-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="gov-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="gov-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="gov-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="gov-bonds-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Plain vanilla investment grade bonds</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="plain-bonds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="plain-bonds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="plain-bonds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="plain-bonds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="plain-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Plain vanilla investment grade bonds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="plain-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="plain-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="plain-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="plain-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="plain-bonds-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Investment grade bond funds / exchange traded funds</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="bond-funds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="bond-funds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="bond-funds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="bond-funds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="bond-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Investment grade bond funds / exchange traded funds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="bond-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="bond-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="bond-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="bond-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="bond-funds-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Equities / Preferred Shares</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="equities-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="equities-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Equities / Preferred Shares</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">3</td>
-                              <td className="py-2 px-4 border-b">Private equity/debt or venture deals</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="private-equity-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="private-equity-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="private-equity-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="private-equity-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="private-equity-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">3</td>
+                              <td className="py-3 px-4 border-b">Private equity/debt or venture deals</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="private-equity-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="private-equity-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="private-equity-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="private-equity-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="private-equity-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Capital or partial capital protected products, Reverse Convertibles, Notes, CLNs</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="capital-protected-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="capital-protected-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="capital-protected-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="capital-protected-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="capital-protected-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Capital or partial capital protected products, Reverse Convertibles, Notes, CLNs</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="capital-protected-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="capital-protected-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="capital-protected-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="capital-protected-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="capital-protected-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Plain vanilla options</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="vanilla-options-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="vanilla-options-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="vanilla-options-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="vanilla-options-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="vanilla-options-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Plain vanilla options</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="vanilla-options-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="vanilla-options-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="vanilla-options-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="vanilla-options-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="vanilla-options-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Dual currency investments</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="dual-currency-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="dual-currency-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="dual-currency-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="dual-currency-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="dual-currency-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Dual currency investments</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="dual-currency-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="dual-currency-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="dual-currency-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="dual-currency-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="dual-currency-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">4</td>
-                              <td className="py-2 px-4 border-b">Structured Notes</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="structured-notes-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="structured-notes-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="structured-notes-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="structured-notes-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="structured-notes-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">4</td>
+                              <td className="py-3 px-4 border-b">Structured Notes</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="structured-notes-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="structured-notes-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="structured-notes-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="structured-notes-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="structured-notes-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Non-investment grade bonds</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Non-investment grade bonds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Bonds with special features</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="special-bonds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="special-bonds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="special-bonds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="special-bonds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="special-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Bonds with special features</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="special-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="special-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="special-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="special-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="special-bonds-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Private Equity Funds/Venture Capital Funds</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Private Equity Funds/Venture Capital Funds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Hedge funds</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="hedge-funds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="hedge-funds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="hedge-funds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="hedge-funds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="hedge-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Hedge funds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="hedge-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="hedge-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="hedge-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="hedge-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="hedge-funds-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">4</td>
-                              <td className="py-2 px-4 border-b">Accumulators and Decumulators</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="accumulators-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="accumulators-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="accumulators-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="accumulators-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="accumulators-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">4</td>
+                              <td className="py-3 px-4 border-b">Accumulators and Decumulators</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Exotic options</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="exotic-options-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="exotic-options-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="exotic-options-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="exotic-options-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="exotic-options-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Exotic options</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="exotic-options-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="exotic-options-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="exotic-options-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="exotic-options-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="exotic-options-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Forwards / Warrants / Swaps</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="forwards-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="forwards-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="forwards-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="forwards-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="forwards-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Forwards / Warrants / Swaps</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forwards-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forwards-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forwards-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forwards-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forwards-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center"></td>
-                              <td className="py-2 px-4 border-b">Interest Rate Swaps</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="ir-swaps-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="ir-swaps-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="ir-swaps-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="ir-swaps-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="ir-swaps-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Interest Rate Swaps</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="ir-swaps-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="ir-swaps-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="ir-swaps-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="ir-swaps-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="ir-swaps-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">6</td>
-                              <td className="py-2 px-4 border-b">Listed on main markets or Private placements with an ISIN</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="listed-markets-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="listed-markets-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="listed-markets-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="listed-markets-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="listed-markets-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">6</td>
+                              <td className="py-3 px-4 border-b">Listed on main markets or Private placements with an ISIN</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="listed-markets-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="listed-markets-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="listed-markets-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="listed-markets-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="listed-markets-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">7</td>
-                              <td className="py-2 px-4 border-b">Straight line equities (all the equities that are traded at the major stock exchanges)</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="straight-equities-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="straight-equities-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="straight-equities-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="straight-equities-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="straight-equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">7</td>
+                              <td className="py-3 px-4 border-b">Straight line equities (all the equities that are traded at the major stock exchanges)</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="straight-equities-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="straight-equities-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="straight-equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="straight-equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="straight-equities-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">8</td>
-                              <td className="py-2 px-4 border-b">Fixed income - various bonds, bond funds, leveraged deposits etc</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="fixed-income-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="fixed-income-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="fixed-income-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="fixed-income-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="fixed-income-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">8</td>
+                              <td className="py-3 px-4 border-b">Fixed income - various bonds, bond funds, leveraged deposits etc</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="fixed-income-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="fixed-income-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="fixed-income-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="fixed-income-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="fixed-income-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">9</td>
-                              <td className="py-2 px-4 border-b">Funds- various funds and funds of funds that are globally traded</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="funds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="funds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="funds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="funds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">9</td>
+                              <td className="py-3 px-4 border-b">Funds- various funds and funds of funds that are globally traded</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="funds-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">10</td>
-                              <td className="py-2 px-4 border-b">ETF- all tradable ETF's</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="etf-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="etf-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="etf-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="etf-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="etf-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">10</td>
+                              <td className="py-3 px-4 border-b">ETF- all tradable ETF's</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="etf-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="etf-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="etf-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="etf-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="etf-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">11</td>
-                              <td className="py-2 px-4 border-b">Discretionary- various discretionary mandates offered by banks, fund houses and assets managers</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="discretionary-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="discretionary-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="discretionary-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="discretionary-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="discretionary-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">11</td>
+                              <td className="py-3 px-4 border-b">Discretionary- various discretionary mandates offered by banks, fund houses and assets managers</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="discretionary-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="discretionary-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="discretionary-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="discretionary-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="discretionary-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">12</td>
-                              <td className="py-2 px-4 border-b">Derivatives - structured notes based on equities, indexes, forex, accumulators, and de-accumulators</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="derivatives-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="derivatives-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="derivatives-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="derivatives-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="derivatives-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">12</td>
+                              <td className="py-3 px-4 border-b">Derivatives - structured notes based on equities, indexes, forex, accumulators, and de-accumulators</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="derivatives-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="derivatives-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="derivatives-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="derivatives-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="derivatives-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">13</td>
-                              <td className="py-2 px-4 border-b">Private equity funds and Hedge funds</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">13</td>
+                              <td className="py-3 px-4 border-b">Private equity funds and Hedge funds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">14</td>
-                              <td className="py-2 px-4 border-b">Alternatives like gold and other commodities</td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="alternatives-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="alternatives-exp" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="alternatives-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="alternatives-know" className="h-5 w-5" /></td>
-                              <td className="py-2 px-4 border-b text-center"><input type="radio" name="alternatives-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center">14</td>
+                              <td className="py-3 px-4 border-b">Alternatives like gold and other commodities</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="alternatives-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="alternatives-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="alternatives-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="alternatives-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="alternatives-know" className="h-5 w-5" /></td>
                             </tr>
                           </tbody>
                         </table>
@@ -1029,8 +1044,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 4. RESPONSE TO MARKET DECLINE */}
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">5. RESPONSE TO MARKET DECLINE</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">5. RESPONSE TO MARKET DECLINE</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">5.1. During market declines, I tend to sell portions of my riskier assets and invest the money in safer assets?</h4>
@@ -1039,41 +1054,41 @@ const CorporateOnboarding = () => {
                         <table className="min-w-full bg-white border border-gray-300">
                           <thead>
                             <tr className="bg-gray-100">
-                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="market-decline" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">a. Strongly Disagree</td>
+                              <td className="py-3 px-4 border-b">a. Strongly Disagree</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="market-decline" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">b. Disagree</td>
+                              <td className="py-3 px-4 border-b">b. Disagree</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="market-decline" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">c. Partially Agree</td>
+                              <td className="py-3 px-4 border-b">c. Partially Agree</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="market-decline" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">d. Agree</td>
+                              <td className="py-3 px-4 border-b">d. Agree</td>
 
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="market-decline" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">e. Strongly Agree</td>
+                              <td className="py-3 px-4 border-b">e. Strongly Agree</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1082,8 +1097,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 6. RISK TOLERANCE, CAPITAL LOSS AND MARKET FLUCTUATION */}
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">6. RISK TOLERANCE, CAPITAL LOSS AND MARKET FLUCTUATION</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">6. RISK TOLERANCE, CAPITAL LOSS AND MARKET FLUCTUATION</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">6.1. Which of the following 5 hypothetical scenarios below best describes the level of risk you are willing to bear in regard to your investment?</h4>
@@ -1092,25 +1107,25 @@ const CorporateOnboarding = () => {
                         <table className="min-w-full bg-white border border-gray-300">
                           <thead>
                             <tr className="bg-gray-100">
-                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="py-2 px-4 border-b">Target annual return</td>
-                              <td className="py-2 px-4 border-b text-center">1%</td>
-                              <td className="py-2 px-4 border-b text-center">2% to 3%</td>
-                              <td className="py-2 px-4 border-b text-center">4% to 5%</td>
-                              <td className="py-2 px-4 border-b text-center">6% to 7%</td>
-                              <td className="py-2 px-4 border-b text-center">-7%</td>
+                              <td className="py-3 px-4 border-b">Target annual return</td>
+                              <td className="py-3 px-4 border-b text-center">1%</td>
+                              <td className="py-3 px-4 border-b text-center">2% to 3%</td>
+                              <td className="py-3 px-4 border-b text-center">4% to 5%</td>
+                              <td className="py-3 px-4 border-b text-center">6% to 7%</td>
+                              <td className="py-3 px-4 border-b text-center">-7%</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b">Range of annual returns under normal market circumstances</td>
-                              <td className="py-2 px-4 border-b text-center">-5% to 7%</td>
-                              <td className="py-2 px-4 border-b text-center">-7% to 15%</td>
-                              <td className="py-2 px-4 border-b text-center">-15% to 25%</td>
-                              <td className="py-2 px-4 border-b text-center">-27% to 38%</td>
-                              <td className="py-2 px-4 border-b text-center">-40% to 50%</td>
+                              <td className="py-3 px-4 border-b">Range of annual returns under normal market circumstances</td>
+                              <td className="py-3 px-4 border-b text-center">-5% to 7%</td>
+                              <td className="py-3 px-4 border-b text-center">-7% to 15%</td>
+                              <td className="py-3 px-4 border-b text-center">-15% to 25%</td>
+                              <td className="py-3 px-4 border-b text-center">-27% to 38%</td>
+                              <td className="py-3 px-4 border-b text-center">-40% to 50%</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1119,8 +1134,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 7. INVESTMENT TIME HORIZON */}
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">7. INVESTMENT TIME HORIZON</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">7. INVESTMENT TIME HORIZON</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">7.1. Investments have varying time horizons. Some investments have fixed, potentially long-dated time horizons. Some may even have lock-in periods. What is the longest time horizon you would consider for any investment in your portfolio? Please pick the one that applies.</h4>
@@ -1129,34 +1144,34 @@ const CorporateOnboarding = () => {
                         <table className="min-w-full bg-white border border-gray-300">
                           <thead>
                             <tr className="bg-gray-100">
-                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="time-horizon" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">a. Less than 1 year</td>
+                              <td className="py-3 px-4 border-b">a. Less than 1 year</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="time-horizon" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">b. More than 1 year and up to 3 years</td>
+                              <td className="py-3 px-4 border-b">b. 1 year to 3 years</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="time-horizon" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">c. More than 3 years and up to 10 years</td>
+                              <td className="py-3 px-4 border-b">c. More than 3 years and up to 10 years</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="time-horizon" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">d. More than 10 years or we have no time commitments</td>
+                              <td className="py-3 px-4 border-b">d. More than 10 years or we have no time commitments</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1165,8 +1180,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 8. VOLATILITY OF RETURNS */}
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">8. VOLATILITY OF RETURNS</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">8. VOLATILITY OF RETURNS</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">8.1. Considering your time horizon (holding period) and return expectations, what degree of volatility of return do you believe you can accept:</h4>
@@ -1175,34 +1190,34 @@ const CorporateOnboarding = () => {
                         <table className="min-w-full bg-white border border-gray-300">
                           <thead>
                             <tr className="bg-gray-100">
-                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="volatility" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">a. I can accept a low degree of volatility</td>
+                              <td className="py-3 px-4 border-b">a. I can accept a low degree of volatility</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="volatility" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">b. I can accept a moderate degree of volatility</td>
+                              <td className="py-3 px-4 border-b">b. I can accept a moderate degree of volatility</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="volatility" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">c. I can accept a moderate to high degree of volatility</td>
+                              <td className="py-3 px-4 border-b">c. I can accept a moderate to high degree of volatility</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="volatility" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">d. I can accept a high degree of volatility</td>
+                              <td className="py-3 px-4 border-b">d. I can accept a high degree of volatility</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1211,8 +1226,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 9. ASSETS UNDER ADVICE */}
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">9. ASSETS UNDER ADVICE</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">9. ASSETS UNDER ADVICE</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">9.1. What % of the assets is under the firm's advisory, compared to total Net-Worth?</h4>
@@ -1221,34 +1236,34 @@ const CorporateOnboarding = () => {
                         <table className="min-w-full bg-white border border-gray-300">
                           <thead>
                             <tr className="bg-gray-100">
-                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="assets-advice" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">a. 0%-10%</td>
+                              <td className="py-3 px-4 border-b">a. 0%-10%</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="assets-advice" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">b. 10%-40%</td>
+                              <td className="py-3 px-4 border-b">b. 10%-40%</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="assets-advice" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">c. 40%-70%</td>
+                              <td className="py-3 px-4 border-b">c. 40%-70%</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="assets-advice" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">d. &gt;70%</td>
+                              <td className="py-3 px-4 border-b">d. &gt;70%</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1257,8 +1272,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 10. LIQUIDITY PREFERENCE */}
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">10. LIQUIDITY PREFERENCE</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">10. LIQUIDITY PREFERENCE</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">10.1. What % of your asset would you expect to withdraw to meet other financial needs within the coming 1 year?</h4>
@@ -1267,34 +1282,34 @@ const CorporateOnboarding = () => {
                         <table className="min-w-full bg-white border border-gray-300">
                           <thead>
                             <tr className="bg-gray-100">
-                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="liquidity" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">a. More than 75%</td>
+                              <td className="py-3 px-4 border-b">a. More than 75%</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="liquidity" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">b. Between 51% to 75%</td>
+                              <td className="py-3 px-4 border-b">b. Between 51% to 75%</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="liquidity" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">c. Between 25% to 50%</td>
+                              <td className="py-3 px-4 border-b">c. Between 25% to 50%</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="liquidity" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">d. Less than 25%</td>
+                              <td className="py-3 px-4 border-b">d. Less than 25%</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1303,8 +1318,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 11. STABILITY OF INCOME */}
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">11. STABILITY OF INCOME</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">11. STABILITY OF INCOME</h3>
                     
                     <div className="mb-4">
                       <h4 className="font-semibold mb-2 text-red-600">11.1. How secure is your current and future income from existing sources?</h4>
@@ -1313,34 +1328,34 @@ const CorporateOnboarding = () => {
                         <table className="min-w-full bg-white border border-gray-300">
                           <thead>
                             <tr className="bg-gray-100">
-                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="income-stability" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">a. No or insignificant risk income</td>
+                              <td className="py-3 px-4 border-b">a. No or insignificant risk income</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="income-stability" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">b. High volatility and fluctuation of income - Income levels are not stable</td>
+                              <td className="py-3 px-4 border-b">b. High volatility and fluctuation of income - Income levels are not stable</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="income-stability" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">c. Secure income with low volatility at the moment with some uncertainty for the future - Mostly stable</td>
+                              <td className="py-3 px-4 border-b">c. Secure income with low volatility at the moment with some uncertainty for the future - Mostly stable</td>
                             </tr>
                             <tr>
-                              <td className="py-2 px-4 border-b text-center">
+                              <td className="py-3 px-4 border-b text-center">
                                 <input type="radio" name="income-stability" className="h-5 w-5" />
                               </td>
-                              <td className="py-2 px-4 border-b">d. Long term secured income flows from various sources - Very stable</td>
+                              <td className="py-3 px-4 border-b">d. Long term secured income flows from various sources - Very stable</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1473,7 +1488,7 @@ const CorporateOnboarding = () => {
             {activeStep === 'classification' && (
               <div>
                 <div className="space-y-6">
-                  <div className="bg-gray-50 p-4 rounded-md mb-6 border border-gray-200">
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
                     <div className="mb-4">
                       <p className="text-md text-gray-700 mb-3">
                         Hilbert Investment Solutions Ltd Capital Limited ("Hilbert Investment Solutions Ltd") provides Financial Services 
@@ -1488,8 +1503,8 @@ const CorporateOnboarding = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">PROFESSIONAL CLIENT CLASSIFICATION</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PROFESSIONAL CLIENT CLASSIFICATION</h3>
                     <p className="mb-2 italic text-gray-700">I. In order to ascertain whether you are a "Professional Client", please tick all box(es) below, as applicable to you:</p>
                     
                     <div className="mb-4">
@@ -1574,8 +1589,8 @@ const CorporateOnboarding = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">DEEMED PROFESSIONAL CLIENT</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">DEEMED PROFESSIONAL CLIENT</h3>
                     <p className="mb-2 italic">An undertaking that satisfies any of the following:</p>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
@@ -1679,8 +1694,8 @@ const CorporateOnboarding = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">OTHER CLASSIFICATIONS</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">OTHER CLASSIFICATIONS</h3>
                     
                     {/* Convert to 3-column table */}
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
@@ -1715,8 +1730,8 @@ const CorporateOnboarding = () => {
                   </div>
                   
                   {/* Footnotes */}
-                  <div className="bg-gray-50 p-4 rounded-md mb-6 border border-gray-200">
-                    <h3 className="text-gray-700 font-bold text-lg mb-4">FOOTNOTES</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">FOOTNOTES</h3>
                     <div className="text-xs text-gray-600">
                       <p><sup>1</sup> Assets which exclude the value of the primary residence of the person and may include any assets held directly or indirectly by that person.</p>
                       <p><sup>2</sup> Body corporate or body unincorporated, including a legal person, company, partnership, unincorporated association, government or state.</p>
@@ -1737,11 +1752,11 @@ const CorporateOnboarding = () => {
             
             {activeStep === 'fatca' && (
               <div>
-                <h2 className="text-xl font-semibold mb-4">FATCA Declaration</h2>
+                <h2 className="text-lg font-semibold mb-4">FATCA Declaration</h2>
                 <div className="space-y-6">
-                  <div className="bg-gray-50 p-4 rounded-md mb-6 border border-gray-200">
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
                     <div className="mb-4">
-                      <h3 className="text-lg font-bold text-gray-700 mb-2">OECD CRS and U.S FATCA Self-Certification Form for Entity and Controlling Person</h3>
+                      <h3 className="text-[#0066FF] font-bold text-lg mb-6">OECD CRS and U.S FATCA Self-Certification Form for Entity and Controlling Person</h3>
                       <p className="text-md text-gray-700 mb-3">
                         Tax legislation including US Foreign Account Tax Compliance Act (FATCA), OECD Common Reporting Standard (CRS) and their local laws and regulations require Hilbert Investment Solutions Ltd to share, transmit and report the information in this Form and the relevant documents and information to the local tax authority of the client, the tax authority of the place of incorporation of the relevant entity(ies) and/or to third party (for example the bank) who has similar reporting obligations under the relevant tax Regulations.
                       </p>
@@ -1752,8 +1767,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* PART A - Entity Account Holder */}
-                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">PART A - Entity Account Holder</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PART A - Entity Account Holder</h3>
                     <p className="mb-2 italic text-gray-700">(For joint or multiple account holders, complete a separate form for each entity account holder)</p>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
@@ -1834,7 +1849,6 @@ const CorporateOnboarding = () => {
 
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
                       <h4 className="font-semibold text-[#0066FF] mb-3">Tax Residence</h4>
-                      <h4 className="font-semibold text-blue-700 mb-3">Tax Residence</h4>
                       <p className="mb-2 italic text-gray-700">(If the entity has multiple countries of tax residency, please list out all the relevant information below)</p>
                       
                       <table className="w-full mb-4">
@@ -1907,8 +1921,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* PART B - Declaration of US FATCA */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">PART B - Declaration of US FATCA</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PART B - Declaration of US FATCA</h3>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
                       <table className="w-full">
@@ -1968,7 +1982,7 @@ const CorporateOnboarding = () => {
                     </div>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
-                      <h4 className="font-semibold text-blue-700 mb-3">2.1 FATCA Status</h4>
+                      <h4 className="font-semibold text-[#0066FF] mb-3">2.1 FATCA Status</h4>
                       
                       <div className="mb-4 bg-gray-50 p-3 rounded-md">
                         <h5 className="font-semibold mb-2">Financial Institution</h5>
@@ -2122,8 +2136,8 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* PART C - Declaration of CRS Classification */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">PART C - Declaration of CRS Classification</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PART C - Declaration of CRS Classification</h3>
                     <p className="mb-2 italic text-gray-700">(Please complete this part by ticking the following box to provide your CRS entity type that does not necessarily coincide with your entity type under Part a: US FATCA Classification)</p>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
@@ -2247,16 +2261,16 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* PART D - Controlling Person */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">PART D - Controlling Person</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PART D - Controlling Person</h3>
                     <p className="mb-2 italic text-gray-700">(only complete this part if the entity type selected under PART C)</p>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
-                      <h4 className="font-semibold text-blue-700 mb-3">1. Controlling Person Details</h4>
+                      <h4 className="font-semibold text-[#0066FF] mb-3">1. Controlling Person Details</h4>
                       
                       {/* Controlling Person #1 */}
                       <div className="mb-6 border border-gray-200 p-4 rounded-md">
-                        <h5 className="font-semibold text-blue-700 mb-3">Controlling Person #1</h5>
+                        <h5 className="font-semibold text-[#0066FF] mb-3">Controlling Person #1</h5>
                         <div className="grid grid-cols-1 gap-4">
                           <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Name:</label>
@@ -2285,7 +2299,7 @@ const CorporateOnboarding = () => {
                       
                       {/* Controlling Person #2 */}
                       <div className="mb-6 border border-gray-200 p-4 rounded-md">
-                        <h5 className="font-semibold text-blue-700 mb-3">Controlling Person #2</h5>
+                        <h5 className="font-semibold text-[#0066FF] mb-3">Controlling Person #2</h5>
                         <div className="grid grid-cols-1 gap-4">
                           <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Name:</label>
@@ -2314,7 +2328,7 @@ const CorporateOnboarding = () => {
                       
                       {/* Controlling Person #3 */}
                       <div className="mb-6 border border-gray-200 p-4 rounded-md">
-                        <h5 className="font-semibold text-blue-700 mb-3">Controlling Person #3</h5>
+                        <h5 className="font-semibold text-[#0066FF] mb-3">Controlling Person #3</h5>
                         <div className="grid grid-cols-1 gap-4">
                           <div>
                             <label className="block text-sm font-medium text-gray-700 mb-1">Name:</label>
@@ -2343,7 +2357,7 @@ const CorporateOnboarding = () => {
                     </div>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
-                      <h4 className="font-semibold text-blue-700 mb-3">2. Tax Residence</h4>
+                      <h4 className="font-semibold text-[#0066FF] mb-3">2. Tax Residence</h4>
                       <p className="mb-3">All Controlling Persons must complete this section.</p>
                       <p className="mb-3 italic">If you have multiple countries of tax residency, please list out all the relevant information below.</p>
                       
@@ -2423,7 +2437,7 @@ const CorporateOnboarding = () => {
                         </tbody>
                       </table>
                       
-                      <h4 className="font-semibold text-blue-700 mb-3">Types of Controlling Person</h4>
+                      <h4 className="font-semibold text-[#0066FF] mb-3">Types of Controlling Person</h4>
                       <table className="w-full mb-4">
                         <tbody>
                           <tr className="border-b">
@@ -2505,8 +2519,8 @@ const CorporateOnboarding = () => {
                   </div>
                   
                   {/* PART E - Declaration & Signature */}
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">PART E - Declaration & Signature</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PART E - Declaration & Signature</h3>
                     <p className="mb-3 italic">(to be given signed by the Entity Account Holder and ALL Controlling Person(s))</p>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
@@ -2566,9 +2580,9 @@ const CorporateOnboarding = () => {
             
             {activeStep === 'documents' && (
               <div>
-                <h2 className="text-xl font-semibold mb-4">Document Upload</h2>
+                <h2 className="text-lg font-semibold mb-4">Document Upload</h2>
                 <div className="space-y-6">
-                  <div className="bg-gray-50 p-4 rounded-md mb-6 border border-gray-200">
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
                     <div className="mb-4">
                       <p className="text-md text-gray-700 mb-3">
                         Please upload the required documents to complete your application. Only one file can be uploaded at a time.
@@ -2582,8 +2596,8 @@ const CorporateOnboarding = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">UPLOAD DOCUMENT</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">UPLOAD DOCUMENT</h3>
                     
                     {documentUploads.map((upload, index) => (
                       <div key={upload.id} className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
@@ -2667,11 +2681,11 @@ const CorporateOnboarding = () => {
                     ))}
                   </div>
                   
-                  <div className="bg-blue-50 p-4 rounded-md mb-6">
-                    <h3 className="text-blue-800 font-bold text-lg mb-4">REQUIRED DOCUMENTS</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">REQUIRED DOCUMENTS</h3>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
-                      <h4 className="font-semibold text-blue-700 mb-3">For Corporates:</h4>
+                      <h4 className="font-semibold text-[#0066FF] mb-3">For Corporates:</h4>
                       <p className="mb-2">All the incorporations documents:</p>
                       <ul className="list-disc pl-6 space-y-2">
                         <li>License</li>
@@ -2697,7 +2711,7 @@ const CorporateOnboarding = () => {
                     </div>
                     
                     <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
-                      <h4 className="font-semibold text-blue-700 mb-3">Uploaded Documents</h4>
+                      <h4 className="font-semibold text-[#0066FF] mb-3">Uploaded Documents</h4>
                       <div className="overflow-x-auto">
                         <table className="min-w-full divide-y divide-gray-200">
                           <thead className="bg-gray-50">
