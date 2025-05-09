@@ -511,14 +511,14 @@ const CorporateOnboarding = () => {
                 
                 <div className="bg-gray-50 p-4 rounded-md mb-6 border border-gray-200">
                   <div className="mb-4">
-                    <div className="flex items-center mb-3">
-                      <label className="block text-sm font-bold text-gray-700">Client Name</label>
-                    </div>
+                    {/* <div className="flex items-center mb-3">
+                      <label className="block text-md font-bold text-gray-700">Client Name</label>
+                    </div> */}
                     
-                    <p className="text-sm text-gray-700 mb-3">
+                    <p className="text-md text-gray-700 mb-3">
                       The information collected in this Suitability Assessment form will be used to assist in determining the suitability of investments/strategies for you. Inaccurate or incomplete information may affect the suitability of such information or any future recommendations provided to you.
                     </p>
-                    <p className="text-sm text-gray-700 mb-3">
+                    <p className="text-md text-gray-700 mb-3">
                       It is strongly recommended that you provide such information required by this Questionnaire as fully as possible and any future changes in circumstances or information contained within this Assessment should be advised as soon as possible in order to ensure the continued suitability of investment information or recommendations provided to you.
                     </p>
                   </div>
@@ -537,8 +537,7 @@ const CorporateOnboarding = () => {
                           <thead>
                             <tr className="bg-gray-100">
                               <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -547,35 +546,30 @@ const CorporateOnboarding = () => {
                                 <input type="radio" name="investment-objective" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">Primarily capital preservation</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="investment-objective" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">Primarily income generation along with slight capital growth</td>
-                              <td className="py-2 px-4 border-b text-center">2</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="investment-objective" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">To achieve a balance of income generation and capital growth</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="investment-objective" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">Primarily capital growth along with slight income generation</td>
-                              <td className="py-2 px-4 border-b text-center">4</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="investment-objective" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">Primarily high capital growth</td>
-                              <td className="py-2 px-4 border-b text-center">5</td>
                             </tr>
                           </tbody>
                         </table>
@@ -595,8 +589,7 @@ const CorporateOnboarding = () => {
                           <thead>
                             <tr className="bg-gray-100">
                               <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -605,49 +598,42 @@ const CorporateOnboarding = () => {
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">Single with few financial burdens. Ready to accumulate wealth for future short term and long-term goals.</td>
-                              <td className="py-2 px-4 border-b text-center">5</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">A couple without children. Preparing for the future by establishing a home. Expecting to have or already have a high purchase rate of household and consumer items.</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">Young family with a home. You have a mortgage and have also built up some equity. You need to maintain your standard of living while raising children and need to maintain only small cash balances.</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">A family with school going children. You have a mortgage and have built up some savings.</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">Mature family. You are in your peak earning years and your mortgage is under control. Your children have finished school or are in post-secondary education. You're ready to start thinking about your retirement goals.</td>
-                              <td className="py-2 px-4 border-b text-center">4</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">Preparing for retirement. You can now focus on your home and have few financial burdens; you want to ensure you can afford a comfortable retirement.</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="investment-stage" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">Retired. You rely on your pension, investments, savings and investments to maintain your lifestyle in retirement. You may already be receiving a government pension and/or Superannuation pension.</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                           </tbody>
                         </table>
@@ -962,8 +948,7 @@ const CorporateOnboarding = () => {
                           <thead>
                             <tr className="bg-gray-100">
                               <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -972,35 +957,31 @@ const CorporateOnboarding = () => {
                                 <input type="radio" name="market-decline" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">a. Strongly Disagree</td>
-                              <td className="py-2 px-4 border-b text-center">5</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="market-decline" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">b. Disagree</td>
-                              <td className="py-2 px-4 border-b text-center">4</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="market-decline" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">c. Partially Agree</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="market-decline" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">d. Agree</td>
-                              <td className="py-2 px-4 border-b text-center">2</td>
+
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="market-decline" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">e. Strongly Agree</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1019,9 +1000,7 @@ const CorporateOnboarding = () => {
                         <table className="min-w-full bg-white border border-gray-300">
                           <thead>
                             <tr className="bg-gray-100">
-                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -1041,14 +1020,6 @@ const CorporateOnboarding = () => {
                               <td className="py-2 px-4 border-b text-center">-27% to 38%</td>
                               <td className="py-2 px-4 border-b text-center">-40% to 50%</td>
                             </tr>
-                            <tr>
-                              <td className="py-2 px-4 border-b">Score</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
-                              <td className="py-2 px-4 border-b text-center">2</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
-                              <td className="py-2 px-4 border-b text-center">4</td>
-                              <td className="py-2 px-4 border-b text-center">5</td>
-                            </tr>
                           </tbody>
                         </table>
                       </div>
@@ -1067,8 +1038,7 @@ const CorporateOnboarding = () => {
                           <thead>
                             <tr className="bg-gray-100">
                               <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -1077,28 +1047,24 @@ const CorporateOnboarding = () => {
                                 <input type="radio" name="time-horizon" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">a. Less than 1 year</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="time-horizon" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">b. More than 1 year and up to 3 years</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="time-horizon" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">c. More than 3 years and up to 10 years</td>
-                              <td className="py-2 px-4 border-b text-center">4</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="time-horizon" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">d. More than 10 years or we have no time commitments</td>
-                              <td className="py-2 px-4 border-b text-center">5</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1118,8 +1084,7 @@ const CorporateOnboarding = () => {
                           <thead>
                             <tr className="bg-gray-100">
                               <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -1128,28 +1093,24 @@ const CorporateOnboarding = () => {
                                 <input type="radio" name="volatility" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">a. I can accept a low degree of volatility</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="volatility" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">b. I can accept a moderate degree of volatility</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="volatility" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">c. I can accept a moderate to high degree of volatility</td>
-                              <td className="py-2 px-4 border-b text-center">4</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="volatility" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">d. I can accept a high degree of volatility</td>
-                              <td className="py-2 px-4 border-b text-center">5</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1169,8 +1130,7 @@ const CorporateOnboarding = () => {
                           <thead>
                             <tr className="bg-gray-100">
                               <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -1179,28 +1139,24 @@ const CorporateOnboarding = () => {
                                 <input type="radio" name="assets-advice" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">a. 0%-10%</td>
-                              <td className="py-2 px-4 border-b text-center">5</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="assets-advice" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">b. 10%-40%</td>
-                              <td className="py-2 px-4 border-b text-center">4</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="assets-advice" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">c. 40%-70%</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="assets-advice" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">d. &gt;70%</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1220,8 +1176,7 @@ const CorporateOnboarding = () => {
                           <thead>
                             <tr className="bg-gray-100">
                               <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -1230,28 +1185,24 @@ const CorporateOnboarding = () => {
                                 <input type="radio" name="liquidity" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">a. More than 75%</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="liquidity" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">b. Between 51% to 75%</td>
-                              <td className="py-2 px-4 border-b text-center">2</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="liquidity" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">c. Between 25% to 50%</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="liquidity" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">d. Less than 25%</td>
-                              <td className="py-2 px-4 border-b text-center">4</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1271,8 +1222,7 @@ const CorporateOnboarding = () => {
                           <thead>
                             <tr className="bg-gray-100">
                               <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -1281,28 +1231,24 @@ const CorporateOnboarding = () => {
                                 <input type="radio" name="income-stability" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">a. No or insignificant risk income</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="income-stability" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">b. High volatility and fluctuation of income - Income levels are not stable</td>
-                              <td className="py-2 px-4 border-b text-center">2</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="income-stability" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">c. Secure income with low volatility at the moment with some uncertainty for the future - Mostly stable</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="income-stability" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">d. Long term secured income flows from various sources - Very stable</td>
-                              <td className="py-2 px-4 border-b text-center">5</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1322,8 +1268,7 @@ const CorporateOnboarding = () => {
                           <thead>
                             <tr className="bg-gray-100">
                               <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -1332,28 +1277,25 @@ const CorporateOnboarding = () => {
                                 <input type="radio" name="financial-situation" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">a. More than 75%</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="financial-situation" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">b. Between 51% to 75%</td>
-                              <td className="py-2 px-4 border-b text-center">2</td>
+                              
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="financial-situation" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">c. Between 25% to 50%</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="financial-situation" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">d. Less than 25%</td>
-                              <td className="py-2 px-4 border-b text-center">5</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1373,8 +1315,7 @@ const CorporateOnboarding = () => {
                           <thead>
                             <tr className="bg-gray-100">
                               <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -1383,14 +1324,12 @@ const CorporateOnboarding = () => {
                                 <input type="radio" name="leverage" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">a. No</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="leverage" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">b. Yes</td>
-                              <td className="py-2 px-4 border-b text-center">5</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1408,8 +1347,7 @@ const CorporateOnboarding = () => {
                           <thead>
                             <tr className="bg-gray-100">
                               <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
-                              <th style={{ width: '75%' }} className="py-2 px-4 border-b text-left">Description</th>
-                              <th style={{ width: '15%' }} className="py-2 px-4 border-b text-center">Score</th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -1418,21 +1356,18 @@ const CorporateOnboarding = () => {
                                 <input type="radio" name="liquid-assets" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">a. &lt;15%</td>
-                              <td className="py-2 px-4 border-b text-center">1</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="liquid-assets" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">b. 15%-50%</td>
-                              <td className="py-2 px-4 border-b text-center">3</td>
                             </tr>
                             <tr>
                               <td className="py-2 px-4 border-b text-center">
                                 <input type="radio" name="liquid-assets" className="h-5 w-5" />
                               </td>
                               <td className="py-2 px-4 border-b">c. &gt;50%</td>
-                              <td className="py-2 px-4 border-b text-center">5</td>
                             </tr>
                           </tbody>
                         </table>
@@ -1445,40 +1380,255 @@ const CorporateOnboarding = () => {
             
             {activeStep === 'classification' && (
               <div>
-                <h2 className="text-xl font-semibold mb-4">Client Classification</h2>
                 <div className="space-y-6">
-                  <div className="border-b pb-4">
-                    <p className="mb-2 text-sm text-gray-600">According to DFSA regulations, please select the appropriate classification for your entity:</p>
-                  </div>
-                  
-                  <div className="space-y-4">
-                    <div className="flex items-start space-x-3">
-                      <input type="radio" id="professional-assessed" name="classification" className="mt-1" />
-                      <div>
-                        <label htmlFor="professional-assessed" className="font-medium text-gray-700">Assessed Professional Client</label>
-                        <p className="text-sm text-gray-500">Has net assets of at least USD 1,000,000 and meets other qualifying criteria</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start space-x-3">
-                      <input type="radio" id="professional-deemed" name="classification" className="mt-1" />
-                      <div>
-                        <label htmlFor="professional-deemed" className="font-medium text-gray-700">Deemed Professional Client</label>
-                        <p className="text-sm text-gray-500">Includes regulated entities, large undertakings, and supranational organizations</p>
-                      </div>
-                    </div>
-                    
-                    <div className="flex items-start space-x-3">
-                      <input type="radio" id="market-counterparty" name="classification" className="mt-1" />
-                      <div>
-                        <label htmlFor="market-counterparty" className="font-medium text-gray-700">Market Counterparty</label>
-                        <p className="text-sm text-gray-500">Professional Client that meets additional requirements</p>
-                      </div>
+                  <div className="bg-gray-50 p-4 rounded-md mb-6 border border-gray-200">
+                    <div className="mb-4">
+                      <p className="text-md text-gray-700 mb-3">
+                        Hilbert Investment Solutions Ltd Capital Limited ("Hilbert Investment Solutions Ltd") provides Financial Services 
+                        to only Professional Clients (which includes 'assessed,' and 'deemed' Professional Clients, as set out in the 
+                        Dubai Financial Services Authority ("DFSA") Rulebook.
+                      </p>
+                      <p className="text-md text-gray-700 mb-3">
+                        You have the right to be classified as a Retail Client, which entails a higher level of protection under the DFSA 
+                        Rules. However, if you are classified as a Retail Client, Hilbert Investment Solutions Ltd will not be able to offer 
+                        you financial services.
+                      </p>
                     </div>
                   </div>
                   
-                  <div className="pt-4 border-t">
-                    <p className="text-sm text-gray-500 italic">Note: Hilbert Investment Solutions Ltd only provides services to Professional Clients and Market Counterparties.</p>
+                  <div className="bg-blue-50 p-4 rounded-md mb-6">
+                    <h3 className="text-blue-800 font-bold text-lg mb-4">PROFESSIONAL CLIENT CLASSIFICATION</h3>
+                    <p className="mb-2 italic text-gray-700">I. In order to ascertain whether you are a "Professional Client", please tick all box(es) below, as applicable to you:</p>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-blue-700 mt-4 mb-2">Assessed Professional Client <span className="text-xs italic">(Please choose the description which fits you.)</span></h4>
+                      
+                    </div>
+                    
+                    {/* Convert to 3-column table */}
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <table className="w-full">
+                        <tbody>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top" style={{ width: "30px" }}>
+                              <span className="font-semibold">A</span>
+                            </td>
+                            <td className="py-1 pr-2 align-top" style={{ width: "40px" }}>
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md">An Individual who:</p>
+                              <p className="text-md">has at least USD 1,000,000 in net assets<sup>1</sup> and provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                              <p className="font-semibold">AND</p>
+                              <p className="font-semibold">Either:</p>
+                              <div className="ml-4">
+                                <ol className="list-decimal">
+                                  <li>is or has been in the previous 12 months an employee in a relevant professional position of an Authorized Person, a Recognized Body, a Remote Body, or a Regulated Financial Institution; or</li>
+                                  <li>has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</li>
+                                </ol>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top">
+                              <span className="font-semibold">B</span>
+                            </td>
+                            <td className="py-1 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md">An Undertaking, trust, or foundation, which is set up solely for the purpose of facilitating the management of an investment portfolio of an individual that:</p>
+                              <p className="text-md">has at least USD 1,000,000 in net assets<sup>1</sup> and provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                              <p className="font-semibold">AND</p>
+                              <p className="text-md">has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top">
+                              <span className="font-semibold">C1</span>
+                            </td>
+                            <td className="py-1 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md">An Undertaking<sup>2</sup> that:</p>
+                              <p className="text-md">has own funds<sup>4</sup> or called up capital<sup>5</sup> of at least USD 1,000,000 and has provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                              <p className="font-semibold">AND</p>
+                              <p className="text-md">has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</p>
+                              <p className="font-semibold">OR</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top">
+                              <span className="font-semibold">C2</span>
+                            </td>
+                            <td className="py-1 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md">An Undertaking who has a controller<sup>3</sup>, a Holding Company, a Subsidiary, or a Joint venture partner that:</p>
+                              <p className="font-semibold">Either:</p>
+                              <p className="text-md">1. has own funds<sup>4</sup> or called-up capital<sup>5</sup> of at least USD 1,000,000 and has provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                              <p className="font-semibold">OR</p>
+                              <p className="text-md">2. has at least USD 1,000,000 in net assets<sup>1</sup> and has provided Hilbert Investment Solutions Ltd with sufficient proof thereof.</p>
+                              <p className="font-semibold">AND</p>
+                              <p className="text-md">has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</p>
+                              <p className="font-semibold">OR</p>
+                              <p className="text-md">An Undertaking who has a controller<sup>3</sup>, or Holding Company, a Subsidiary or Joint venture partner who is a Deemed Professional Client, (as listed below).</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-blue-50 p-4 rounded-md mb-6">
+                    <h3 className="text-blue-800 font-bold text-lg mb-4">DEEMED PROFESSIONAL CLIENT</h3>
+                    <p className="mb-2 italic">An undertaking that satisfies any of the following:</p>
+                    
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <table className="w-full">
+                        <tbody>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top" style={{ width: "40px" }}>
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> A properly constituted government, government agency, central bank or other national monetary authority of any country or jurisdiction</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Public authority or state investment authority</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Authorized Firm, a regulated financial institution, or the management company of a regulated pension fund</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Collective Investment Fund / regulated pension fund i.e., an arrangement which amounts to a fund under rule 11 of the DIFC Collective Investment Law 2010 and which is established and operated under the rules made under that Law or a regulated pension fund.</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Supranational organization whose members are countries, central banks, or national monetary authorities</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Body corporate<sup>2</sup> whose shares are listed or admitted to trading on any regulated exchange of an IOSCO country</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Authorized Market Institution, regulated exchange or regulated clearing house</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> An Institutional Investor whose main activity is to invest in financial instruments, including an entity dedicated to the securitization of assets or other financial transactions</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-2">
+                              A Large Undertaking: A person is a 'Large Undertaking' if it met, as at the date of its most recent financial statements, at least two of the following requirements:
+                              <ul className="ml-6 list-disc mt-2">
+                                <li>It has a balance sheet total<sup>6</sup> of at least $20 million;</li>
+                                <li>It has an annual turnover of at least $40 million; or</li>
+                                <li>It has its own funds<sup>4</sup> or called-up capital<sup>5</sup> of at least $2 million</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-2">
+                              <p className="text-md"> A trustee of a trust which has, or had during the previous 12 months, assets of at least USD 10 million;</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-2">
+                              <p className="text-md"> The holder of a license under the DIFC Single Family Office Regulations with respect to its activities carried on exclusively for the purposes of, and only in so far as it is, carrying out its duties as a Single-Family Office.</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-blue-50 p-4 rounded-md mb-6">
+                    <h3 className="text-blue-800 font-bold text-lg mb-4">OTHER CLASSIFICATIONS</h3>
+                    
+                    {/* Retail Client */}
+                    <div className="mb-4 border border-gray-300 bg-white p-4 rounded-md">
+                      <div className="flex items-start">
+                        <input type="checkbox" id="retailClient" className="mr-2 mt-1 h-6 w-6" />
+                        <div>
+                          <label htmlFor="retailClient" className="font-semibold">2. □ Retail Clients:</label>
+                          <span> An Authorized Firm must classify as a Retail Client any Person who is not classified as a Professional Client or a Market Counterparty.</span>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {/* Market Counterparty */}
+                    <div className="mb-6 border border-gray-300 bg-white p-4 rounded-md">
+                      <div className="flex items-start">
+                        <input type="checkbox" id="marketCounterparty" className="mr-2 mt-1 h-6 w-6" />
+                        <div>
+                          <label htmlFor="marketCounterparty" className="font-semibold">3. □ Market Counterparty</label>
+                          <p>Market Counterparty is potential client meeting the definition of a 'deemed' Professional Client or is an assessed Professional Client which is wholly owned by a Holding Company that is a 'deemed' Professional Client and who has been given a prior written notification of the classification as a Market Counterparty and that potential client has not requested to be classified otherwise within the period specified in the notice.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* Footnotes */}
+                  <div className="bg-gray-50 p-4 rounded-md mb-6 border border-gray-200">
+                    <h3 className="text-gray-700 font-bold text-lg mb-4">FOOTNOTES</h3>
+                    <div className="text-xs text-gray-600">
+                      <p><sup>1</sup> Assets which exclude the value of the primary residence of the person and may include any assets held directly or indirectly by that person.</p>
+                      <p><sup>2</sup> Body corporate or body unincorporated, including a legal person, company, partnership, unincorporated association, government or state.</p>
+                      <p><sup>3</sup> 'controller' is an individual who:</p>
+                      <ul className="list-none ml-4">
+                        <li>a) Holds 10% or more of the shares in either the undertaking or a holding company of the undertaking;</li>
+                        <li>b) Is able to appoint or remove a majority of the board members of the undertaking;</li>
+                        <li>c) Controls a majority of the voting rights of the undertaking (or that of a holding company of the undertaking).</li>
+                      </ul>
+                      <p><sup>4</sup> Own funds means cash and investments.</p>
+                      <p><sup>5</sup> Called-up capital means all the amounts paid-up on allotted shares, less any amounts owing on allotted shares.</p>
+                      <p><sup>6</sup> Balance sheet total means the aggregate of the amounts shown as assets in the balance sheet before deducting both current and long-term liabilities.</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1510,7 +1660,7 @@ const CorporateOnboarding = () => {
                     </div>
                     
                     <div className="flex items-start space-x-3">
-                      <input type="checkbox" id="fatca-confirm" className="mt-1" />
+                      <input type="checkbox" id="fatca-confirm" className="mt-1 h-6 w-6" />
                       <div>
                         <label htmlFor="fatca-confirm" className="font-medium text-gray-700">Confirmation</label>
                         <p className="text-sm text-gray-500">I confirm that the information provided above is true and accurate. I understand that Hilbert Investment Solutions Ltd may need to report certain information to tax authorities.</p>

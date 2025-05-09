@@ -70,11 +70,12 @@ const ClientClassification = () => {
                     <input type="checkbox" className="mr-2 mt-1" />
                     <div>
                       <p>An Individual who:</p>
-                      <p>has at least USD 1,000,000 in net assets¹ and provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                      <p>has at least USD 1,000,000 in net assets<sup>1</sup> and provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
                       <p className="font-semibold">AND</p>
+                      <p className="font-semibold">Either:</p>
                       <div className="ml-4">
                         <ol className="list-decimal">
-                          <li>is or has been in the previous 12 months an employee in a relevant professional position of an Authorized Person², a Recognized Body, a Remote Body...or a Regulated Financial Institution; or</li>
+                          <li>is or has been in the previous 12 months an employee in a relevant professional position of an Authorized Person, a Recognized Body, a Remote Body, or a Regulated Financial Institution; or</li>
                           <li>has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</li>
                         </ol>
                       </div>
@@ -95,7 +96,7 @@ const ClientClassification = () => {
                     <input type="checkbox" className="mr-2 mt-1" />
                     <div>
                       <p>An Undertaking, trust, or foundation, which is set up solely for the purpose of facilitating the management of an investment portfolio of an individual that:</p>
-                      <p>has at least USD 1,000,000 in net assets¹ and provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                      <p>has at least USD 1,000,000 in net assets<sup>1</sup> and provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
                       <p className="font-semibold">AND</p>
                       <p>has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</p>
                     </div>
@@ -114,8 +115,8 @@ const ClientClassification = () => {
                   <div className="flex items-start">
                     <input type="checkbox" className="mr-2 mt-1" />
                     <div>
-                      <p>An Individual who has:</p>
-                      <p>as its own funds³ or called-up capital of at least USD 1,000,000 and has provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                      <p>An Undertaking<sup>2</sup> that:</p>
+                      <p>has own funds<sup>4</sup> or called up capital<sup>5</sup> of at least USD 1,000,000 and has provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
                       <p className="font-semibold">AND</p>
                       <p>has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</p>
                       <p className="font-semibold">OR</p>
@@ -135,33 +136,15 @@ const ClientClassification = () => {
                   <div className="flex items-start">
                     <input type="checkbox" className="mr-2 mt-1" />
                     <div>
-                      <p>An Undertaking who has a controller⁴, a Holding Company, a Subsidiary, or a Joint venture partner who is a Deemed Professional Client (as listed below).</p>
+                      <p>An Undertaking who has a controller<sup>3</sup>, a Holding Company, a Subsidiary, or a Joint venture partner that:</p>
                       <p className="font-semibold">Either:</p>
-                      <p>1.has own funds³ or called-up capital⁵ of at least USD 1,000,000 and has provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                      <p>1. has own funds<sup>4</sup> or called-up capital<sup>5</sup> of at least USD 1,000,000 and has provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
                       <p className="font-semibold">OR</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Section C3 */}
-            <div className="border border-gray-300 p-4 mb-4">
-              <div className="flex items-start">
-                <div className="mr-2 mt-1">
-                  <span className="font-semibold">C3.</span>
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-start">
-                    <input type="checkbox" className="mr-2 mt-1" />
-                    <div>
-                      <p>has at least USD 1,000,000 in net assets and has provided Hilbert Investment Solutions Ltd with sufficient proof thereof;</p>
+                      <p>2. has at least USD 1,000,000 in net assets<sup>1</sup> and has provided Hilbert Investment Solutions Ltd with sufficient proof thereof.</p>
                       <p className="font-semibold">AND</p>
-                      <input type="checkbox" className="mr-2 mt-1 inline-block" />
-                      <span>has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</span>
+                      <p>has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</p>
                       <p className="font-semibold">OR</p>
-                      <input type="checkbox" className="mr-2 mt-1 inline-block" />
-                      <span>An Undertaking who has a controller or Holding Company, a Subsidiary or Joint venture partner who is a Deemed Professional Client (as listed below).</span>
+                      <p>An Undertaking who has a controller<sup>3</sup>, or Holding Company, a Subsidiary or Joint venture partner who is a Deemed Professional Client, (as listed below).</p>
                     </div>
                   </div>
                 </div>
@@ -193,7 +176,7 @@ const ClientClassification = () => {
                 </div>
                 <div className="flex items-start">
                   <input type="checkbox" className="mr-2 mt-1" />
-                  <span>Collective Investment Fund / regulated pension fund (i.e., an arrangement which amounts to a fund under Law 11 of the DIFC Collective Investment Law 2010 and which is established and operated under the rules made under that Law or a regulated pension fund)</span>
+                  <span>Collective Investment Fund / regulated pension fund i.e., an arrangement which amounts to a fund under rule 11 of the DIFC Collective Investment Law 2010 and which is established and operated under the rules made under that Law or a regulated pension fund.</span>
                 </div>
                 <div className="flex items-start">
                   <input type="checkbox" className="mr-2 mt-1" />
@@ -201,7 +184,7 @@ const ClientClassification = () => {
                 </div>
                 <div className="flex items-start">
                   <input type="checkbox" className="mr-2 mt-1" />
-                  <span>Body corporate² whose shares are listed or admitted to trading on any regulated exchange of an IOSCO country</span>
+                  <span>Body corporate<sup>2</sup> whose shares are listed or admitted to trading on any regulated exchange of an IOSCO country</span>
                 </div>
                 <div className="flex items-start">
                   <input type="checkbox" className="mr-2 mt-1" />
@@ -215,19 +198,19 @@ const ClientClassification = () => {
                   <input type="checkbox" className="mr-2 mt-1" />
                   <span>A Large Undertaking: A person is a 'Large Undertaking' if it met, as at the date of its most recent financial statements, at least two of the following requirements:
                     <ul className="ml-6 list-disc">
-                      <li>It has a balance sheet total⁶ of at least $22 million</li>
+                      <li>It has a balance sheet total<sup>6</sup> of at least $20 million;</li>
                       <li>It has an annual turnover of at least $40 million; or</li>
-                      <li>It has its own funds or called-up capital of at least $2 million</li>
+                      <li>It has its own funds<sup>4</sup> or called-up capital<sup>5</sup> of at least $2 million</li>
                     </ul>
                   </span>
                 </div>
                 <div className="flex items-start">
                   <input type="checkbox" className="mr-2 mt-1" />
-                  <span>A trustee of a trust which has, or had during the previous 12 months, assets of at least USD 10 million</span>
+                  <span>A trustee of a trust which has, or had during the previous 12 months, assets of at least USD 10 million;</span>
                 </div>
                 <div className="flex items-start">
                   <input type="checkbox" className="mr-2 mt-1" />
-                  <span>The holder of a license under the DIFC Single Family Office Regulations with respect to its activities carried on exclusively for the purposes of, and only so far it is, carrying out its duties as a Single Family Office</span>
+                  <span>The holder of a license under the DIFC Single Family Office Regulations with respect to its activities carried on exclusively for the purposes of, and only in so far as it is, carrying out its duties as a Single-Family Office.</span>
                 </div>
               </div>
             </div>
@@ -249,7 +232,7 @@ const ClientClassification = () => {
                 <input type="checkbox" id="marketCounterparty" className="mr-2 mt-1" />
                 <div>
                   <label htmlFor="marketCounterparty" className="font-semibold">3. □ Market Counterparty</label>
-                  <p>Market Counterparty (a potential client meeting the definition of a 'deemed' Professional Client or is an Assessed Professional Client) and who has been given a prior written notification by Hilbert Investment Solutions Ltd of its classification as a Market Counterparty and that potential client has not requested to be classified otherwise within the time period specified in the notice.</p>
+                  <p>Market Counterparty is potential client meeting the definition of a 'deemed' Professional Client or is an assessed Professional Client which is wholly owned by a Holding Company that is a 'deemed' Professional Client and who has been given a prior written notification of the classification as a Market Counterparty and that potential client has not requested to be classified otherwise within the period specified in the notice.</p>
                 </div>
               </div>
             </div>
@@ -373,13 +356,16 @@ const ClientClassification = () => {
               <p><sup>2</sup> Body corporate or body unincorporated, including a legal person, company, partnership, unincorporated association, government or state.</p>
               <p><sup>3</sup> 'controller' is an individual who:</p>
               <ul className="list-none ml-4">
-                <li>a) Holds 10% or more of the shares in either the authorized firm or a holding company of the authorized firm;</li>
-                <li>b) Is able to exercise significant influence over the management of the authorized firm.</li>
-                <li>c) Is able to exercise or control the exercise of voting rights of the undertaking (or that of a holding company of the undertaking)</li>
+                <li>a) Holds 10% or more of the shares in either the undertaking or a holding company of the undertaking;</li>
+                <li>b) Is able to appoint or remove a majority of the board members of the undertaking;</li>
+                <li>c) Controls a majority of the voting rights of the undertaking (or that of a holding company of the undertaking).</li>
               </ul>
-              <p><sup>4</sup> Own Funds means cash and investments.</p>
-              <p><sup>5</sup> Called-up capital means all the amounts paid up on allotted shares, less any amounts on allotted shares.</p>
-              <p><sup>6</sup> Balance sheet total means the aggregate of the amounts shown as assets in a company's balance sheet.</p>
+              <p><sup>4</sup> Own funds means cash and investments.</p>
+              <p><sup>5</sup> Called-up capital means all the amounts paid-up on allotted shares, less any amounts owing on allotted shares.</p>
+              <p><sup>6</sup> Balance sheet total means the aggregate of the amounts shown as assets in the balance sheet before deducting both current and long-term liabilities.</p>
+              <div className="text-right text-xs text-gray-500 mt-2">
+                Page 1 of 4
+              </div>
             </div>
           </div>
           
