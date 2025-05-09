@@ -603,7 +603,1563 @@ const IndividualOnboarding = () => {
               </div>
             )}
             
-            {/* Add other step content sections (suitability, classification, etc.) */}
+            {activeStep === 'suitability' && (
+              <div>
+                <h2 className="text-lg font-semibold mb-4">Suitability Assessment Questionnaire</h2>
+                
+                <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                  <div className="mb-4">
+                    <p className="text-md text-gray-700 mb-3">
+                      The information collected in this Suitability Assessment form will be used to assist in determining the suitability of investments/strategies for you. Inaccurate or incomplete information may affect the suitability of such information or any future recommendations provided to you.
+                    </p>
+                    <p className="text-md text-gray-700 mb-3">
+                      It is strongly recommended that you provide such information required by this Questionnaire as fully as possible and any future changes in circumstances or information contained within this Assessment should be advised as soon as possible in order to ensure the continued suitability of investment information or recommendations provided to you.
+                    </p>
+                  </div>
+                </div>
+                
+                <div className="space-y-6">
+                  {/* 1. INVESTMENT OBJECTIVES */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">1. INVESTMENT OBJECTIVES</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2">1.1. Which answer best describes your investment objective:</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-objective" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">Primarily capital preservation</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-objective" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">Primarily income generation along with slight capital growth</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-objective" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">To achieve a balance of income generation and capital growth</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-objective" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">Primarily capital growth along with slight income generation</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-objective" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">Primarily high capital growth</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 2. INVESTMENT STAGE AND ABILITY */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">2. INVESTMENT STAGE AND ABILITY</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2">2.1. Which of the following best describes your current stage of life?</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-stage" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">Single with few financial burdens. Ready to accumulate wealth for future short term and long-term goals.</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-stage" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">A couple without children. Preparing for the future by establishing a home. Expecting to have or already have a high purchase rate of household and consumer items.</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-stage" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">Young family with a home. You have a mortgage and have also built up some equity. You need to maintain your standard of living while raising children and need to maintain only small cash balances.</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-stage" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">A family with school going children. You have a mortgage and have built up some savings.</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-stage" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">Mature family. You are in your peak earning years and your mortgage is under control. Your children have finished school or are in post-secondary education. You're ready to start thinking about your retirement goals.</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-stage" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">Preparing for retirement. You can now focus on your home and have few financial burdens; you want to ensure you can afford a comfortable retirement.</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="investment-stage" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">Retired. You rely on your pension, investments, savings and investments to maintain your lifestyle in retirement. You may already be receiving a government pension and/or Superannuation pension.</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 3. PRODUCT KNOWLEDGE AND EXPERIENCE */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">3. PRODUCT KNOWLEDGE AND EXPERIENCE</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2">3.1. Please indicate the level of knowledge and/or experience you have in the asset classes listed below:</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th className="py-3 px-4 border-b text-center">Product<br/>Type</th>
+                              <th className="py-3 px-4 border-b text-left">Investment Product</th>
+                              <th className="py-3 px-4 border-b text-center" colSpan={2}>Experience in the past 3<br/>years with any financial<br/>institution</th>
+                              <th className="py-3 px-4 border-b text-center" colSpan={3}>Knowledge<br/>(relevant education or investment<br/>experience)</th>
+                            </tr>
+                            <tr className="bg-gray-100">
+                              <th className="py-3 px-4 border-b"></th>
+                              <th className="py-3 px-4 border-b"></th>
+                              <th className="py-3 px-4 border-b text-center">Yes</th>
+                              <th className="py-3 px-4 border-b text-center">No</th>
+                              <th className="py-3 px-4 border-b text-center">Limited</th>
+                              <th className="py-3 px-4 border-b text-center">Moderate</th>
+                              <th className="py-3 px-4 border-b text-center">Good</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">1</td>
+                              <td className="py-3 px-4 border-b">Deposits</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="deposits-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="deposits-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="deposits-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="deposits-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="deposits-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Money market instruments</td>  
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="money-market-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="money-market-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="money-market-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="money-market-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="money-market-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Foreign Exchange (Spot)</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forex-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forex-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forex-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forex-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forex-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">2</td>
+                              <td className="py-3 px-4 border-b">Government bonds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="gov-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="gov-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="gov-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="gov-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="gov-bonds-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Plain vanilla investment grade bonds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="plain-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="plain-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="plain-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="plain-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="plain-bonds-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Investment grade bond funds / exchange traded funds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="bond-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="bond-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="bond-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="bond-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="bond-funds-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Equities / Preferred Shares</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Equities / Preferred Shares</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="equities-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">3</td>
+                              <td className="py-3 px-4 border-b">Private equity/debt or venture deals</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="private-equity-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="private-equity-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="private-equity-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="private-equity-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="private-equity-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Capital or partial capital protected products, Reverse Convertibles, Notes, CLNs</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="capital-protected-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="capital-protected-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="capital-protected-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="capital-protected-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="capital-protected-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Plain vanilla options</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="vanilla-options-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="vanilla-options-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="vanilla-options-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="vanilla-options-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="vanilla-options-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Dual currency investments</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="dual-currency-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="dual-currency-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="dual-currency-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="dual-currency-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="dual-currency-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">4</td>
+                              <td className="py-3 px-4 border-b">Structured Notes</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="structured-notes-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="structured-notes-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="structured-notes-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="structured-notes-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="structured-notes-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Non-investment grade bonds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="non-investment-bonds-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Bonds with special features</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="special-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="special-bonds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="special-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="special-bonds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="special-bonds-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Private Equity Funds/Venture Capital Funds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-vc-funds-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Hedge funds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="hedge-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="hedge-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="hedge-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="hedge-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="hedge-funds-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">4</td>
+                              <td className="py-3 px-4 border-b">Accumulators and Decumulators</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Exotic options</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="exotic-options-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="exotic-options-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="exotic-options-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="exotic-options-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="exotic-options-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Forwards / Warrants / Swaps</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forwards-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forwards-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forwards-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forwards-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="forwards-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center"></td>
+                              <td className="py-3 px-4 border-b">Interest Rate Swaps</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="ir-swaps-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="ir-swaps-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="ir-swaps-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="ir-swaps-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="ir-swaps-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">6</td>
+                              <td className="py-3 px-4 border-b">Listed on main markets or Private placements with an ISIN</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="listed-markets-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="listed-markets-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="listed-markets-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="listed-markets-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="listed-markets-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">7</td>
+                              <td className="py-3 px-4 border-b">Straight line equities (all the equities that are traded at the major stock exchanges)</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="straight-equities-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="straight-equities-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="straight-equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="straight-equities-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="straight-equities-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">8</td>
+                              <td className="py-3 px-4 border-b">Fixed income - various bonds, bond funds, leveraged deposits etc</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="fixed-income-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="fixed-income-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="fixed-income-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="fixed-income-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="fixed-income-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">9</td>
+                              <td className="py-3 px-4 border-b">Funds- various funds and funds of funds that are globally traded</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="funds-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">10</td>
+                              <td className="py-3 px-4 border-b">ETF- all tradable ETF's</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="etf-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="etf-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="etf-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="etf-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="etf-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">11</td>
+                              <td className="py-3 px-4 border-b">Discretionary- various discretionary mandates offered by banks, fund houses and assets managers</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="discretionary-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="discretionary-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="discretionary-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="discretionary-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="discretionary-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">12</td>
+                              <td className="py-3 px-4 border-b">Derivatives - structured notes based on equities, indexes, forex, accumulators, and de-accumulators</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="derivatives-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="derivatives-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="derivatives-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="derivatives-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="derivatives-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">13</td>
+                              <td className="py-3 px-4 border-b">Private equity funds and Hedge funds</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="pe-hedge-funds-know" className="h-5 w-5" /></td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">14</td>
+                              <td className="py-3 px-4 border-b">Alternatives like gold and other commodities</td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="alternatives-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="alternatives-exp" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="alternatives-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="alternatives-know" className="h-5 w-5" /></td>
+                              <td className="py-3 px-4 border-b text-center"><input type="radio" name="alternatives-know" className="h-5 w-5" /></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-2 italic">The table shows your knowledge and experience with various investment products.</p>
+                    </div>
+                  </div>
+
+                  {/* 4. RESPONSE TO MARKET DECLINE */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">4. RESPONSE TO MARKET DECLINE</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2 text-red-600">4.1. During market declines, I tend to sell portions of my riskier assets and invest the money in safer assets?</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="market-decline" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">a. Strongly Disagree</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="market-decline" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">b. Disagree</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="market-decline" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">c. Partially Agree</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="market-decline" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">d. Agree</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="market-decline" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">e. Strongly Agree</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 5. RISK TOLERANCE, CAPITAL LOSS AND MARKET FLUCTUATION */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">5. RISK TOLERANCE, CAPITAL LOSS AND MARKET FLUCTUATION</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2 text-red-600">5.1. Which of the following 5 hypothetical scenarios below best describes the level of risk you are willing to bear in regard to your investment?</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300 w-full">
+                          <thead>
+                            <tr className="bg-gray-100 w-full">
+                              <th colSpan={6} className="py-3 px-4 border-b text-left w-full">Description</th>
+                            </tr>
+                            <tr>
+                              <th className="py-3 px-4 border-b w-2/6"></th>
+                              <th className="py-3 px-4 border-b text-center w-1/6">Scenario 1</th>
+                              <th className="py-3 px-4 border-b text-center w-1/6">Scenario 2</th>
+                              <th className="py-3 px-4 border-b text-center w-1/6">Scenario 3</th>
+                              <th className="py-3 px-4 border-b text-center w-1/6">Scenario 4</th>
+                              <th className="py-3 px-4 border-b text-center w-1/6">Scenario 5</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-3 px-4 border-b"></td>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="risk-scenario" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="risk-scenario" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="risk-scenario" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="risk-scenario" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="risk-scenario" className="h-5 w-5" />
+                              </td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b">Target annual return</td>
+                              <td className="py-3 px-4 border-b text-center">1%</td>
+                              <td className="py-3 px-4 border-b text-center">2% to 3%</td>
+                              <td className="py-3 px-4 border-b text-center">4% to 5%</td>
+                              <td className="py-3 px-4 border-b text-center">6% to 7%</td>
+                              <td className="py-3 px-4 border-b text-center">-7%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b">Range of annual returns under normal market circumstances</td>
+                              <td className="py-3 px-4 border-b text-center">-5% to 7%</td>
+                              <td className="py-3 px-4 border-b text-center">-7% to 15%</td>
+                              <td className="py-3 px-4 border-b text-center">-15% to 25%</td>
+                              <td className="py-3 px-4 border-b text-center">-27% to 38%</td>
+                              <td className="py-3 px-4 border-b text-center">-40% to 50%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 6. INVESTMENT TIME HORIZON */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">6. INVESTMENT TIME HORIZON</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2 text-red-600">6.1. Investments have varying time horizons. Some investments have fixed, potentially long-dated time horizons. Some may even have lock-in periods. What is the longest time horizon you would consider for any investment in your portfolio? Please pick the one that applies.</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="time-horizon" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">a. Less than 1 year</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="time-horizon" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">b. 1 year to 3 years</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="time-horizon" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">c. More than 3 years and up to 10 years</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="time-horizon" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">d. More than 10 years or I have no time commitments</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 7. VOLATILITY OF RETURNS */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">7. VOLATILITY OF RETURNS</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2 text-red-600">7.1. Considering your time horizon (holding period) and return expectations, what degree of volatility of return do you believe you can accept:</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="volatility" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">a. I can accept a low degree of volatility</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="volatility" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">b. I can accept a moderate degree of volatility</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="volatility" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">c. I can accept a moderate to high degree of volatility</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="volatility" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">d. I can accept a high degree of volatility</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 8. ASSETS UNDER ADVICE */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">8. ASSETS UNDER ADVICE</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2 text-red-600">8.1. What % of your assets is under the firm's advisory, compared to total Net-Worth?</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="assets-advice" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">a. 0%-10%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="assets-advice" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">b. 10%-40%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="assets-advice" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">c. 40%-70%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="assets-advice" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">d. &gt;70%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 9. LIQUIDITY PREFERENCE */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">9. LIQUIDITY PREFERENCE</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2 text-red-600">9.1. What % of your asset would you expect to withdraw to meet other financial needs within the coming 1 year?</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="liquidity" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">a. More than 75%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="liquidity" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">b. Between 51% to 75%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="liquidity" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">c. Between 25% to 50%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="liquidity" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">d. Less than 25%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 10. STABILITY OF INCOME */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">10. STABILITY OF INCOME</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2 text-red-600">10.1. How secure is your current and future income from existing sources?</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th style={{ width: '10%' }} className="py-3 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-3 px-4 border-b text-left">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="income-stability" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">a. No or insignificant risk income</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="income-stability" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">b. High volatility and fluctuation of income - Income levels are not stable</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="income-stability" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">c. Secure income with low volatility at the moment with some uncertainty for the future - Mostly stable</td>
+                            </tr>
+                            <tr>
+                              <td className="py-3 px-4 border-b text-center">
+                                <input type="radio" name="income-stability" className="h-5 w-5" />
+                              </td>
+                              <td className="py-3 px-4 border-b">d. Long term secured income flows from various sources - Very stable</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 11. FINANCIAL SITUATION */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">11. FINANCIAL SITUATION</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2 text-red-600">11.1. What % of total financial assets do you want to set aside for any anticipated liabilities which is not to be used for investment.</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-2 px-4 border-b text-center">
+                                <input type="radio" name="financial-situation" className="h-5 w-5" />
+                              </td>
+                              <td className="py-2 px-4 border-b">a. More than 75%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 px-4 border-b text-center">
+                                <input type="radio" name="financial-situation" className="h-5 w-5" />
+                              </td>
+                              <td className="py-2 px-4 border-b">b. Between 51% to 75%</td>
+                              
+                            </tr>
+                            <tr>
+                              <td className="py-2 px-4 border-b text-center">
+                                <input type="radio" name="financial-situation" className="h-5 w-5" />
+                              </td>
+                              <td className="py-2 px-4 border-b">c. Between 25% to 50%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 px-4 border-b text-center">
+                                <input type="radio" name="financial-situation" className="h-5 w-5" />
+                              </td>
+                              <td className="py-2 px-4 border-b">d. Less than 25%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 12. LEVERAGE IN INVESTMENT */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">12. LEVERAGE IN INVESTMENT</h3>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold mb-2 text-red-600">12.1. Do you currently use or intend to use leverage when investing?</h4>
+                      
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-2 px-4 border-b text-center">
+                                <input type="radio" name="leverage" className="h-5 w-5" />
+                              </td>
+                              <td className="py-2 px-4 border-b">a. No</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 px-4 border-b text-center">
+                                <input type="radio" name="leverage" className="h-5 w-5" />
+                              </td>
+                              <td className="py-2 px-4 border-b">b. Yes</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* 13. WHAT % OF TOTAL WEALTH ARE LIQUID BANKABLE ASSETS */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">13. WHAT % OF TOTAL WEALTH ARE LIQUID BANKABLE ASSETS?</h3>
+                    
+                    <div className="mb-4">
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white border border-gray-300">
+                          <thead>
+                            <tr className="bg-gray-100">
+                              <th style={{ width: '10%' }} className="py-2 px-4 border-b"></th>
+                              <th style={{ width: '100%' }} className="py-2 px-4 border-b text-left">Description</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td className="py-2 px-4 border-b text-center">
+                                <input type="radio" name="liquid-assets" className="h-5 w-5" />
+                              </td>
+                              <td className="py-2 px-4 border-b">a. &lt;15%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 px-4 border-b text-center">
+                                <input type="radio" name="liquid-assets" className="h-5 w-5" />
+                              </td>
+                              <td className="py-2 px-4 border-b">b. 15%-50%</td>
+                            </tr>
+                            <tr>
+                              <td className="py-2 px-4 border-b text-center">
+                                <input type="radio" name="liquid-assets" className="h-5 w-5" />
+                              </td>
+                              <td className="py-2 px-4 border-b">c. &gt;50%</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {activeStep === 'classification' && (
+              <div>
+                <div className="space-y-6">
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <div className="mb-4">
+                      <p className="text-md text-gray-700 mb-3">
+                        Hilbert Investment Solutions Ltd Capital Limited ("Hilbert Investment Solutions Ltd") provides Financial Services 
+                        to only Professional Clients (which includes 'assessed,' and 'deemed' Professional Clients, as set out in the 
+                        Dubai Financial Services Authority ("DFSA") Rulebook.
+                      </p>
+                      <p className="text-md text-gray-700 mb-3">
+                        You have the right to be classified as a Retail Client, which entails a higher level of protection under the DFSA 
+                        Rules. However, if you are classified as a Retail Client, Hilbert Investment Solutions Ltd will not be able to offer 
+                        you financial services.
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PROFESSIONAL CLIENT CLASSIFICATION</h3>
+                    <p className="mb-2 italic text-gray-700">I. In order to ascertain whether you are a "Professional Client", please tick all box(es) below, as applicable to you:</p>
+                    
+                    <div className="mb-4">
+                      <h4 className="font-semibold text-[#0066FF] mt-4 mb-2">Assessed Professional Client <span className="text-xs italic">(Please choose the description which fits you.)</span></h4>
+                      
+                    </div>
+                    
+                    {/* Convert to 3-column table */}
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <table className="w-full">
+                        <tbody>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top" style={{ width: "30px" }}>
+                              <span className="font-semibold">A</span>
+                            </td>
+                            <td className="py-1 pr-2 align-top" style={{ width: "40px" }}>
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md">An Individual who:</p>
+                              <p className="text-md">has at least USD 1,000,000 in net assets<sup>1</sup> and provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                              <p className="font-semibold">AND</p>
+                              <p className="font-semibold">Either:</p>
+                              <div className="ml-4">
+                                <ol className="list-decimal">
+                                  <li>is or has been in the previous 12 months an employee in a relevant professional position of an Authorized Person, a Recognized Body, a Remote Body, or a Regulated Financial Institution; or</li>
+                                  <li>has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</li>
+                                </ol>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top">
+                              <span className="font-semibold">B</span>
+                            </td>
+                            <td className="py-1 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md">An Undertaking, trust, or foundation, which is set up solely for the purpose of facilitating the management of an investment portfolio of an individual that:</p>
+                              <p className="text-md">has at least USD 1,000,000 in net assets<sup>1</sup> and provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                              <p className="font-semibold">AND</p>
+                              <p className="text-md">has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top">
+                              <span className="font-semibold">C1</span>
+                            </td>
+                            <td className="py-1 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md">An Undertaking<sup>2</sup> that:</p>
+                              <p className="text-md">has own funds<sup>4</sup> or called up capital<sup>5</sup> of at least USD 1,000,000 and has provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                              <p className="font-semibold">AND</p>
+                              <p className="text-md">has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</p>
+                              <p className="font-semibold">OR</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top">
+                              <span className="font-semibold">C2</span>
+                            </td>
+                            <td className="py-1 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md">An Undertaking who has a controller<sup>3</sup>, a Holding Company, a Subsidiary, or a Joint venture partner that:</p>
+                              <p className="font-semibold">Either:</p>
+                              <p className="text-md">1. has own funds<sup>4</sup> or called-up capital<sup>5</sup> of at least USD 1,000,000 and has provided Hilbert Investment Solutions Ltd Capital with sufficient proof thereof;</p>
+                              <p className="font-semibold">OR</p>
+                              <p className="text-md">2. has at least USD 1,000,000 in net assets<sup>1</sup> and has provided Hilbert Investment Solutions Ltd with sufficient proof thereof.</p>
+                              <p className="font-semibold">AND</p>
+                              <p className="text-md">has sufficient financial experience and understanding of relevant financial markets, products or transactions and any associated risks.</p>
+                              <p className="font-semibold">OR</p>
+                              <p className="text-md">An Undertaking who has a controller<sup>3</sup>, or Holding Company, a Subsidiary or Joint venture partner who is a Deemed Professional Client, (as listed below).</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">DEEMED PROFESSIONAL CLIENT</h3>
+                    <p className="mb-2 italic">An undertaking that satisfies any of the following:</p>
+                    
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <table className="w-full">
+                        <tbody>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top" style={{ width: "40px" }}>
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> A properly constituted government, government agency, central bank or other national monetary authority of any country or jurisdiction</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Public authority or state investment authority</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Authorized Firm, a regulated financial institution, or the management company of a regulated pension fund</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Collective Investment Fund / regulated pension fund i.e., an arrangement which amounts to a fund under rule 11 of the DIFC Collective Investment Law 2010 and which is established and operated under the rules made under that Law or a regulated pension fund.</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Supranational organization whose members are countries, central banks, or national monetary authorities</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Body corporate<sup>2</sup> whose shares are listed or admitted to trading on any regulated exchange of an IOSCO country</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> Authorized Market Institution, regulated exchange or regulated clearing house</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"> An Institutional Investor whose main activity is to invest in financial instruments, including an entity dedicated to the securitization of assets or other financial transactions</p>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-2">
+                              A Large Undertaking: A person is a 'Large Undertaking' if it met, as at the date of its most recent financial statements, at least two of the following requirements:
+                              <ul className="ml-6 list-disc mt-2">
+                                <li>It has a balance sheet total<sup>6</sup> of at least $20 million;</li>
+                                <li>It has an annual turnover of at least $40 million; or</li>
+                                <li>It has its own funds<sup>4</sup> or called-up capital<sup>5</sup> of at least $2 million</li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-2">
+                              <p className="text-md"> A trustee of a trust which has, or had during the previous 12 months, assets of at least USD 10 million;</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-2">
+                              <p className="text-md"> The holder of a license under the DIFC Single Family Office Regulations with respect to its activities carried on exclusively for the purposes of, and only in so far as it is, carrying out its duties as a Single-Family Office.</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">OTHER CLASSIFICATIONS</h3>
+                    
+                    {/* Convert to 3-column table */}
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <table className="w-full">
+                        <tbody>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top" style={{ width: "40px" }}>
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1 pr-2 align-top" style={{ width: "30px" }}>
+                              <span className="font-semibold">2</span>
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"><span className="font-semibold">Retail Clients:</span> An Authorized Firm must classify as a Retail Client any Person who is not classified as a Professional Client or a Market Counterparty.</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="py-1 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1 pr-2 align-top">
+                              <span className="font-semibold">3</span>
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"><span className="font-semibold">Market Counterparty</span></p>
+                              <p className="text-md">Market Counterparty is potential client meeting the definition of a 'deemed' Professional Client or is an assessed Professional Client which is wholly owned by a Holding Company that is a 'deemed' Professional Client and who has been given a prior written notification of the classification as a Market Counterparty and that potential client has not requested to be classified otherwise within the period specified in the notice.</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  
+                  {/* Footnotes */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">FOOTNOTES</h3>
+                    <div className="text-xs text-gray-600">
+                      <p><sup>1</sup> Assets which exclude the value of the primary residence of the person and may include any assets held directly or indirectly by that person.</p>
+                      <p><sup>2</sup> Body corporate or body unincorporated, including a legal person, company, partnership, unincorporated association, government or state.</p>
+                      <p><sup>3</sup> 'controller' is an individual who:</p>
+                      <ul className="list-none ml-4">
+                        <li>a) Holds 10% or more of the shares in either the undertaking or a holding company of the undertaking;</li>
+                        <li>b) Is able to appoint or remove a majority of the board members of the undertaking;</li>
+                        <li>c) Controls a majority of the voting rights of the undertaking (or that of a holding company of the undertaking).</li>
+                      </ul>
+                      <p><sup>4</sup> Own funds means cash and investments.</p>
+                      <p><sup>5</sup> Called-up capital means all the amounts paid-up on allotted shares, less any amounts owing on allotted shares.</p>
+                      <p><sup>6</sup> Balance sheet total means the aggregate of the amounts shown as assets in the balance sheet before deducting both current and long-term liabilities.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {activeStep === 'fatca' && (
+              <div>
+                <h2 className="text-lg font-semibold mb-4">OECD CRS and U.S. FATCA Self-Certification Form</h2>
+                <div className="space-y-6">
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">OECD CRS and U.S. FATCA Self-Certification Form - for Individual</h3>
+                    
+                    <div className="bg-blue-50 p-4 border border-blue-100 rounded-md mb-4">
+                      <p className="text-sm text-blue-800">
+                        If you are <span className="font-bold">not</span> an individual or sole proprietorship, then you should not use this form and instead use the self-certification form for entities.
+                      </p>
+                    </div>
+                    
+                    <h4 className="font-semibold mb-3">Why am I completing this form?</h4>
+                    <p className="text-sm text-gray-700 mb-3">
+                      We are required by the OECD Common Reporting Standard ("<span className="font-semibold">CRS</span>") regulations to collect and report certain information about an Account Holder's tax residence. Each jurisdiction has its own rules for defining tax residence.
+                    </p>
+                    
+                    <p className="text-sm text-gray-700 mb-3">
+                      For the purposes of the U.S. Foreign Account Tax Compliance Act ("<span className="font-semibold">FATCA</span>"), we are required to determine whether our Account Holders are U.S. Persons.
+                    </p>
+                    
+                    <p className="text-sm text-gray-700 mb-3">
+                      For more information on tax residence, please consult your tax advisor. Our staff are unable to assist in the completion of this form. Please refer to the definitions in Appendix A.
+                    </p>
+                    
+                    <p className="text-sm text-gray-700 mb-3">
+                      If the Account Holder's tax residence is located outside the country where the financial account is held, we may be legally obliged to pass on the information in this form and other financial information with respect to your financial accounts to the national tax authorities or regulators or the Internal Revenue Service ("<span className="font-semibold">IRS</span>") and they may further exchange this information with competent authorities and tax regulators of other jurisdiction(s) or jurisdictions pursuant to intergovernmental agreements to exchange financial account information.
+                    </p>
+                    
+                    <h4 className="font-semibold mt-4 mb-3">Does this form expire?</h4>
+                    <p className="text-sm text-gray-700 mb-3">
+                      This form will remain valid unless there is a change in circumstances relating to the Account Holder's tax status or other mandatory fields included on this form. You must notify us of a change in circumstances, within a maximum period of 30 days from the date of such change, that makes the information in this self-certification incorrect or incomplete and provide an updated self-certification form.
+                    </p>
+                    
+                    <p className="text-sm text-gray-700 mb-3">
+                      We may request that you submit additional documentation that supports the OECD CRS and U.S. FATCA declarations made in this self-certification form.
+                    </p>
+                    
+                    <p className="text-sm text-gray-700 mb-4 italic font-medium">
+                      We therefore request you to complete all Parts of this self-certification form as they are all mandatory and sign the form below in PART 4.
+                    </p>
+                  </div>
+                  
+                  {/* PART 1: Identification of Account Holder */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PART 1: Identification of Account Holder (in BLOCK CAPITALS)</h3>
+                    
+                    <div className="mb-4">
+                      <div className="flex space-x-4 mb-4">
+                        <div className="flex items-center">
+                          <input type="radio" id="title-mr" name="title" value="mr" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                          <label htmlFor="title-mr" className="text-base">Mr.</label>
+                        </div>
+                        <div className="flex items-center">
+                          <input type="radio" id="title-mrs" name="title" value="mrs" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                          <label htmlFor="title-mrs" className="text-base">Mrs.</label>
+                        </div>
+                        <div className="flex items-center">
+                          <input type="radio" id="title-ms" name="title" value="ms" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                          <label htmlFor="title-ms" className="text-base">Ms.</label>
+                        </div>
+                        <div className="flex items-center">
+                          <input type="radio" id="title-miss" name="title" value="miss" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                          <label htmlFor="title-miss" className="text-base">Miss</label>
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Family Name/Surname:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            First Name:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Middle Name:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Date of Birth:
+                          </label>
+                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                        
+                        <div className="md:col-span-2">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Place of Birth:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                      </div>
+                      
+                      <h4 className="font-semibold mt-6 mb-3">Current Residential Address</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
+                        <div className="md:col-span-2">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            House/Apartment, Number, Street:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Town/City:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Country:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                        
+                        <div className="md:col-span-2">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Postal/Zip Code:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                      </div>
+                      
+                      <h4 className="font-semibold mt-6 mb-3">Mailing Address <span className="text-xs text-gray-500 font-normal">(Please complete only if different from Residential Address)</span></h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
+                        <div className="md:col-span-2">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            House/Apartment, Number, Street:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Town/City:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Country:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                        
+                        <div className="md:col-span-2">
+                          <label className="block text-sm font-medium text-gray-700 mb-2">
+                            Postal/Zip Code:
+                          </label>
+                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* PART 2: Jurisdiction of Residency for Tax Purposes */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PART 2: Jurisdiction of Residency for Tax Purposes (CRS) (in BLOCK CAPITALS)</h3>
+                    
+                    <p className="mb-3 text-sm">
+                      Please complete the following table indicating (i) where the Account Holder is tax resident and (ii) the Account Holder's TIN for each country/Reportable Jurisdiction indicated.
+                    </p>
+                    
+                    <div className="bg-green-50 p-4 border border-green-100 rounded-md mb-4">
+                      <p className="text-sm text-green-800">
+                        If the Account Holder is a tax resident in more than three countries/jurisdictions, please use a separate sheet. If a TIN is unavailable, please provide the appropriate reason A, B or C:
+                      </p>
+                      <ul className="list-disc pl-6 mt-2 text-sm text-green-800">
+                        <li><span className="font-semibold">Reason A</span> - The country where the Account Holder is liable to pay tax does not issue TINs to its residents.</li>
+                        <li><span className="font-semibold">Reason B</span> - The Account Holder is otherwise unable to obtain a TIN or equivalent number (Please explain why you are unable to obtain a TIN in the below table if you have selected this reason).</li>
+                        <li><span className="font-semibold">Reason C</span> - No TIN is required. (Note: Only select this reason if the domestic law of the relevant jurisdiction does not require the collection of the TIN issued by such jurisdiction).</li>
+                      </ul>
+                    </div>
+                    
+                    <div className="overflow-x-auto">
+                      <table className="min-w-full bg-white border border-gray-300 mb-4">
+                        <thead>
+                          <tr className="bg-gray-100">
+                            <th className="py-2 px-4 border text-center">No</th>
+                            <th className="py-2 px-4 border text-left">Country/Jurisdiction of tax residence (no abbreviations)</th>
+                            <th className="py-2 px-4 border text-left">TIN (Taxpayer Identification Number e.g. Social Security Number)</th>
+                            <th className="py-2 px-4 border text-left">If no TIN is available, please enter Reason A, B or C</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td className="py-2 px-4 border text-center">1</td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-2 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-2 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border">
+                              <select className="w-full p-2 border border-gray-300 rounded-md">
+                                <option value="">Select a reason</option>
+                                <option value="A">Reason A</option>
+                                <option value="B">Reason B</option>
+                                <option value="C">Reason C</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 px-4 border text-center">2</td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-2 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-2 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border">
+                              <select className="w-full p-2 border border-gray-300 rounded-md">
+                                <option value="">Select a reason</option>
+                                <option value="A">Reason A</option>
+                                <option value="B">Reason B</option>
+                                <option value="C">Reason C</option>
+                              </select>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 px-4 border text-center">3</td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-2 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-2 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border">
+                              <select className="w-full p-2 border border-gray-300 rounded-md">
+                                <option value="">Select a reason</option>
+                                <option value="A">Reason A</option>
+                                <option value="B">Reason B</option>
+                                <option value="C">Reason C</option>
+                              </select>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    
+                    <div className="mb-6">
+                      <h4 className="font-semibold mb-2">Please explain in the following boxes why the Account Holder is unable to obtain a TIN if you selected Reason B above:</h4>
+                      <textarea 
+                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" 
+                        rows={4}
+                      ></textarea>
+                    </div>
+                    
+                    <div className="mb-6">
+                      <p className="mb-2 font-semibold">
+                        I declare I am ONLY a Tax Resident in the jurisdiction(s) listed above in Table A, even if (Hilbert Investment Solutions Ltd) has collected and holds addresses in other jurisdictions that are not listed above:
+                      </p>
+                      <div className="flex space-x-6 mb-4">
+                        <div className="flex items-center">
+                          <input type="radio" id="only-tax-yes" name="only-tax" value="yes" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                          <label htmlFor="only-tax-yes" className="text-base">Yes</label>
+                        </div>
+                        <div className="flex items-center">
+                          <input type="radio" id="only-tax-no" name="only-tax" value="no" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                          <label htmlFor="only-tax-no" className="text-base">No</label>
+                        </div>
+                      </div>
+                      
+                      <p className="text-sm mb-2">If you have ticked no, please provide a reason for this in the following box:</p>
+                      <textarea 
+                        className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" 
+                        rows={3}
+                      ></textarea>
+                    </div>
+                  </div>
+                  
+                  {/* PART 3: Jurisdiction of Citizenship */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PART 3: Jurisdiction of Citizenship (U.S. FATCA) (in Block Capitals)</h3>
+                    
+                    <div className="mb-6">
+                      <div className="flex items-start mb-4">
+                        <input 
+                          type="checkbox" 
+                          id="us-person-yes" 
+                          className="mr-2 mt-1 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" 
+                        />
+                        <label htmlFor="us-person-yes" className="text-base">
+                          I am a U.S. Person for tax purposes and my U.S. Taxpayer Identification Number (e.g., <i>TIN, social security number</i>) is:
+                        </label>
+                      </div>
+                      
+                      <div className="flex gap-2 mb-6 ml-8">
+                        <input type="text" className="w-10 h-10 p-2 border border-gray-300 rounded-md text-center" maxLength={1} />
+                        <input type="text" className="w-10 h-10 p-2 border border-gray-300 rounded-md text-center" maxLength={1} />
+                        <input type="text" className="w-10 h-10 p-2 border border-gray-300 rounded-md text-center" maxLength={1} />
+                        <span className="text-2xl self-center">-</span>
+                        <input type="text" className="w-10 h-10 p-2 border border-gray-300 rounded-md text-center" maxLength={1} />
+                        <input type="text" className="w-10 h-10 p-2 border border-gray-300 rounded-md text-center" maxLength={1} />
+                        <span className="text-2xl self-center">-</span>
+                        <input type="text" className="w-10 h-10 p-2 border border-gray-300 rounded-md text-center" maxLength={1} />
+                        <input type="text" className="w-10 h-10 p-2 border border-gray-300 rounded-md text-center" maxLength={1} />
+                        <input type="text" className="w-10 h-10 p-2 border border-gray-300 rounded-md text-center" maxLength={1} />
+                        <input type="text" className="w-10 h-10 p-2 border border-gray-300 rounded-md text-center" maxLength={1} />
+                      </div>
+                      
+                      <div className="flex items-start">
+                        <input 
+                          type="checkbox" 
+                          id="us-person-no" 
+                          className="mr-2 mt-1 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" 
+                        />
+                        <label htmlFor="us-person-no" className="text-base">
+                          I am <span className="font-bold">not</span> a U.S. Person for tax purposes.
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  {/* PART 4: Declarations and Signature */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PART 4: Declarations and Signature</h3>
+                    
+                    <p className="text-sm text-gray-700 mb-4">
+                      I understand that the information supplied by me is covered by the full provisions of the terms and conditions governing the Account Holder's relationship with Hilbert Investment Solutions Ltd setting out how Hilbert Investment Solutions Ltd may use and share the information supplied by me.
+                    </p>
+                    
+                    <p className="text-sm text-gray-700 mb-4">
+                      I acknowledge that the information contained in this form and information regarding the Account Holder and any Reportable Account(s) may be provided to the tax authorities of the country/jurisdiction in which this account(s) is/are maintained and exchanged with tax authorities of another country/jurisdiction or countries/jurisdictions in which the Account Holder may be tax resident pursuant to intergovernmental agreements to exchange financial account information.
+                    </p>
+                    
+                    <p className="text-sm text-gray-700 mb-6">
+                      I certify that I am the Account Holder (or am authorized to sign for the Account Holder) of all the account(s) to which this form relates.
+                    </p>
+                    
+                    <div className="mb-6">
+                      <p className="font-bold">I declare that all statements made in this declaration are, to the best of my knowledge and belief, correct and complete.</p>
+                      
+                      <p className="mt-4 mb-2">
+                        I undertake to advise Hilbert Investment Solutions Ltd within 30 days of any change in circumstances which affects the tax residency status of the individual identified in Part 1 of this form or causes the information contained herein to become incorrect or incomplete, and to provide Hilbert Investment Solutions Ltd with a suitably updated self-certification and Declaration within 30 days of such change in circumstances.
+                      </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Signature <span className="text-[#0066FF] ml-1">*</span></label>
+                        <div className="w-full p-6 border border-gray-300 rounded-md bg-white"></div>
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Print name <span className="text-[#0066FF] ml-1">*</span></label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Date <span className="text-[#0066FF] ml-1">*</span></label>
+                        <div className="relative">
+                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                          <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                              <line x1="16" y1="2" x2="16" y2="6"></line>
+                              <line x1="8" y1="2" x2="8" y2="6"></line>
+                              <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-4">
+                      <p className="text-sm text-gray-700 mb-2">
+                        <span className="font-medium">Note:</span> If you are not the Account Holder please indicate the capacity in which you are signing the form. If signing under a power of attorney please also attach a certified copy of the power of attorney.
+                      </p>
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Capacity <span className="text-xs text-gray-500">(if applicable)</span>:</label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {activeStep === 'documents' && (
+              <div>
+                <h2 className="text-lg font-semibold mb-4">Upload Documents</h2>
+                <div className="space-y-6">
+                  {/* Add document upload components here */}
+                </div>
+              </div>
+            )}
           </div>
           
           {/* Navigation Buttons */}
@@ -646,18 +2202,18 @@ const IndividualOnboarding = () => {
               >
                 {activeStep === steps[steps.length - 1].id ? 'Submit' : 'Next'}
               </Button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
+                    </div>
+                              </div>
+                    </div>
+                  </div>
+                  
       <div className="text-center">
         <p className="text-sm text-[#0066FF] font-thin italic mb-2">
           Hilbert Investment Solutions Ltd is regulated by the Dubai Financial Services Authority (DFSA) for the conduct of its business in and from the Dubai International Financial Centre (DIFC)
         </p>
-      </div>
+                    </div>
       <Footer />
-    </div>
+                  </div>
   );
 };
 
