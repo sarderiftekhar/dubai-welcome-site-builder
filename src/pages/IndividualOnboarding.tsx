@@ -2294,9 +2294,161 @@ const IndividualOnboarding = () => {
             
             {activeStep === 'documents' && (
               <div>
-                <h2 className="text-lg font-semibold mb-4">Upload Documents</h2>
+                <h2 className="text-lg font-semibold mb-4">Document Upload</h2>
                 <div className="space-y-6">
-                  {/* Add document upload components here */}
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <div className="mb-4">
+                      <p className="text-md text-gray-700 mb-3">
+                        Please upload the required documents to complete your application. Only one file can be uploaded at a time.
+                      </p>
+                      <p className="text-md text-gray-700 mb-3">
+                        Acceptable file formats: <span className="font-semibold">PDF, JPEG, PNG</span>
+                      </p>
+                      <p className="text-md text-gray-700 mb-3">
+                        Maximum file size: <span className="font-semibold">10MB</span> per upload
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">UPLOAD DOCUMENT</h3>
+                    
+                    {documentUploads.map((upload, index) => (
+                      <div key={upload.id} className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                        <div className="grid grid-cols-1 gap-6">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">Document Type</label>
+                            <select 
+                              className="w-full p-2 border border-gray-300 rounded-md"
+                              value={upload.type}
+                              onChange={(e) => {
+                                const newUploads = [...documentUploads];
+                                newUploads[index].type = e.target.value;
+                                setDocumentUploads(newUploads);
+                              }}
+                            >
+                              <option value="">Select document type</option>
+                              <option value="passport">Passport</option>
+                              <option value="visa">Visa</option>
+                              <option value="emirates_id">Emirates ID/National ID</option>
+                              <option value="proof_address">Proof of Address (not more than 3 months old)</option>
+                              <option value="utility_bill">Utility Bill</option>
+                              <option value="bank_statement">Bank Statement</option>
+                              <option value="payslip">Latest 3 months' Pay Slips</option>
+                              <option value="source_funds">Source of Funds Documentation</option>
+                              <option value="source_wealth">Source of Wealth Documentation</option>
+                              <option value="tax_id">Tax Identification Number (if applicable)</option>
+                              <option value="w8ben">Completed W-8BEN-E Form</option>
+                            </select>
+                          </div>
+                          
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-2">Upload File</label>
+                            <div className="flex items-center justify-center p-6 border-2 border-dashed border-gray-300 rounded-md bg-gray-50">
+                              <div className="text-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="mx-auto h-12 w-12 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                                </svg>
+                                <p className="mt-1 text-sm text-gray-600">Drag and drop your file here, or click to browse</p>
+                                <p className="mt-1 text-xs text-gray-500">PDF, JPEG, or PNG up to 10MB</p>
+                                <input 
+                                  type="file" 
+                                  className="hidden" 
+                                  accept=".pdf,.jpeg,.jpg,.png"
+                                  onChange={(e) => {
+                                    if (e.target.files && e.target.files[0]) {
+                                      const newUploads = [...documentUploads];
+                                      newUploads[index].file = e.target.files[0];
+                                      setDocumentUploads(newUploads);
+                                    }
+                                  }}
+                                />
+                                <button 
+                                  className="mt-3 px-4 py-2 bg-[#0066FF] text-white text-sm rounded-md hover:bg-[#0055DD]"
+                                  onClick={() => {
+                                    // Trigger the hidden file input
+                                    const fileInput = document.querySelectorAll('input[type="file"]')[index] as HTMLInputElement;
+                                    fileInput.click();
+                                  }}
+                                >
+                                  Browse Files
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {index === documentUploads.length - 1 && (
+                            <div className="flex justify-end space-x-3">
+                              <button 
+                                className="px-4 py-2 bg-gray-100 border border-gray-300 text-gray-700 text-sm rounded-md hover:bg-gray-200"
+                                onClick={addMoreDocuments}
+                              >
+                                Add More
+                              </button>
+                              <button className="px-4 py-2 bg-[#0066FF] text-white text-sm rounded-md hover:bg-[#0055DD]">
+                                Upload Document
+                              </button>
+                            </div>
+                          )}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">REQUIRED DOCUMENTS</h3>
+                    
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <h4 className="font-semibold text-[#0066FF] mb-3">For Individuals:</h4>
+                      <ul className="list-disc pl-6 space-y-2">
+                        <li>Valid and Certified passport copies</li>
+                        <li>Copy of valid UAE residence visa and Emirates ID (front and back) for UAE residents</li>
+                        <li>Utility bill, bank account statement, credit card statement or other certified document (less than 3 months old) reflecting your residential address</li>
+                        <li>Proof of Source of Wealth/Source of Income</li>
+                        <li>For salaried individuals - Latest 3 months' pay slips and 3 months' bank statements showing salary deposits</li>
+                        <li>For self-employed individuals - Business ownership documentation, financial statements, and bank statements</li>
+                        <li>For income from investments - Investment statements or confirmation of funds</li>
+                        <li>For income from property - Property ownership documents and rental agreements</li>
+                        <li>Completed W-8BEN-E Form (if applicable)</li>
+                      </ul>
+                      
+                      <div className="mt-4 bg-yellow-50 p-3 rounded-md border border-yellow-200">
+                        <p className="font-semibold">Important Notes:</p>
+                        <ul className="list-disc pl-6 mt-2">
+                          <li>ID documents, address proof and income documents need to be certified.</li>
+                          <li>All documents must be in English or accompanied by a certified translation.</li>
+                          <li>Electronic copies of documents must be clear and legible.</li>
+                        </ul>
+                      </div>
+                    </div>
+                    
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <h4 className="font-semibold text-[#0066FF] mb-3">Uploaded Documents</h4>
+                      <div className="overflow-x-auto">
+                        <table className="min-w-full divide-y divide-gray-200">
+                          <thead className="bg-gray-50">
+                            <tr>
+                              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Document Type</th>
+                              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">File Name</th>
+                              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Date Uploaded</th>
+                              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
+                              <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+                            </tr>
+                          </thead>
+                          <tbody className="bg-white divide-y divide-gray-200">
+                            {/* Example row - this will be replaced with real data */}
+                            <tr>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">No documents uploaded yet</td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
+                              <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             )}
