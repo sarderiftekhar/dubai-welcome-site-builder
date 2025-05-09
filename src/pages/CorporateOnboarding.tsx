@@ -89,6 +89,19 @@ const CorporateOnboarding = () => {
     setDocumentUploads([...documentUploads, newUpload]);
   };
 
+  // Modify remove functions to remove the last entry instead of a specific one
+  const removeUboEntry = () => {
+    if (uboEntries.length > 1) {
+      setUboEntries(uboEntries.slice(0, -1));
+    }
+  };
+
+  const removeSeniorManagementEntry = () => {
+    if (seniorManagementEntries.length > 1) {
+      setSeniorManagementEntries(seniorManagementEntries.slice(0, -1));
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <Navbar />
@@ -421,7 +434,17 @@ const CorporateOnboarding = () => {
                           ))}
                         </tbody>
                       </table>
-                      <div className="flex justify-end mb-4">
+                      <div className="flex justify-end mb-4 space-x-3">
+                        <button 
+                          className="px-4 py-2 bg-red-500 text-white text-sm rounded-md hover:bg-red-600 flex items-center"
+                          onClick={removeUboEntry}
+                          disabled={uboEntries.length <= 1}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+                          </svg>
+                          Remove UBO
+                        </button>
                         <button 
                           className="px-4 py-2 bg-[#0066FF] text-white text-sm rounded-md hover:bg-[#0055DD] flex items-center"
                           onClick={() => {
@@ -483,7 +506,17 @@ const CorporateOnboarding = () => {
                           ))}
                         </tbody>
                       </table>
-                      <div className="flex justify-end my-4">
+                      <div className="flex justify-end my-4 space-x-3">
+                        <button 
+                          className="px-4 py-2 bg-red-500 text-white text-sm rounded-md hover:bg-red-600 flex items-center"
+                          onClick={removeSeniorManagementEntry}
+                          disabled={seniorManagementEntries.length <= 1}
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
+                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM7 9a1 1 0 000 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+                          </svg>
+                          Remove Person
+                        </button>
                         <button 
                           className="px-4 py-2 bg-[#0066FF] text-white text-sm rounded-md hover:bg-[#0055DD] flex items-center"
                           onClick={() => {
