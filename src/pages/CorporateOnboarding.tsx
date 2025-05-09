@@ -1590,26 +1590,35 @@ const CorporateOnboarding = () => {
                   <div className="bg-blue-50 p-4 rounded-md mb-6">
                     <h3 className="text-blue-800 font-bold text-lg mb-4">OTHER CLASSIFICATIONS</h3>
                     
-                    {/* Retail Client */}
-                    <div className="mb-4 border border-gray-300 bg-white p-4 rounded-md">
-                      <div className="flex items-start">
-                        <input type="checkbox" id="retailClient" className="mr-2 mt-1 h-6 w-6" />
-                        <div>
-                          <label htmlFor="retailClient" className="font-semibold">2. □ Retail Clients:</label>
-                          <span> An Authorized Firm must classify as a Retail Client any Person who is not classified as a Professional Client or a Market Counterparty.</span>
-                        </div>
-                      </div>
-                    </div>
-                    
-                    {/* Market Counterparty */}
-                    <div className="mb-6 border border-gray-300 bg-white p-4 rounded-md">
-                      <div className="flex items-start">
-                        <input type="checkbox" id="marketCounterparty" className="mr-2 mt-1 h-6 w-6" />
-                        <div>
-                          <label htmlFor="marketCounterparty" className="font-semibold">3. □ Market Counterparty</label>
-                          <p>Market Counterparty is potential client meeting the definition of a 'deemed' Professional Client or is an assessed Professional Client which is wholly owned by a Holding Company that is a 'deemed' Professional Client and who has been given a prior written notification of the classification as a Market Counterparty and that potential client has not requested to be classified otherwise within the period specified in the notice.</p>
-                        </div>
-                      </div>
+                    {/* Convert to 3-column table */}
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <table className="w-full">
+                        <tbody>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top" style={{ width: "40px" }}>
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1 pr-2 align-top" style={{ width: "30px" }}>
+                              <span className="font-semibold">2</span>
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"><span className="font-semibold">Retail Clients:</span> An Authorized Firm must classify as a Retail Client any Person who is not classified as a Professional Client or a Market Counterparty.</p>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="py-1 pr-2 align-top">
+                              <input type="checkbox" className="h-5 w-5" />
+                            </td>
+                            <td className="py-1 pr-2 align-top">
+                              <span className="font-semibold">3</span>
+                            </td>
+                            <td className="py-1">
+                              <p className="text-md"><span className="font-semibold">Market Counterparty</span></p>
+                              <p className="text-md">Market Counterparty is potential client meeting the definition of a 'deemed' Professional Client or is an assessed Professional Client which is wholly owned by a Holding Company that is a 'deemed' Professional Client and who has been given a prior written notification of the classification as a Market Counterparty and that potential client has not requested to be classified otherwise within the period specified in the notice.</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
                     </div>
                   </div>
                   
@@ -1638,32 +1647,823 @@ const CorporateOnboarding = () => {
               <div>
                 <h2 className="text-xl font-semibold mb-4">FATCA Declaration</h2>
                 <div className="space-y-6">
-                  <div className="border-b pb-4">
-                    <p className="mb-2 text-sm text-gray-600">Under the Foreign Account Tax Compliance Act (FATCA), we are required to identify entities that are US Persons for tax purposes.</p>
+                  <div className="bg-gray-50 p-4 rounded-md mb-6 border border-gray-200">
+                    <div className="mb-4">
+                      <h3 className="text-lg font-bold text-gray-700 mb-2">OECD CRS and U.S FATCA Self-Certification Form for Entity and Controlling Person</h3>
+                      <p className="text-md text-gray-700 mb-3">
+                        Tax legislation including US Foreign Account Tax Compliance Act (FATCA), OECD Common Reporting Standard (CRS) and their local laws and regulations require Hilbert Investment Solutions Ltd to share, transmit and report the information in this Form and the relevant documents and information to the local tax authority of the client, the tax authority of the place of incorporation of the relevant entity(ies) and/or to third party (for example the bank) who has similar reporting obligations under the relevant tax Regulations.
+                      </p>
+                      <p className="text-md text-gray-700 mb-3">
+                        Hilbert Investment Solutions Ltd does not give legal and tax advice. Any queries regarding this form, the terms, about CRS and/or FATCA, please contact your tax or legal and/or other professional advisor.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* PART A - Entity Account Holder */}
+                  <div className="bg-blue-50 p-4 rounded-md mb-6">
+                    <h3 className="text-blue-800 font-bold text-lg mb-4">PART A - Entity Account Holder</h3>
+                    <p className="mb-2 italic text-gray-700">(For joint or multiple account holders, complete a separate form for each entity account holder)</p>
+                    
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <h4 className="font-semibold text-blue-700 mb-3">General Information</h4>
+                      
+                      <div className="grid grid-cols-1 gap-4 mb-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Entity Name:</label>
+                          <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Registered Address:</label>
+                          <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Street, No.:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Town/City:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Country:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Postal Code/ZIP Code (if any):</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <h4 className="font-semibold text-blue-700 mb-3 mt-4">Mailing Address (if different from the Registered Address)</h4>
+                      
+                      <div className="grid grid-cols-1 gap-4 mb-4">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Street, No.:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Town/City:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                        </div>
+                        
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Country:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Postal Code/ZIP Code (if any):</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 gap-4 mb-4">
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Place of Incorporation:</label>
+                          <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        </div>
+                        
+                        <div>
+                          <label className="block text-sm font-medium text-gray-700 mb-1">Business Registration No/local equivalent:</label>
+                          <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <h4 className="font-semibold text-blue-700 mb-3">Tax Residence</h4>
+                      <p className="mb-2 italic text-gray-700">(If the entity has multiple countries of tax residency, please list out all the relevant information below)</p>
+                      
+                      <table className="w-full mb-4">
+                        <thead>
+                          <tr className="bg-gray-100">
+                            <th className="py-2 px-4 border text-left">Country of residence for tax purposes</th>
+                            <th className="py-2 px-4 border text-left">Tax Identification Number (TIN) or functional equivalent</th>
+                            <th className="py-2 px-4 border text-left">If no TIN or functional equivalent is available, tick below for the reason of choosing "no TIN"</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border">
+                              <div className="space-y-2">
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Tax residence jurisdiction does not issue TINs to its residents.</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Tax residence jurisdiction does not require the collection of TIN.</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Other (please specify): <input type="text" className="w-64 p-1 border border-gray-300 rounded-md" /></p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border">
+                              <div className="space-y-2">
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Tax residence jurisdiction does not issue TINs to its residents.</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Tax residence jurisdiction does not require the collection of TIN.</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Other (please specify): <input type="text" className="w-64 p-1 border border-gray-300 rounded-md" /></p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                      <div className="space-y-3 mt-4">
+                        <div className="flex items-start">
+                          <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                          <p className="text-md">If your tax residence is not where you are incorporated/registered, please provide a certified true copy of a government issued document of at least on the country(ry) which you are a tax resident of.</p>
+                        </div>
+                        <div className="flex items-start">
+                          <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                          <p className="text-md">If you are not a tax resident in any jurisdiction, please indicate the place of effective management: <input type="text" className="w-64 p-1 border border-gray-300 rounded-md" /></p>
+                        </div>
+                        <div className="flex items-start">
+                          <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                          <p className="text-md">The entity is a branch, and its head office is a tax resident in the declared country of tax residence.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* PART B - Declaration of US FATCA */}
+                  <div className="bg-blue-50 p-4 rounded-md mb-6">
+                    <h3 className="text-blue-800 font-bold text-lg mb-4">PART B - Declaration of US FATCA</h3>
+                    
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <table className="w-full">
+                        <tbody>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top" style={{ width: "40px" }}>
+                              <span className="font-semibold">1.</span>
+                            </td>
+                            <td className="py-1 pr-2 align-top" style={{ width: "80px" }}>
+                              <span className="font-semibold">US Person</span>
+                            </td>
+                            <td className="py-1">
+                              <div className="space-y-3">
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">The entity is a US Person pursuant to the FATCA regulation.</p>
+                                </div>
+                                <div className="ml-8 italic">(Please proceed directly to PART C)</div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">The entity is NOT a US Person pursuant to the FATCA Regulation</p>
+                                </div>
+                                <div className="ml-8 italic">(If you tick this option, proceed to 2. Below)</div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr className="border-b border-gray-100">
+                            <td className="py-1 pr-2 align-top">
+                              <span className="font-semibold">2.</span>
+                            </td>
+                            <td className="py-1 pr-2 align-top">
+                              <span className="font-semibold">Classification</span>
+                            </td>
+                            <td className="py-1 italic">
+                              (Please tick appropriate option)
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                      <div className="ml-12 mt-3 space-y-3">
+                        <div className="flex items-start">
+                          <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                          <div>
+                            <p className="text-md">The entity is a registered Financial Institution</p>
+                            <div className="mt-2 mb-4">
+                              <label className="block text-sm font-medium text-gray-700 mb-1">The entity's Global Intermediary Identification Number (GIIN) obtained for US FATCA purpose is:</label>
+                              <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="flex items-start">
+                          <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                          <p className="text-md">The entity is a Financial Institution and has not yet obtained a GIIN but intends to do so</p>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <h4 className="font-semibold text-blue-700 mb-3">2.1 FATCA Status</h4>
+                      
+                      <div className="mb-4 bg-gray-50 p-3 rounded-md">
+                        <h5 className="font-semibold mb-2">Financial Institution</h5>
+                        <div className="space-y-2 ml-4">
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Non- Participating FFI (including an FFI related to a Reporting IGA FFI other than a deemed-complaint FFI, participating FFI or exempt beneficial owner).</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Reporting Model 1 FFP*</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Reporting Model 2 FFI*</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Registered deemed complaint FFP*</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Trustee-documented trust**</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Sponsored investment entity**</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Non-reporting IGA FFI (other than Trustee-documented trust)</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mb-4 bg-gray-50 p-3 rounded-md">
+                        <h5 className="font-semibold mb-2">Certified deemed-complaint FFI (please specify the category by checking one box only)</h5>
+                        <div className="space-y-2 ml-4">
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Non-registered Local Bank</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">FFI with only low-value accounts</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Sponsored, closely held investment vehicle**</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Limited life debt investment entity</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Investment advisors and investment managers</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Territory financial institution</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Owner-documented FFI</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Limited Branch</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mb-4 bg-gray-50 p-3 rounded-md">
+                        <h5 className="font-semibold mb-2">Exempt Beneficial Owner</h5>
+                        <div className="space-y-2 ml-4">
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Exempt Beneficial Owner</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mb-4 bg-gray-50 p-3 rounded-md">
+                        <h5 className="font-semibold mb-2">Non-Financial Entity</h5>
+                        <div className="space-y-2 ml-4">
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Active NFFE</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Passive NFFE (please complete PART D for Controlling Person)</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Non-financial group entity</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Excepted non-financial start-up company.</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Excepted non-financial entity in liquidation or bankruptcy.</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Section 501(c) organization (your exempted status has been confirmed by IRS or with a legal opinion to support the exemption)</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Non-profit organization</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Publicly traded NFFE or NFFE affiliate of a publicly traded corporation</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Excepted territory NFFE</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Direct reporting NFFE*</p>
+                          </div>
+                          <div className="flex items-start">
+                            <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                            <p className="text-md">Sponsored direct reporting NFFE**</p>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mb-4">
+                        <p className="mb-2 font-medium">*Please provide the entity's GIIN obtained for FATCA Purposes:</p>
+                        <div className="grid grid-cols-8 gap-2 mb-4">
+                          <input type="text" className="p-2 border border-gray-300 rounded-md" />
+                          <input type="text" className="p-2 border border-gray-300 rounded-md" />
+                          <input type="text" className="p-2 border border-gray-300 rounded-md" />
+                          <input type="text" className="p-2 border border-gray-300 rounded-md" />
+                          <input type="text" className="p-2 border border-gray-300 rounded-md" />
+                          <input type="text" className="p-2 border border-gray-300 rounded-md" />
+                          <input type="text" className="p-2 border border-gray-300 rounded-md" />
+                          <input type="text" className="p-2 border border-gray-300 rounded-md" />
+                        </div>
+                        <p className="mb-2">**If the entity is a Trustee-documented trust, please provide the GIIN of the trust company.</p>
+                        <p className="mb-2">If the entity is a Sponsored investment entity, please provide the sponsored entity's GIIN.</p>
+                        <p className="mb-2">If the entity is a Sponsored, closely held investment vehicle or a Sponsored direct reporting NFFE, please provide the sponsoring GIIN of the sponsoring entity.</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* PART C - Declaration of CRS Classification */}
+                  <div className="bg-blue-50 p-4 rounded-md mb-6">
+                    <h3 className="text-blue-800 font-bold text-lg mb-4">PART C - Declaration of CRS Classification</h3>
+                    <p className="mb-2 italic text-gray-700">(Please complete this part by ticking the following box to provide your CRS entity type that does not necessarily coincide with your entity type under Part a: US FATCA Classification)</p>
+                    
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <table className="w-full mb-4">
+                        <thead>
+                          <tr className="bg-gray-100">
+                            <th className="w-1/4 py-2 px-4 border text-left font-medium">Classification</th>
+                            <th className="w-3/4 py-2 px-4 border text-left font-medium">Description (Check appropriate option)</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr className="border-b">
+                            <td className="py-2 px-4 border align-top font-medium">Financial Institution</td>
+                            <td className="py-2 px-4 border">
+                              <div className="space-y-2">
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Custodial Institution, Depository Institution or Specified Insurance Company (including a Non-reporting Financial Institution)</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Investment Entity located in a Non-Participating Jurisdiction and managed by another Financial Institution</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Financial Institution (please complete PART D for Controlling Person)</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Other Investment Entity than the above.</p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="py-2 px-4 border align-top font-medium">Non-Reporting Financial Institution</td>
+                            <td className="py-2 px-4 border">
+                              <div className="space-y-2">
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Government entity, international organisation, or central bank</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Broad Participation Retirement Fund</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Narrow Participation Retirement Fund</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Pension Fund of a Government entity, international organization, or central bank</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Exempt Collective Investment Vehicle</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Trust whose trustee reports all required information with respect to all CRS Reportable Accounts</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Qualified Credit Card Issuer</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Other entity defined under the domestic law as low risk of being used to evade tax.</p>
+                                </div>
+                                <div>
+                                  <span className="ml-8">(Specify the type provided in the domestic law: <input type="text" className="w-64 p-1 border border-gray-300 rounded-md" />)</span>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="py-2 px-4 border align-top font-medium">Active NFE</td>
+                            <td className="py-2 px-4 border">
+                              <div className="space-y-2">
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">NFE the stock of which is regularly traded on: <input type="text" className="w-48 p-1 border border-gray-300 rounded-md" /></p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Related entity of <input type="text" className="w-48 p-1 border border-gray-300 rounded-md" /> the stock of which is regularly traded, which is an established securities market.</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">NFE is a governmental entity, an international organization, a central bank, or an entity wholly owned by one or more of foregoing entities.</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Active NFE other than the above (Please Specify): <input type="text" className="w-48 p-1 border border-gray-300 rounded-md" /></p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 px-4 border align-top font-medium">Passive NFE</td>
+                            <td className="py-2 px-4 border">
+                              <div className="space-y-2">
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Investment entity that is managed by another Financial Institution and located in a non- participating jurisdiction.</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">NFE that is not an active NFE.</p>
+                                </div>
+                                <div>
+                                  <p className="italic ml-8">(If you ticked this option, please complete the PART D for Controlling Person below)</p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  {/* PART D - Controlling Person */}
+                  <div className="bg-blue-50 p-4 rounded-md mb-6">
+                    <h3 className="text-blue-800 font-bold text-lg mb-4">PART D - Controlling Person</h3>
+                    <p className="mb-2 italic text-gray-700">(only complete this part if the entity type selected under PART C)</p>
+                    
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <h4 className="font-semibold text-blue-700 mb-3">1. Controlling Person Details</h4>
+                      
+                      {/* Controlling Person #1 */}
+                      <div className="mb-6 border border-gray-200 p-4 rounded-md">
+                        <h5 className="font-semibold text-blue-700 mb-3">Controlling Person #1</h5>
+                        <div className="grid grid-cols-1 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Name:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Registered Address:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Mailing Address (if different from the above):</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                              <label className="block text-sm font-medium text-gray-700 mb-1">Date of Birth (dd/mm/yyyy):</label>
+                              <input type="date" className="w-full p-2 border border-gray-300 rounded-md" />
+                            </div>
+                            <div>
+                              <label className="block text-sm font-medium text-gray-700 mb-1">Place of Birth (City/Town and Country):</label>
+                              <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Controlling Person #2 */}
+                      <div className="mb-6 border border-gray-200 p-4 rounded-md">
+                        <h5 className="font-semibold text-blue-700 mb-3">Controlling Person #2</h5>
+                        <div className="grid grid-cols-1 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Name:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Registered Address:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Mailing Address (if different from the above):</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                              <label className="block text-sm font-medium text-gray-700 mb-1">Date of Birth (dd/mm/yyyy):</label>
+                              <input type="date" className="w-full p-2 border border-gray-300 rounded-md" />
+                            </div>
+                            <div>
+                              <label className="block text-sm font-medium text-gray-700 mb-1">Place of Birth (City/Town and Country):</label>
+                              <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      {/* Controlling Person #3 */}
+                      <div className="mb-6 border border-gray-200 p-4 rounded-md">
+                        <h5 className="font-semibold text-blue-700 mb-3">Controlling Person #3</h5>
+                        <div className="grid grid-cols-1 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Name:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Registered Address:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Mailing Address (if different from the above):</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                              <label className="block text-sm font-medium text-gray-700 mb-1">Date of Birth (dd/mm/yyyy):</label>
+                              <input type="date" className="w-full p-2 border border-gray-300 rounded-md" />
+                            </div>
+                            <div>
+                              <label className="block text-sm font-medium text-gray-700 mb-1">Place of Birth (City/Town and Country):</label>
+                              <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <h4 className="font-semibold text-blue-700 mb-3">2. Tax Residence</h4>
+                      <p className="mb-3">All Controlling Persons must complete this section.</p>
+                      <p className="mb-3 italic">If you have multiple countries of tax residency, please list out all the relevant information below.</p>
+                      
+                      <table className="w-full mb-4">
+                        <thead>
+                          <tr className="bg-gray-100">
+                            <th className="py-2 px-4 border text-left">Name of Controlling Person</th>
+                            <th className="py-2 px-4 border text-left">Country of residence for tax purposes</th>
+                            <th className="py-2 px-4 border text-left">TIN</th>
+                            <th className="py-2 px-4 border text-left">If no TIN or is available, tick below for the reason of choosing "no TIN"</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border">
+                              <div className="space-y-2">
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Tax residence jurisdiction does not issue TINs to its residents</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Tax residence jurisdiction does not require the collection of TIN.</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Other (please specify): <input type="text" className="w-48 p-1 border border-gray-300 rounded-md" /></p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border">
+                              <div className="space-y-2">
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Tax residence jurisdiction does not issue TINs to its residents</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Tax residence jurisdiction does not require the collection of TIN.</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Other (please specify): <input type="text" className="w-48 p-1 border border-gray-300 rounded-md" /></p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border"><input type="text" className="w-full p-1 border border-gray-300 rounded-md" /></td>
+                            <td className="py-2 px-4 border">
+                              <div className="space-y-2">
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Tax residence jurisdiction does not issue TINs to its residents</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Tax residence jurisdiction does not require the collection of TIN.</p>
+                                </div>
+                                <div className="flex items-start">
+                                  <input type="checkbox" className="mr-2 mt-1 h-5 w-5" />
+                                  <p className="text-md">Other (please specify): <input type="text" className="w-48 p-1 border border-gray-300 rounded-md" /></p>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      
+                      <h4 className="font-semibold text-blue-700 mb-3">Types of Controlling Person</h4>
+                      <table className="w-full mb-4">
+                        <tbody>
+                          <tr className="border-b">
+                            <td className="py-2 px-4 border font-medium" style={{ width: "20%" }}>Legal Person:</td>
+                            <td className="py-2 px-4 border">
+                              <div className="flex flex-wrap gap-4">
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Control by Ownership</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Control by other means</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Senior Managing Official</span>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="py-2 px-4 border font-medium">Legal Arrangement - Trust:</td>
+                            <td className="py-2 px-4 border">
+                              <div className="flex flex-wrap gap-4">
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Settlor</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Trustee</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Protector</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Beneficiary</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Other</span>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                          <tr className="border-b">
+                            <td className="py-2 px-4 border font-medium">Legal Arrangement - Other:</td>
+                            <td className="py-2 px-4 border">
+                              <div className="flex flex-wrap gap-4">
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Settlor Equivalent</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Trustee Equivalent</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Protector Equivalent</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Beneficiary Equivalent</span>
+                                </div>
+                                <div className="flex items-center">
+                                  <input type="checkbox" className="mr-2 h-5 w-5" />
+                                  <span>Other Equivalent</span>
+                                </div>
+                              </div>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
                   </div>
                   
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">FATCA Classification</label>
-                      <select className="w-full p-2 border border-gray-300 rounded-md">
-                        <option>Select FATCA status</option>
-                        <option>Foreign Financial Institution (FFI)</option>
-                        <option>Non-Financial Foreign Entity (NFFE)</option>
-                        <option>US Entity</option>
-                        <option>Exempt entity</option>
-                      </select>
-                    </div>
+                  {/* PART E - Declaration & Signature */}
+                  <div className="bg-blue-50 p-4 rounded-md mb-6">
+                    <h3 className="text-blue-800 font-bold text-lg mb-4">PART E - Declaration & Signature</h3>
+                    <p className="mb-3 italic">(to be given signed by the Entity Account Holder and ALL Controlling Person(s))</p>
                     
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-1">Global Intermediary Identification Number (GIIN), if applicable</label>
-                      <input type="text" className="w-full p-2 border border-gray-300 rounded-md" placeholder="e.g. ABCDEF.12345.LE.123" />
-                    </div>
-                    
-                    <div className="flex items-start space-x-3">
-                      <input type="checkbox" id="fatca-confirm" className="mt-1 h-6 w-6" />
-                      <div>
-                        <label htmlFor="fatca-confirm" className="font-medium text-gray-700">Confirmation</label>
-                        <p className="text-sm text-gray-500">I confirm that the information provided above is true and accurate. I understand that Hilbert Investment Solutions Ltd may need to report certain information to tax authorities.</p>
+                    <div className="border border-gray-300 bg-white p-4 mb-4 rounded-md">
+                      <p className="mb-3 text-md">I/We certify that as the account holder (or am authorized to sign for the account holder) of all the account(s) to which this form relates.</p>
+                      <p className="mb-3 text-md">I/We understand that the information I have provided is covered by the Privacy Notice and the terms and conditions governing the account holder's relationship with [Hilbert Investment Solutions Ltd], in particular how [Hilbert Investment Solutions Ltd] may use and share it.</p>
+                      <p className="mb-3 text-md">I/We acknowledge that [Hilbert Investment Solutions Ltd] may share this information with the authorities of the country(ies)/jurisdiction(s) where the account(s) are held, and that those tax authorities may exchange this information between themselves as part of the intergovernmental agreements to exchange Financial Account information. If I have completed this form on behalf of the Controlling Person, I certify that I have their authority and that all relevant individuals have been made aware of the Privacy Notice, and the individual rights and information it sets out. I will notify them within 30 days of signing this form that I have provided this information to [Hilbert Investment Solutions Ltd] and that it may be passed to the tax authorities of all countries/jurisdictions where the account holder maintains accounts.</p>
+                      <p className="mb-3 text-md">I declare that all statements made in this declaration are, to the best of my knowledge and belief, correct and complete.</p>
+                      
+                      <div className="mt-6 border border-gray-300 p-4 rounded-md mb-4">
+                        <h4 className="font-semibold mb-2">The Entity Account Holder/ Controlling Person</h4>
+                        <div className="grid grid-cols-1 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Name:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Capacity:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Signature:</label>
+                            <div className="w-full h-20 p-2 border border-gray-300 rounded-md"></div>
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Date:</label>
+                            <input type="date" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="mt-6 border border-gray-300 p-4 rounded-md mb-4">
+                        <h4 className="font-semibold mb-2">The Entity Account Holder/ Controlling Person</h4>
+                        <div className="grid grid-cols-1 gap-4">
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Name:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Capacity:</label>
+                            <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Signature:</label>
+                            <div className="w-full h-20 p-2 border border-gray-300 rounded-md"></div>
+                          </div>
+                          <div>
+                            <label className="block text-sm font-medium text-gray-700 mb-1">Date:</label>
+                            <input type="date" className="w-full p-2 border border-gray-300 rounded-md" />
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
