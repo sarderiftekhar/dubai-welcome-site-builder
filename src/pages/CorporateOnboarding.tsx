@@ -108,7 +108,7 @@ const CorporateOnboarding = () => {
                         isCompleted 
                           ? 'bg-green-100 border-2 border-green-500' 
                           : isActive 
-                            ? 'bg-[#E5F0FF] border-2 border-[#0066FF]' 
+                            ? 'bg-[#EFF6FF] border-2 border-[#0066FF]' 
                             : 'bg-gray-100 border-2 border-gray-300'
                       }`}>
                         {renderIcon(step.icon, isCompleted, isActive)}
@@ -138,36 +138,64 @@ const CorporateOnboarding = () => {
           <div className="mb-6 p-6 border border-gray-200 rounded-md">
             {activeStep === 'kyc' && (
               <div>
-                <h2 className="text-xl font-semibold mb-4">Know Your Customer – Corporate Due Diligence Form</h2>
+                <h2 className="text-lg font-semibold mb-4">Know Your Customer – Corporate Due Diligence Form</h2>
                 <div className="space-y-6">
                   {/* CLIENT IDENTIFICATION DETAILS */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">CLIENT IDENTIFICATION DETAILS</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">CLIENT IDENTIFICATION DETAILS</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Full Name <span className="text-xs text-gray-500">as per the License</span></label>
-                        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Full Name <span className="text-[#0066FF] ml-1">*</span> 
+                          <span className="text-xs text-gray-500 ml-1">as per the License</span>
+                        </label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Legal Form</label>
-                        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Legal Form <span className="text-[#0066FF] ml-1">*</span>
+                        </label>
+                        <select className="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none">
+                          <option value="">Select an option</option>
+                          <option value="LLC">LLC</option>
+                          <option value="Corporation">Corporation</option>
+                          <option value="Partnership">Partnership</option>
+                        </select>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Licensing Authority</label>
-                        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Licensing Authority
+                        </label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">If the Company is Listed, then indicate the Stock Exchange</label>
-                        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          If the Company is Listed, then indicate the Stock Exchange
+                        </label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Date of Incorporation/Registration</label>
-                        <input type="date" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Date of Incorporation/Registration
+                        </label>
+                        <div className="relative">
+                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                          <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                              <line x1="16" y1="2" x2="16" y2="6"></line>
+                              <line x1="8" y1="2" x2="8" y2="6"></line>
+                              <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                          </button>
+                        </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Country of Incorporation/Registration</label>
-                        <select className="w-full p-2 border border-gray-300 rounded-md">
-                          <option value="">Select country</option>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">
+                          Country of Incorporation/Registration
+                        </label>
+                        <select className="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none">
+                          <option value="">Select an option</option>
                           <option value="AE">United Arab Emirates</option>
                           <option value="UK">United Kingdom</option>
                           <option value="US">United States</option>
@@ -178,124 +206,144 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* CLIENT IDENTIFICATION DOCUMENT DETAILS */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">CLIENT IDENTIFICATION DOCUMENT DETAILS</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">CLIENT IDENTIFICATION DOCUMENT DETAILS</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">License Number</label>
-                        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">License Number <span className="text-[#0066FF] ml-1">*</span></label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Issue Date of the License</label>
-                        <input type="date" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Issue Date of the License</label>
+                        <div className="relative">
+                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                          <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                              <line x1="16" y1="2" x2="16" y2="6"></line>
+                              <line x1="8" y1="2" x2="8" y2="6"></line>
+                              <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                          </button>
+                        </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Expiry Date of the License</label>
-                        <input type="date" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Expiry Date of the License</label>
+                        <div className="relative">
+                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                          <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                              <line x1="16" y1="2" x2="16" y2="6"></line>
+                              <line x1="8" y1="2" x2="8" y2="6"></line>
+                              <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                          </button>
+                        </div>
                       </div>
                       <div className="md:col-span-3">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Tax Identification Number</label>
-                        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Tax Identification Number</label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                     </div>
                   </div>
 
                   {/* CONTACT DETAILS */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">CONTACT DETAILS</h3>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">CONTACT DETAILS</h3>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
-                        <input type="tel" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Mobile Number <span className="text-[#0066FF] ml-1">*</span></label>
+                        <input type="tel" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
-                        <input type="email" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Email Address <span className="text-[#0066FF] ml-1">*</span></label>
+                        <input type="email" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Website</label>
-                        <input type="url" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Website</label>
+                        <input type="url" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Office Landline Number <span className="text-xs text-gray-500">with Country Code</span></label>
-                        <input type="tel" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Office Landline Number <span className="text-xs text-gray-500 ml-1">with Country Code</span></label>
+                        <input type="tel" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div className="md:col-span-2">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Registered Office Address</label>
-                        <textarea className="w-full p-2 border border-gray-300 rounded-md" rows={3}></textarea>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Registered Office Address <span className="text-[#0066FF] ml-1">*</span></label>
+                        <textarea className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" rows={3}></textarea>
                       </div>
                       <div className="md:col-span-2">
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Business Address <span className="text-xs text-gray-500">if applicable</span></label>
-                        <textarea className="w-full p-2 border border-gray-300 rounded-md" rows={3}></textarea>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Business Address <span className="text-xs text-gray-500 ml-1">if applicable</span></label>
+                        <textarea className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" rows={3}></textarea>
                       </div>
                     </div>
                   </div>
 
                   {/* BUSINESS ACTIVITY / FINANCIAL INFORMATION */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">BUSINESS ACTIVITY / FINANCIAL INFORMATION</h3>
-                    <div className="grid grid-cols-1 gap-4">
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">BUSINESS ACTIVITY / FINANCIAL INFORMATION</h3>
+                    <div className="grid grid-cols-1 gap-x-6 gap-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Type of Business Activities <span className="text-xs text-gray-500">as per the License</span></label>
-                        <textarea className="w-full p-2 border border-gray-300 rounded-md" rows={2}></textarea>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Type of Business Activities <span className="text-xs text-gray-500 ml-1">as per the License</span></label>
+                        <textarea className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" rows={2}></textarea>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Does the company have any direct or indirect subsidiaries? <span className="text-xs text-gray-500">If yes, then please provide details</span></label>
-                        <textarea className="w-full p-2 border border-gray-300 rounded-md" rows={2}></textarea>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Does the company have any direct or indirect subsidiaries? <span className="text-xs text-gray-500 ml-1">If yes, then please provide details</span></label>
+                        <textarea className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" rows={2}></textarea>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Target Market</label>
-                        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Target Market</label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Main Product/s</label>
-                        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Main Product/s</label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Expected Annual Turnover for the Current Year</label>
-                        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Expected Annual Turnover for the Current Year</label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">No. of Employees within the Company</label>
-                        <input type="number" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">No. of Employees within the Company</label>
+                        <input type="number" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                     </div>
                   </div>
 
                   {/* NATURE AND PURPOSE OF RELATIONSHIP */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">NATURE AND PURPOSE OF RELATIONSHIP WITH HILBERT INVESTMENT SOLUTIONS LTD</h3>
-                    <div className="grid grid-cols-1 gap-4">
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">NATURE AND PURPOSE OF RELATIONSHIP WITH HILBERT INVESTMENT SOLUTIONS LTD</h3>
+                    <div className="grid grid-cols-1 gap-x-6 gap-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Purpose of relationship</label>
-                        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Purpose of relationship <span className="text-[#0066FF] ml-1">*</span></label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Please provide details of your source of funds <span className="text-xs text-gray-500">Specify</span></label>
-                        <textarea className="w-full p-2 border border-gray-300 rounded-md" rows={2}></textarea>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Please provide details of your source of funds <span className="text-xs text-gray-500 ml-1">Specify</span></label>
+                        <textarea className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" rows={2}></textarea>
                       </div>
                     </div>
                   </div>
 
                   {/* CORPORATE SHAREHOLDING DETAILS */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">CORPORATE SHAREHOLDING DETAILS</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">CORPORATE SHAREHOLDING DETAILS</h3>
                     <div className="overflow-x-auto">
-                      <table className="min-w-full bg-white border border-gray-300 mb-4">
+                      <table className="min-w-full bg-white border border-gray-300 mb-6">
                         <thead>
                           <tr className="bg-gray-100">
-                            <th className="py-2 px-4 border-b text-left">Name of the Shareholder/Owners/Partners</th>
-                            <th className="py-2 px-4 border-b text-left">Shareholding Percentage %</th>
+                            <th className="py-3 px-4 border-b text-left">Name of the Shareholder/Owners/Partners <span className="text-[#0066FF]">*</span></th>
+                            <th className="py-3 px-4 border-b text-left">Shareholding Percentage % <span className="text-[#0066FF]">*</span></th>
                           </tr>
                         </thead>
                         <tbody>
                           {[...Array(3)].map((_, index) => (
                             <tr key={index}>
-                              <td className="py-2 px-4 border-b">
-                                <input type="text" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <input type="text" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
-                              <td className="py-2 px-4 border-b">
-                                <input type="number" min="0" max="100" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <input type="number" min="0" max="100" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
                             </tr>
                           ))}
@@ -303,35 +351,45 @@ const CorporateOnboarding = () => {
                       </table>
                     </div>
 
-                    <h4 className="text-[#0066FF] font-semibold mb-2">Ultimate Beneficial Owner (UBO) Details</h4>
+                    <h4 className="text-[#0066FF] font-semibold mb-4">Ultimate Beneficial Owner (UBO) Details</h4>
                     <div className="overflow-x-auto">
-                      <table className="min-w-full bg-white border border-gray-300 mb-4">
+                      <table className="min-w-full bg-white border border-gray-300 mb-6">
                         <thead>
                           <tr className="bg-gray-100">
-                            <th className="py-2 px-4 border-b text-left">Name of the UBO</th>
-                            <th className="py-2 px-4 border-b text-left">Shareholding %</th>
-                            <th className="py-2 px-4 border-b text-left">Date of Birth</th>
-                            <th className="py-2 px-4 border-b text-left">Nationality</th>
-                            <th className="py-2 px-4 border-b text-left">Current Address</th>
+                            <th className="py-3 px-4 border-b text-left">Name of the UBO <span className="text-[#0066FF]">*</span></th>
+                            <th className="py-3 px-4 border-b text-left">Shareholding % <span className="text-[#0066FF]">*</span></th>
+                            <th className="py-3 px-4 border-b text-left">Date of Birth <span className="text-[#0066FF]">*</span></th>
+                            <th className="py-3 px-4 border-b text-left">Nationality <span className="text-[#0066FF]">*</span></th>
+                            <th className="py-3 px-4 border-b text-left">Current Address <span className="text-[#0066FF]">*</span></th>
                           </tr>
                         </thead>
                         <tbody>
                           {[...Array(2)].map((_, index) => (
                             <tr key={index}>
-                              <td className="py-2 px-4 border-b">
-                                <input type="text" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <input type="text" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
-                              <td className="py-2 px-4 border-b">
-                                <input type="number" min="0" max="100" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <input type="number" min="0" max="100" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
-                              <td className="py-2 px-4 border-b">
-                                <input type="date" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <div className="relative">
+                                  <input type="text" placeholder="dd/mm/yyyy" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                                  <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                  </button>
+                                </div>
                               </td>
-                              <td className="py-2 px-4 border-b">
-                                <input type="text" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <input type="text" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
-                              <td className="py-2 px-4 border-b">
-                                <input type="text" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <input type="text" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
                             </tr>
                           ))}
@@ -339,35 +397,45 @@ const CorporateOnboarding = () => {
                       </table>
                     </div>
 
-                    <h4 className="text-[#0066FF] font-semibold mb-2">Senior Management/Authorized Person</h4>
+                    <h4 className="text-[#0066FF] font-semibold mb-4">Senior Management/Authorized Person</h4>
                     <div className="overflow-x-auto">
                       <table className="min-w-full bg-white border border-gray-300">
                         <thead>
                           <tr className="bg-gray-100">
-                            <th className="py-2 px-4 border-b text-left">Name</th>
-                            <th className="py-2 px-4 border-b text-left">Designation</th>
-                            <th className="py-2 px-4 border-b text-left">Date of Birth</th>
-                            <th className="py-2 px-4 border-b text-left">Nationality</th>
-                            <th className="py-2 px-4 border-b text-left">Current Address</th>
+                            <th className="py-3 px-4 border-b text-left">Name <span className="text-[#0066FF]">*</span></th>
+                            <th className="py-3 px-4 border-b text-left">Designation <span className="text-[#0066FF]">*</span></th>
+                            <th className="py-3 px-4 border-b text-left">Date of Birth <span className="text-[#0066FF]">*</span></th>
+                            <th className="py-3 px-4 border-b text-left">Nationality <span className="text-[#0066FF]">*</span></th>
+                            <th className="py-3 px-4 border-b text-left">Current Address <span className="text-[#0066FF]">*</span></th>
                           </tr>
                         </thead>
                         <tbody>
                           {[...Array(3)].map((_, index) => (
                             <tr key={index}>
-                              <td className="py-2 px-4 border-b">
-                                <input type="text" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <input type="text" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
-                              <td className="py-2 px-4 border-b">
-                                <input type="text" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <input type="text" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
-                              <td className="py-2 px-4 border-b">
-                                <input type="date" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <div className="relative">
+                                  <input type="text" placeholder="dd/mm/yyyy" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                                  <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                                    </svg>
+                                  </button>
+                                </div>
                               </td>
-                              <td className="py-2 px-4 border-b">
-                                <input type="text" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <input type="text" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
-                              <td className="py-2 px-4 border-b">
-                                <input type="text" className="w-full p-1 border border-gray-300 rounded-md" />
+                              <td className="py-3 px-4 border-b">
+                                <input type="text" className="w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                               </td>
                             </tr>
                           ))}
@@ -377,51 +445,61 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* POLITICAL EXPOSED PERSON DECLARATION */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">POLITICAL EXPOSED PERSON DECLARATION</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">POLITICAL EXPOSED PERSON DECLARATION</h3>
                     <p className="text-sm text-gray-700 mb-4">
                       Are shareholders, senior management and/or authorized signatory entrusted with prominent public functions in United Arab Emirates or any other Foreign country such as Heads of States or Governments, Senior Politicians, Senior Government Officials, Judicial or Military Officials, Senior Executives of State-owned Corporations, and Senior Officials of Political Parties and persons who are, or have previously been, entrusted with the management of an international organization or any prominent function within such an organization?
                     </p>
-                    <div className="flex space-x-4 mb-2">
+                    <div className="flex space-x-6 mb-2">
                       <div className="flex items-center">
-                        <input type="radio" id="pep-yes" name="pep-declaration" value="yes" className="mr-2" />
-                        <label htmlFor="pep-yes">Yes</label>
+                        <input type="radio" id="pep-yes" name="pep-declaration" value="yes" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                        <label htmlFor="pep-yes" className="text-base">Yes</label>
                       </div>
                       <div className="flex items-center">
-                        <input type="radio" id="pep-no" name="pep-declaration" value="no" className="mr-2" />
-                        <label htmlFor="pep-no">No</label>
+                        <input type="radio" id="pep-no" name="pep-declaration" value="no" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                        <label htmlFor="pep-no" className="text-base">No</label>
                       </div>
                     </div>
                   </div>
 
                   {/* CLIENT DECLARATION */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">CLIENT DECLARATION</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">CLIENT DECLARATION</h3>
                     <p className="text-sm text-gray-700 mb-4">
                       I <span className="font-bold">(Company Name)</span>, represented by <span className="font-bold">(Authorized Representative's Full Name)</span>, hereby declares that the information provided above on behalf of the company is true, accurate, and complete to the best of our knowledge and belief. We acknowledge and understand that Hilbert Investment Solutions Ltd may process the company's personal information in accordance with the attached Privacy Notice for the purpose of providing services.
                     </p>
                     <p className="text-sm text-gray-700 mb-4">
                       We are fully aware of the consequences that may arise from providing false or misleading information and accept sole responsibility for the accuracy and authenticity of the details provided on behalf of the company.
                     </p>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-x-6 gap-y-6">
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Authorized Person's Signature</label>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Authorized Person's Signature <span className="text-[#0066FF] ml-1">*</span></label>
                         <div className="w-full p-6 border border-gray-300 rounded-md bg-white"></div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Date</label>
-                        <input type="date" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Date <span className="text-[#0066FF] ml-1">*</span></label>
+                        <div className="relative">
+                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                          <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                              <line x1="16" y1="2" x2="16" y2="6"></line>
+                              <line x1="8" y1="2" x2="8" y2="6"></line>
+                              <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                          </button>
+                        </div>
                       </div>
                       <div>
-                        <label className="block text-sm font-medium text-gray-700 mb-1">Place</label>
-                        <input type="text" className="w-full p-2 border border-gray-300 rounded-md" />
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Place <span className="text-[#0066FF] ml-1">*</span></label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
                       </div>
                     </div>
                   </div>
 
                   {/* Privacy Notice */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
-                    <h3 className="text-[#0066FF] font-bold text-lg mb-4">PRIVACY NOTICE</h3>
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">PRIVACY NOTICE</h3>
                     <p className="text-sm mb-4">
                       Hilbert Investment Solutions Ltd ("the Company") takes privacy seriously and respects the privacy of every client 
                       for whom we provide services ("the Services"). In order to effectively provide the Services to you, the company 
@@ -432,7 +510,7 @@ const CorporateOnboarding = () => {
                       process personal information in order to provide the Services.
                     </p>
                     
-                    <h4 className="text-[#0066FF] font-bold mb-2">THE PERSONAL INFORMATION WE MAY HOLD</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-3">THE PERSONAL INFORMATION WE MAY HOLD</h4>
                     <p className="text-sm mb-3">
                       As a client (or potential client) of the Company, we may hold the following categories of personal information about 
                       you. This information may be considered sensitive due to its nature:
@@ -447,7 +525,7 @@ const CorporateOnboarding = () => {
                       <li>Information provided in the course of us providing the Services.</li>
                     </ul>
                     
-                    <h4 className="text-[#0066FF] font-bold mb-2">HOW WE MAY USE YOUR PERSONAL INFORMATION</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-3">HOW WE MAY USE YOUR PERSONAL INFORMATION</h4>
                     <p className="text-sm mb-3">
                       It is our legitimate interest to use your personal information to ensure the provision of the Services. As a Regulated 
                       Entity, we are also bound by legal, regulatory, and ethical obligations that necessitate the processing of your 
@@ -464,7 +542,7 @@ const CorporateOnboarding = () => {
                       <li>Supplying statutory information.</li>
                     </ul>
                     
-                    <h4 className="text-[#0066FF] font-bold mb-2">SHARING YOUR PERSONAL INFORMATION</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-3">SHARING YOUR PERSONAL INFORMATION</h4>
                     <p className="text-sm mb-3">
                       We may need to share your personal information with third parties. These third parties may include:
                     </p>
@@ -473,7 +551,7 @@ const CorporateOnboarding = () => {
                       <li>Third party professionals, such as arbitrators, accountants, tax professionals, advisors, counsel, court personnel.</li>
                     </ul>
                     
-                    <h4 className="text-[#0066FF] font-bold mb-2">SECURITY OF YOUR PERSONAL INFORMATION</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-3">SECURITY OF YOUR PERSONAL INFORMATION</h4>
                     <p className="text-sm mb-3">
                       We place a high priority on the security of your personal information and have implemented stringent measures to 
                       ensure its protection. Access to your information is restricted to authorized personnel with a designated legitimate need 
@@ -485,22 +563,22 @@ const CorporateOnboarding = () => {
                       to maintain the security and confidentiality of your data, earning and maintaining your trust.
                     </p>
                     
-                    <h4 className="text-[#0066FF] font-bold mb-2">RETENTION OF YOUR PERSONAL INFORMATION</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-3">RETENTION OF YOUR PERSONAL INFORMATION</h4>
                     <p className="text-sm mb-3">
                       We will retain pertinent records for a minimum duration of six years from the date of our last 
                       engagement with a client. However, in accordance with our legal, regulatory, or professional obligations, we may be 
                       required to retain such information for a longer period beyond the documented relationship.
                     </p>
                     
-                    <h4 className="text-[#0066FF] font-bold mb-2">YOUR RIGHTS IN RELATION TO YOUR PERSONAL INFORMATION</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-3">YOUR RIGHTS IN RELATION TO YOUR PERSONAL INFORMATION</h4>
                     <p className="text-sm mb-3">
                       Under certain circumstances, you may have rights regarding your personal information, including the right to access, 
-                      correct, erase and limit the use of your personal information. If you have any questions or requests regarding your rights, please email us at 
+                      correct, erase and limit the use of your personal information. If you have any questions or requests regarding your rights, please email us at
                       <a href="mailto:Hilbert@invetsolutions.ae" className="text-[#0066FF] mx-1">Hilbert@invetsolutions.ae</a>. 
                       We will address your concerns promptly and assist you accordingly.
                     </p>
                     
-                    <h4 className="text-[#0066FF] font-bold mb-2">DATA PRIVACY TEAM</h4>
+                    <h4 className="text-[#0066FF] font-bold mb-3">DATA PRIVACY TEAM</h4>
                     <p className="text-sm mb-3">
                       We have appointed a Data Protection Officer (DPO) who is responsible for overseeing compliance with this Privacy 
                       Notice. If you have any inquiries or concerns regarding this Privacy Notice or the handling of your personal 
@@ -511,7 +589,7 @@ const CorporateOnboarding = () => {
                     </p>
                     
                     <div className="flex items-center mt-6">
-                      <input type="checkbox" id="privacy-acknowledge" className="mr-3 h-5 w-5" />
+                      <input type="checkbox" id="privacy-acknowledge" className="mr-3 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
                       <label htmlFor="privacy-acknowledge" className="text-base font-medium text-[#0066FF]">I acknowledge</label>
                     </div>
                   </div>
@@ -540,7 +618,7 @@ const CorporateOnboarding = () => {
                 
                 <div className="space-y-6">
                   {/* 1. INVESTMENT OBJECTIVES */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">1. INVESTMENT OBJECTIVES</h3>
                     
                     <div className="mb-4">
@@ -592,7 +670,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 2. INVESTMENT STAGE AND ABILITY */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">2. INVESTMENT STAGE AND ABILITY</h3>
                     
                     <div className="mb-4">
@@ -656,7 +734,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 3. PRODUCT KNOWLEDGE AND EXPERIENCE */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">3. PRODUCT KNOWLEDGE AND EXPERIENCE</h3>
                     
                     <div className="mb-4">
@@ -951,7 +1029,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 4. RESPONSE TO MARKET DECLINE */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">5. RESPONSE TO MARKET DECLINE</h3>
                     
                     <div className="mb-4">
@@ -1004,7 +1082,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 6. RISK TOLERANCE, CAPITAL LOSS AND MARKET FLUCTUATION */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">6. RISK TOLERANCE, CAPITAL LOSS AND MARKET FLUCTUATION</h3>
                     
                     <div className="mb-4">
@@ -1041,7 +1119,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 7. INVESTMENT TIME HORIZON */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">7. INVESTMENT TIME HORIZON</h3>
                     
                     <div className="mb-4">
@@ -1087,7 +1165,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 8. VOLATILITY OF RETURNS */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">8. VOLATILITY OF RETURNS</h3>
                     
                     <div className="mb-4">
@@ -1133,7 +1211,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 9. ASSETS UNDER ADVICE */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">9. ASSETS UNDER ADVICE</h3>
                     
                     <div className="mb-4">
@@ -1179,7 +1257,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 10. LIQUIDITY PREFERENCE */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">10. LIQUIDITY PREFERENCE</h3>
                     
                     <div className="mb-4">
@@ -1225,7 +1303,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 11. STABILITY OF INCOME */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">11. STABILITY OF INCOME</h3>
                     
                     <div className="mb-4">
@@ -1271,7 +1349,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 12. FINANCIAL SITUATION */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">12. FINANCIAL SITUATION</h3>
                     
                     <div className="mb-4">
@@ -1318,7 +1396,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 13. LEVERAGE IN INVESTMENT */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">13. LEVERAGE IN INVESTMENT</h3>
                     
                     <div className="mb-4">
@@ -1352,7 +1430,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* 14. WHAT % OF TOTAL WEALTH ARE LIQUID BANKABLE ASSETS */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">14. WHAT % OF TOTAL WEALTH ARE LIQUID BANKABLE ASSETS?</h3>
                     
                     <div className="mb-4">
@@ -1410,7 +1488,7 @@ const CorporateOnboarding = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">PROFESSIONAL CLIENT CLASSIFICATION</h3>
                     <p className="mb-2 italic text-gray-700">I. In order to ascertain whether you are a "Professional Client", please tick all box(es) below, as applicable to you:</p>
                     
@@ -1496,7 +1574,7 @@ const CorporateOnboarding = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">DEEMED PROFESSIONAL CLIENT</h3>
                     <p className="mb-2 italic">An undertaking that satisfies any of the following:</p>
                     
@@ -1601,7 +1679,7 @@ const CorporateOnboarding = () => {
                     </div>
                   </div>
                   
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">OTHER CLASSIFICATIONS</h3>
                     
                     {/* Convert to 3-column table */}
@@ -1674,7 +1752,7 @@ const CorporateOnboarding = () => {
                   </div>
 
                   {/* PART A - Entity Account Holder */}
-                  <div className="bg-[#E5F0FF] p-4 rounded-md mb-6">
+                  <div className="bg-[#EFF6FF] p-4 rounded-md mb-6">
                     <h3 className="text-[#0066FF] font-bold text-lg mb-4">PART A - Entity Account Holder</h3>
                     <p className="mb-2 italic text-gray-700">(For joint or multiple account holders, complete a separate form for each entity account holder)</p>
                     
