@@ -1,98 +1,95 @@
-# Dubai Welcome Site Builder
+# Individual Client Onboarding
 
-## Project Overview
-This is a client onboarding application for Hilbert Investment Solutions, built to facilitate the onboarding process for different types of clients (Individual, Corporate, and Counterparty). The application provides a user-friendly interface for clients to complete their registration and classification processes.
+## Description
+
+This project is a multi-step web application designed to streamline the onboarding process for individual clients. It guides users through several stages, including Know Your Customer (KYC) forms, Suitability Assessments, Client Classification, FATCA and W8BEN-E tax forms, and finally, document uploads.
+
+The application provides a user-friendly interface with clear progression indicators to ensure a smooth onboarding experience.
 
 ## Features
-- **Multi-client Support**: Handles different onboarding flows for individual clients, corporate entities, and counterparties
-- **Corporate Onboarding**: Complete workflow for corporate client registration and documentation
-- **Client Classification**: Process for classifying clients according to regulatory requirements
-- **Responsive Design**: Mobile-friendly interface that works across all device sizes
-- **Modern UI**: Clean, professional interface built with React and Tailwind CSS
 
-## Tech Stack
-- **Frontend Framework**: React 18 with TypeScript
-- **Routing**: React Router 6
-- **Styling**: Tailwind CSS with shadcn/ui components
-- **State Management**: React Query for server state
-- **Form Handling**: React Hook Form with Zod validation
-- **Build Tool**: Vite
-- **Package Manager**: npm/bun
+*   **Multi-Step Onboarding Process:** Guides users sequentially through all required onboarding stages.
+*   **Progress Tracking:** Visual indicators show the current step, completed steps, and pending steps.
+*   **Dynamic Form Rendering:** Displays the relevant form section based on the active step.
+*   **Comprehensive Form Inputs:** Includes a variety of input fields such as text boxes, date pickers, radio buttons, dropdown selectors, checkboxes, and file upload areas.
+*   **Client-Side Navigation:** Allows users to move between previous and next steps (where applicable).
+*   **Dedicated Sections for:**
+    *   KYC (Know Your Customer)
+    *   Suitability Assessment
+    *   Client Classification
+    *   FATCA (Foreign Account Tax Compliance Act)
+    *   W8BEN-E Form
+    *   Document Upload
+*   **Document Upload Functionality:** Allows users to select document types and upload multiple files.
 
-## Project Structure
-```
-dubai-welcome-site-builder/
-├── public/                 # Static assets
-├── src/                    # Source code
-│   ├── components/         # Reusable UI components
-│   ├── hooks/              # Custom React hooks
-│   ├── lib/                # Utility functions and shared code
-│   ├── pages/              # Page components
-│   │   ├── Index.tsx                  # Landing page
-│   │   ├── ClientClassification.tsx   # Client classification process
-│   │   ├── CorporateOnboarding.tsx    # Corporate client onboarding
-│   │   └── NotFound.tsx               # 404 page
-│   ├── styles/             # CSS and style-related files
-│   ├── App.tsx             # Main application component and routing
-│   └── main.tsx            # Application entry point
-├── index.html              # HTML template
-├── tailwind.config.ts      # Tailwind CSS configuration
-├── tsconfig.json           # TypeScript configuration
-├── vite.config.ts          # Vite configuration
-└── package.json            # Project dependencies and scripts
-```
+## Technologies Used
 
-## Main Pages
-1. **Landing Page**: Welcome screen with options to select client type (Individual, Corporate, or Counterparty)
-2. **Corporate Onboarding**: Multi-step form for corporate client registration
-3. **Client Classification**: Process to classify clients according to regulatory requirements
-4. **404 Page**: Custom not found page
+*   **React:** A JavaScript library for building user interfaces.
+*   **TypeScript:** A typed superset of JavaScript that compiles to plain JavaScript.
+*   **Tailwind CSS:** A utility-first CSS framework for rapid UI development (inferred from className syntax).
+*   **React Router DOM:** For handling navigation within the application (inferred from the use of `<Link>`).
 
-## Getting Started
+## Setup and Installation
 
-### Prerequisites
-- Node.js (v16 or later)
-- npm or bun
+1.  **Clone the repository (if applicable):**
+    ```bash
+    git clone <repository-url>
+    cd <project-directory>
+    ```
 
-### Installation
-1. Clone the repository
-   ```bash
-   git clone https://github.com/your-username/dubai-welcome-site-builder.git
-   cd dubai-welcome-site-builder
-   ```
+2.  **Install dependencies:**
+    It's assumed this project uses either npm or yarn.
+    ```bash
+    npm install
+    # or
+    yarn install
+    ```
 
-2. Install dependencies
-   ```bash
-   npm install
-   # or
-   bun install
-   ```
+## Running the Application
 
-3. Start the development server
-   ```bash
-   npm run dev
-   # or
-   bun run dev
-   ```
+To run the application in a development environment:
 
-4. Open your browser and navigate to `http://localhost:5173`
-
-### Build
-To build the project for production:
 ```bash
-npm run build
+npm run dev
 # or
-bun run build
+yarn dev
 ```
 
-## Deployment
-The built files will be in the `dist` directory. These can be deployed to any static hosting service like Vercel, Netlify, or a traditional web server.
+This will typically start a development server, and you can view the application in your browser at `http://localhost:5173` (or another port if configured differently).
+
+## Folder Structure (Partial Overview)
+
+```
+/src
+|-- /components
+|   |-- Navbar.tsx       # Navigation bar component
+|   |-- Footer.tsx       # Footer component
+|   `-- /ui
+|       `-- button.tsx   # Button UI component
+|-- /pages
+|   |-- IndividualOnboarding.tsx  # Main component for the onboarding flow
+# ... other files and folders
+```
+
+## Key Components
+
+*   **`IndividualOnboarding.tsx`**: This is the central component orchestrating the entire individual client onboarding process. It manages the state of the active step, renders the corresponding forms, and handles navigation between steps.
+*   **`Navbar.tsx`**: Provides the main navigation for the application.
+*   **`Footer.tsx`**: Contains footer information and links.
+
+## Onboarding Steps Overview
+
+The `IndividualOnboarding` component manages the following steps:
+
+1.  **KYC Form:** Collects client identification details, document details, nature of relationship, employment details, political exposure declaration, and client declaration. Includes a checklist for required documents and a privacy notice.
+2.  **Suitability:** Presents a suitability assessment questionnaire covering investment objectives, investment stage, product knowledge/experience, response to market decline, risk tolerance, investment time horizon, volatility preferences, assets under advice, liquidity preference, income stability, financial situation, and leverage.
+3.  **Client Classification:** Allows clients to classify themselves as Professional Clients (Assessed or Deemed) or understand Retail Client/Market Counterparty classifications, based on DFSA Rulebook criteria.
+4.  **FATCA:** Provides an OECD CRS and U.S. FATCA Self-Certification Form for individuals to declare their tax residency and U.S. person status.
+5.  **W8BEN-E Form:** Instructs users to download, complete, and upload the W-8BEN-E form (Certificate of Foreign Status of Beneficial Owner for United States Tax Withholding and Reporting).
+6.  **Upload Documents:** A section for users to upload various required documents, select document types, and manage their uploads. Includes a list of generally required documents.
+
+Each step is designed to collect specific information necessary for the onboarding process, with clear instructions and input fields.
 
 ## Compliance Notice
+
 Hilbert Investment Solutions Ltd is regulated by the Dubai Financial Services Authority (DFSA) for the conduct of its business in and from the Dubai International Financial Centre (DIFC).
-
-## License
-[Include license information here]
-
-## Contact
-[Include contact information for project maintainers]

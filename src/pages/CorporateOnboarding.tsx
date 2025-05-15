@@ -27,6 +27,7 @@ const CorporateOnboarding = () => {
     { id: 'suitability', label: 'Suitability', icon: 'check-circle' },
     { id: 'classification', label: 'Client Classification', icon: 'users' },
     { id: 'fatca', label: 'FATCA', icon: 'document-text' },
+    { id: 'w8ben', label: 'W8BEN-E Form', icon: 'document-text' },
     { id: 'documents', label: 'Upload Documents', icon: 'upload' }
   ];
 
@@ -2673,6 +2674,145 @@ const CorporateOnboarding = () => {
                             <label className="block text-sm font-medium text-gray-700 mb-1">Date:</label>
                             <input type="date" className="w-full p-2 border border-gray-300 rounded-md" />
                           </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            
+            {activeStep === 'w8ben' && (
+              <div>
+                <h2 className="text-lg font-semibold mb-4">W8BEN-E Form</h2>
+                <div className="space-y-6">
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">Certificate of Foreign Status of Beneficial Owner for United States Tax Withholding and Reporting</h3>
+                    
+                    <div className="mb-4">
+                      <p className="text-sm text-gray-700 mb-3">
+                        Form W-8BEN-E is used by foreign entities to certify their foreign status for U.S. tax purposes. This form is required by U.S. tax regulations to establish that you are not a U.S. person and to claim treaty benefits (if applicable).
+                      </p>
+                      
+                      <p className="text-sm text-gray-700 mb-6">
+                        Please download the form below, complete all relevant sections, and upload the signed document.
+                      </p>
+                      
+                      <div className="bg-blue-50 p-4 border border-blue-100 rounded-md mb-6">
+                        <p className="text-sm text-blue-800 font-semibold mb-2">Important Instructions:</p>
+                        <ul className="list-disc list-inside text-sm text-blue-800">
+                          <li>The form must be filled out completely and accurately</li>
+                          <li>All required fields must be completed</li>
+                          <li>The form must be signed and dated</li>
+                          <li>Upload the completed form using the upload section below</li>
+                        </ul>
+                      </div>
+                      
+                      <div className="flex justify-center mb-6">
+                        <a 
+                          href="/uploads/W-8BEN-E.pdf" 
+                          download
+                          className="flex items-center justify-center bg-[#0066FF] hover:bg-[#0055DD] text-white py-3 px-6 rounded-md transition duration-200"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                          </svg>
+                          Download W-8BEN-E Form
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">Upload Completed W-8BEN-E Form</h3>
+                    
+                    <div className="mb-6">
+                      <p className="text-sm text-gray-700 mb-4">
+                        After completing and signing the W-8BEN-E form, please upload it here. The document must be in PDF format.
+                      </p>
+                      
+                      <div className="border-2 border-dashed border-gray-300 rounded-md p-6 flex flex-col items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                        </svg>
+                        
+                        <p className="text-sm text-gray-600 mb-2">Drag and drop your file here, or</p>
+                        
+                        <label htmlFor="w8ben-upload" className="cursor-pointer bg-white hover:bg-gray-50 text-[#0066FF] border border-[#0066FF] rounded-md py-2 px-4 text-sm font-medium">
+                          Browse files
+                          <input 
+                            id="w8ben-upload" 
+                            type="file" 
+                            accept=".pdf" 
+                            className="hidden" 
+                            onChange={(e) => {
+                              // Handle file upload logic here
+                              console.log(e.target.files);
+                            }}
+                          />
+                        </label>
+                        
+                        <p className="text-xs text-gray-500 mt-2">Accepted file types: PDF only (Max: 5MB)</p>
+                      </div>
+                    </div>
+                    
+                    <div className="hidden">
+                      {/* This section will show once a file is uploaded */}
+                      <div className="bg-green-50 border border-green-200 rounded-md p-4 flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-green-500 mr-3 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                        </svg>
+                        <div>
+                          <p className="text-green-800 font-medium">File uploaded successfully!</p>
+                          <p className="text-sm text-green-700">W-8BEN-E.pdf (1.2 MB)</p>
+                          <button className="text-sm text-red-600 hover:text-red-800 mt-1 focus:outline-none">
+                            Remove
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#F8FAFC] p-6 rounded-md mb-6 border border-gray-100 shadow-sm">
+                    <h3 className="text-[#0066FF] font-bold text-lg mb-6">Declaration</h3>
+                    
+                    <div className="mb-4">
+                      <div className="flex items-start mb-4">
+                        <input 
+                          type="checkbox" 
+                          id="w8ben-declaration" 
+                          className="mr-2 mt-1 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" 
+                        />
+                        <label htmlFor="w8ben-declaration" className="text-sm text-gray-700">
+                          I declare that I have examined the information on this form and to the best of my knowledge and belief it is true, correct, and complete. I further certify under penalties of perjury that:
+                          <ul className="list-disc list-inside mt-2 ml-4">
+                            <li>I am the individual that is the beneficial owner (or am authorized to sign for the individual that is the beneficial owner) of all the income to which this form relates</li>
+                            <li>The beneficial owner is not a U.S. person</li>
+                            <li>The income to which this form relates is not effectively connected with the conduct of a trade or business in the United States</li>
+                            <li>I authorize this form to be provided to any withholding agent that has control, receipt, or custody of the income of which I am the beneficial owner or any withholding agent that can disburse or make payments of the income of which I am the beneficial owner</li>
+                          </ul>
+                        </label>
+                      </div>
+                    </div>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Full Name <span className="text-[#0066FF] ml-1">*</span></label>
+                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                      </div>
+                      
+                      <div>
+                        <label className="block text-sm font-medium text-gray-700 mb-2">Date <span className="text-[#0066FF] ml-1">*</span></label>
+                        <div className="relative">
+                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                          <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
+                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                              <line x1="16" y1="2" x2="16" y2="6"></line>
+                              <line x1="8" y1="2" x2="8" y2="6"></line>
+                              <line x1="3" y1="10" x2="21" y2="10"></line>
+                            </svg>
+                          </button>
                         </div>
                       </div>
                     </div>
