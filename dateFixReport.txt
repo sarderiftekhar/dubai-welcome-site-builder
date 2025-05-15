@@ -1,0 +1,17 @@
+Old date pattern found at line 656:
+                        <div>
+  <input 
+    type="date" 
+    className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+    onChange={(e) => handleInputChange('kyc', 'clientDeclaration', 'date', e.target.value)}
+  />
+</div>
+
+Replaced with:
+                        <div>
+                          <input 
+                            type="date" 
+                            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                            onChange={(e) => handleInputChange('kyc', 'clientDeclaration', 'date', e.target.value)}
+                          />
+                        </div>

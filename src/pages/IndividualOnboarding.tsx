@@ -3,6 +3,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import SignatureCanvas from '@/components/SignatureCanvas';
 
 const IndividualOnboarding = () => {
   const [activeStep, setActiveStep] = useState('kyc');
@@ -10,6 +11,10 @@ const IndividualOnboarding = () => {
   const [documentUploads, setDocumentUploads] = useState([
     { id: 1, type: '', file: null }
   ]);
+  
+  // State for signature popup
+  const [isSignaturePopupOpen, setIsSignaturePopupOpen] = useState(false);
+  const [signatureImage, setSignatureImage] = useState('');
   
   const steps = [
     { id: 'kyc', label: 'KYC Form', icon: 'clipboard-list' },
@@ -69,6 +74,66 @@ const IndividualOnboarding = () => {
     };
   };
 
+  // Add state to store form data
+  const [formData, setFormData] = useState({
+    kyc: {
+      personalInfo: {},
+      identificationDetails: {},
+      relationshipDetails: {},
+      employmentDetails: {},
+      pepDeclaration: {},
+      clientDeclaration: {},
+      privacyNotice: {}
+    },
+    suitability: {},
+    classification: {},
+    fatca: {
+      accountHolder: {},
+      taxResidency: {},
+      citizenship: {},
+      declarations: {}
+    },
+    w8ben: {},
+    documents: []
+  });
+
+  // Save form data as JSON
+  const saveFormDataAsJson = () => {
+    try {
+      // Include document uploads in the form data
+      const completeFormData = {
+        ...formData,
+        documents: documentUploads.map(doc => ({
+          type: doc.type,
+          fileName: doc.file ? doc.file.name : null
+        }))
+      };
+      
+      // Create a blob with the JSON data
+      const jsonData = JSON.stringify(completeFormData, null, 2);
+      const blob = new Blob([jsonData], { type: 'application/json' });
+      
+      // Create a download link
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `individual_client_data_${new Date().toISOString().slice(0, 10)}.json`;
+      
+      // Trigger download
+      document.body.appendChild(link);
+      link.click();
+      
+      // Clean up
+      URL.revokeObjectURL(url);
+      document.body.removeChild(link);
+      
+      return true;
+    } catch (error) {
+      console.error("Error saving form data:", error);
+      return false;
+    }
+  };
+  
   // Add a function to handle adding more document uploads
   const addMoreDocuments = () => {
     const newUpload = {
@@ -77,6 +142,51 @@ const IndividualOnboarding = () => {
       file: null
     };
     setDocumentUploads([...documentUploads, newUpload]);
+  };
+  
+  // Add a handleInputChange function to update formData
+  const handleInputChange = (section, subsection, field, value) => {
+    setFormData(prevData => ({
+      ...prevData,
+      [section]: {
+        ...prevData[section],
+        [subsection]: {
+          ...prevData[section][subsection],
+          [field]: value
+        }
+      }
+    }));
+  };
+  
+  // Handle flat structure updates (for sections without subsections)
+  const handleFlatInputChange = (section, field, value) => {
+    setFormData(prevData => ({
+      ...prevData,
+      [section]: {
+        ...prevData[section],
+        [field]: value
+      }
+    }));
+  };
+
+  // Handle checkbox inputs
+  const handleCheckboxChange = (section, subsection, field, checked) => {
+    setFormData(prevData => ({
+      ...prevData,
+      [section]: {
+        ...prevData[section],
+        [subsection]: {
+          ...prevData[section][subsection],
+          [field]: checked
+        }
+      }
+    }));
+  };
+  
+  // Handle saving signature
+  const handleSaveSignature = (signatureData) => {
+    setSignatureImage(signatureData);
+    handleInputChange('fatca', 'declarations', 'signature', signatureData);
   };
 
   return (
@@ -162,38 +272,45 @@ const IndividualOnboarding = () => {
                           Full Name <span className="text-[#0066FF] ml-1">*</span>
                           <span className="text-xs text-gray-500 ml-1">(as per the passport)</span>
                         </label>
-                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        <input 
+                          type="text" 
+                          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                          onChange={(e) => handleInputChange('kyc', 'personalInfo', 'fullName', e.target.value)}
+                        />
                       </div>
                       
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Date of Birth (DOB) <span className="text-[#0066FF] ml-1">*</span>
                         </label>
-                        <div className="relative">
-                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
-                          <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
-                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                              <line x1="16" y1="2" x2="16" y2="6"></line>
-                              <line x1="8" y1="2" x2="8" y2="6"></line>
-                              <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                          </button>
-                        </div>
+                                                  <div>
+                            <input 
+                              type="date" 
+                              className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                              onChange={(e) => handleInputChange('kyc', 'personalInfo', 'dob', e.target.value)}
+                            />
+                          </div>
                       </div>
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Place of Birth <span className="text-[#0066FF] ml-1">*</span>
                         </label>
-                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        <input 
+                          type="text" 
+                          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                          onChange={(e) => handleInputChange('kyc', 'personalInfo', 'placeOfBirth', e.target.value)}
+                        />
                       </div>
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Nationality <span className="text-[#0066FF] ml-1">*</span>
                         </label>
-                        <select className="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none">
+                        <select 
+                          className="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                          onChange={(e) => handleInputChange('kyc', 'personalInfo', 'nationality', e.target.value)}
+                        >
                           <option value="">Select a country</option>
                           <option value="AE">United Arab Emirates</option>
                           <option value="UK">United Kingdom</option>
@@ -206,7 +323,10 @@ const IndividualOnboarding = () => {
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Country of Residence <span className="text-[#0066FF] ml-1">*</span>
                         </label>
-                        <select className="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none">
+                        <select 
+                          className="w-full p-3 border border-gray-300 rounded-md bg-white focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                          onChange={(e) => handleInputChange('kyc', 'personalInfo', 'countryOfResidence', e.target.value)}
+                        >
                           <option value="">Select a country</option>
                           <option value="AE">United Arab Emirates</option>
                           <option value="UK">United Kingdom</option>
@@ -221,12 +341,26 @@ const IndividualOnboarding = () => {
                         </label>
                         <div className="flex space-x-6 mt-2">
                           <div className="flex items-center">
-                            <input type="radio" id="gender-male" name="gender" value="male" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
-                            <label htmlFor="gender-male" className="text-base">Male</label>
+                            <input 
+  type="radio" 
+  id="gender-male" 
+  name="gender" 
+  value="male" 
+  className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]"
+  onChange={() => handleInputChange('kyc', 'personalInfo', 'gender', 'male')}
+/>
+<label htmlFor="gender-male" className="text-base">Male</label>
                           </div>
                           <div className="flex items-center">
-                            <input type="radio" id="gender-female" name="gender" value="female" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
-                            <label htmlFor="gender-female" className="text-base">Female</label>
+                            <input 
+  type="radio" 
+  id="gender-female" 
+  name="gender" 
+  value="female" 
+  className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]"
+  onChange={() => handleInputChange('kyc', 'personalInfo', 'gender', 'female')}
+/>
+<label htmlFor="gender-female" className="text-base">Female</label>
                           </div>
                         </div>
                       </div>
@@ -237,15 +371,36 @@ const IndividualOnboarding = () => {
                         </label>
                         <div className="flex flex-wrap space-x-4 mt-2">
                           <div className="flex items-center">
-                            <input type="radio" id="marital-single" name="marital-status" value="single" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                            <input 
+                              type="radio" 
+                              id="marital-single" 
+                              name="marital-status" 
+                              value="single" 
+                              className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" 
+                              onChange={() => handleInputChange('kyc', 'personalInfo', 'maritalStatus', 'single')}
+                            />
                             <label htmlFor="marital-single" className="text-base">Single</label>
                           </div>
                           <div className="flex items-center">
-                            <input type="radio" id="marital-married" name="marital-status" value="married" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                            <input 
+                              type="radio" 
+                              id="marital-married" 
+                              name="marital-status" 
+                              value="married" 
+                              className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" 
+                              onChange={() => handleInputChange('kyc', 'personalInfo', 'maritalStatus', 'married')}
+                            />
                             <label htmlFor="marital-married" className="text-base">Married</label>
                           </div>
                           <div className="flex items-center">
-                            <input type="radio" id="marital-widowed" name="marital-status" value="widowed" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                            <input 
+                              type="radio" 
+                              id="marital-widowed" 
+                              name="marital-status" 
+                              value="widowed" 
+                              className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" 
+                              onChange={() => handleInputChange('kyc', 'personalInfo', 'maritalStatus', 'widowed')}
+                            />
                             <label htmlFor="marital-widowed" className="text-base">Widowed</label>
                           </div>
                         </div>
@@ -255,35 +410,55 @@ const IndividualOnboarding = () => {
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Mobile Number <span className="text-[#0066FF] ml-1">*</span>
                         </label>
-                        <input type="tel" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        <input 
+                          type="tel" 
+                          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                          onChange={(e) => handleInputChange('kyc', 'personalInfo', 'mobileNumber', e.target.value)}
+                        />
                       </div>
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Email Address <span className="text-[#0066FF] ml-1">*</span>
                         </label>
-                        <input type="email" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        <input 
+                          type="email" 
+                          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                          onChange={(e) => handleInputChange('kyc', 'personalInfo', 'emailAddress', e.target.value)}
+                        />
                       </div>
 
                       <div className="md:col-span-2">
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Residential Address <span className="text-[#0066FF] ml-1">*</span>
                         </label>
-                        <textarea className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" rows={3}></textarea>
+                        <textarea 
+                          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" 
+                          rows={3}
+                          onChange={(e) => handleInputChange('kyc', 'personalInfo', 'residentialAddress', e.target.value)}
+                        ></textarea>
                       </div>
 
                       <div className="md:col-span-2">
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Home Country Address <span className="text-xs text-gray-500 ml-1">(if applicable)</span>
                         </label>
-                        <textarea className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" rows={3}></textarea>
+                        <textarea 
+                          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" 
+                          rows={3}
+                          onChange={(e) => handleInputChange('kyc', 'personalInfo', 'homeCountryAddress', e.target.value)}
+                        ></textarea>
                       </div>
 
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Telephone Number <span className="text-xs text-gray-500 ml-1">(with Country Codes)</span>
                         </label>
-                        <input type="tel" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        <input 
+                          type="tel" 
+                          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                          onChange={(e) => handleInputChange('kyc', 'personalInfo', 'telephoneNumber', e.target.value)}
+                        />
                       </div>
                     </div>
                   </div>
@@ -296,15 +471,36 @@ const IndividualOnboarding = () => {
                         <label className="block text-sm font-medium text-gray-700 mb-2">ID Type <span className="text-[#0066FF] ml-1">*</span></label>
                         <div className="flex flex-wrap space-x-4 mt-2">
                           <div className="flex items-center">
-                            <input type="radio" id="id-type-emirates" name="id-type" value="emirates" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                            <input 
+                              type="radio" 
+                              id="id-type-emirates" 
+                              name="id-type" 
+                              value="emirates" 
+                              className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]"
+                              onChange={() => handleInputChange('kyc', 'identificationDetails', 'idType', 'emirates')}
+                            />
                             <label htmlFor="id-type-emirates" className="text-base">Emirates ID</label>
                           </div>
                           <div className="flex items-center">
-                            <input type="radio" id="id-type-passport" name="id-type" value="passport" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                            <input 
+                              type="radio" 
+                              id="id-type-passport" 
+                              name="id-type" 
+                              value="passport" 
+                              className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]"
+                              onChange={() => handleInputChange('kyc', 'identificationDetails', 'idType', 'passport')}
+                            />
                             <label htmlFor="id-type-passport" className="text-base">Passport</label>
                           </div>
                           <div className="flex items-center">
-                            <input type="radio" id="id-type-gcc" name="id-type" value="gcc" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                            <input 
+                              type="radio" 
+                              id="id-type-gcc" 
+                              name="id-type" 
+                              value="gcc" 
+                              className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]"
+                              onChange={() => handleInputChange('kyc', 'identificationDetails', 'idType', 'gcc')}
+                            />
                             <label htmlFor="id-type-gcc" className="text-base">GCC Identity Card</label>
                           </div>
                         </div>
@@ -313,20 +509,20 @@ const IndividualOnboarding = () => {
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-6">
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">ID Number <span className="text-[#0066FF] ml-1">*</span></label>
-                          <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                          <input 
+                            type="text" 
+                            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                            onChange={(e) => handleInputChange('kyc', 'identificationDetails', 'idNumber', e.target.value)}
+                          />
                         </div>
                         <div>
                           <label className="block text-sm font-medium text-gray-700 mb-2">ID Expiry Date <span className="text-[#0066FF] ml-1">*</span></label>
-                          <div className="relative">
-                            <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
-                            <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                              </svg>
-                            </button>
+                          <div>
+                            <input 
+                              type="date" 
+                              className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                              onChange={(e) => handleInputChange('kyc', 'identificationDetails', 'idExpiryDate', e.target.value)}
+                            />
                           </div>
                         </div>
                       </div>
@@ -339,19 +535,31 @@ const IndividualOnboarding = () => {
                     <div className="grid grid-cols-1 gap-x-6 gap-y-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Purpose of relationship <span className="text-[#0066FF] ml-1">*</span></label>
-                        <input type="text" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                        <input 
+                          type="text" 
+                          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                          onChange={(e) => handleInputChange('kyc', 'relationshipDetails', 'purpose', e.target.value)}
+                        />
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Please provide details of your source of funds <span className="text-xs text-gray-500 ml-1">(Explain in detail your source of funding)</span>
                         </label>
-                        <textarea className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" rows={3}></textarea>
+                        <textarea 
+                          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" 
+                          rows={3}
+                          onChange={(e) => handleInputChange('kyc', 'relationshipDetails', 'sourceOfFunds', e.target.value)}
+                        ></textarea>
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">
                           Please provide details of your source of wealth <span className="text-xs text-gray-500 ml-1">(How your wealth was acquired over the years)</span>
                         </label>
-                        <textarea className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" rows={3}></textarea>
+                        <textarea 
+                          className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" 
+                          rows={3}
+                          onChange={(e) => handleInputChange('kyc', 'relationshipDetails', 'sourceOfWealth', e.target.value)}
+                        ></textarea>
                       </div>
                     </div>
                   </div>
@@ -364,11 +572,25 @@ const IndividualOnboarding = () => {
                         <label className="block text-sm font-medium text-gray-700 mb-2">Occupation Type <span className="text-[#0066FF] ml-1">*</span></label>
                         <div className="space-y-2 mt-2">
                           <div className="flex items-center">
-                            <input type="radio" id="occupation-salaried" name="occupation-type" value="salaried" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                            <input 
+                              type="radio" 
+                              id="occupation-salaried" 
+                              name="occupation-type" 
+                              value="salaried" 
+                              className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]"
+                              onChange={() => handleInputChange('kyc', 'employmentDetails', 'occupationType', 'salaried')}
+                            />
                             <label htmlFor="occupation-salaried" className="text-base">Salaried</label>
                           </div>
                           <div className="flex items-center">
-                            <input type="radio" id="occupation-self" name="occupation-type" value="self-employed" className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]" />
+                            <input 
+                              type="radio" 
+                              id="occupation-self" 
+                              name="occupation-type" 
+                              value="self-employed" 
+                              className="mr-2 h-5 w-5 text-[#0066FF] focus:ring-[#0066FF]"
+                              onChange={() => handleInputChange('kyc', 'employmentDetails', 'occupationType', 'self-employed')}
+                            />
                             <label htmlFor="occupation-self" className="text-base">Self-Employed</label>
                           </div>
                           <div className="flex items-center">
@@ -442,16 +664,12 @@ const IndividualOnboarding = () => {
                       </div>
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Date <span className="text-[#0066FF] ml-1">*</span></label>
-                        <div className="relative">
-                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
-                          <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
-                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                              <line x1="16" y1="2" x2="16" y2="6"></line>
-                              <line x1="8" y1="2" x2="8" y2="6"></line>
-                              <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                          </button>
+                        <div>
+                            <input 
+                            type="date" 
+                            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                            onChange={(e) => handleInputChange('kyc', 'clientDeclaration', 'date', e.target.value)}
+                          />
                         </div>
                       </div>
                       <div>
@@ -1866,7 +2084,11 @@ const IndividualOnboarding = () => {
                           <label className="block text-sm font-medium text-gray-700 mb-2">
                             Date of Birth:
                           </label>
-                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
+                          <input 
+    type="date" 
+    className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+    onChange={(e) => handleInputChange('kyc', 'clientDeclaration', 'date', e.target.value)}
+  />
                         </div>
                         
                         <div className="md:col-span-2">
@@ -2115,7 +2337,33 @@ const IndividualOnboarding = () => {
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Signature <span className="text-[#0066FF] ml-1">*</span></label>
-                        <div className="w-full p-6 border border-gray-300 rounded-md bg-white"></div>
+                        {signatureImage ? (
+                          <div className="relative w-full p-6 border border-gray-300 rounded-md bg-white">
+                            <img 
+                              src={signatureImage} 
+                              alt="Signature" 
+                              className="max-h-24 mx-auto" 
+                            />
+                            <button 
+                              onClick={() => setIsSignaturePopupOpen(true)}
+                              className="absolute top-2 right-2 text-xs text-blue-600 hover:text-blue-800"
+                            >
+                              Change
+                            </button>
+                          </div>
+                        ) : (
+                          <button
+                            onClick={() => setIsSignaturePopupOpen(true)}
+                            className="w-full p-6 border border-dashed border-gray-300 rounded-md bg-white hover:bg-gray-50 focus:outline-none"
+                          >
+                            <div className="flex flex-col items-center justify-center text-gray-500">
+                              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mb-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z" />
+                              </svg>
+                              <span>Click to sign</span>
+                            </div>
+                          </button>
+                        )}
                       </div>
                       
                       <div>
@@ -2125,16 +2373,12 @@ const IndividualOnboarding = () => {
                       
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Date <span className="text-[#0066FF] ml-1">*</span></label>
-                        <div className="relative">
-                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
-                          <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
-                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                              <line x1="16" y1="2" x2="16" y2="6"></line>
-                              <line x1="8" y1="2" x2="8" y2="6"></line>
-                              <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                          </button>
+                        <div>
+                            <input 
+                            type="date" 
+                            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                            onChange={(e) => handleInputChange('kyc', 'clientDeclaration', 'date', e.target.value)}
+                          />
                         </div>
                       </div>
                     </div>
@@ -2274,16 +2518,12 @@ const IndividualOnboarding = () => {
                       
                       <div>
                         <label className="block text-sm font-medium text-gray-700 mb-2">Date <span className="text-[#0066FF] ml-1">*</span></label>
-                        <div className="relative">
-                          <input type="text" placeholder="dd/mm/yyyy" className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none" />
-                          <button className="absolute right-2 top-1/2 transform -translate-y-1/2">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-gray-400">
-                              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                              <line x1="16" y1="2" x2="16" y2="6"></line>
-                              <line x1="8" y1="2" x2="8" y2="6"></line>
-                              <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                          </button>
+                        <div>
+                            <input 
+                            type="date" 
+                            className="w-full p-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:border-blue-400 outline-none"
+                            onChange={(e) => handleInputChange('kyc', 'clientDeclaration', 'date', e.target.value)}
+                          />
                         </div>
                       </div>
                     </div>
@@ -2475,7 +2715,10 @@ const IndividualOnboarding = () => {
                 variant="outline"
                 className="text-[#0066FF] hover:text-[#0055DD] border-[#0066FF]"
                 onClick={() => {
-                  alert('Draft saved successfully!');
+                  const saved = saveFormDataAsJson();
+                  if (saved) {
+                    alert('Draft saved successfully as JSON file!');
+                  }
                 }}
               >
                 Save draft
@@ -2488,7 +2731,12 @@ const IndividualOnboarding = () => {
                   if (currentIndex < steps.length - 1) {
                     setActiveStep(steps[currentIndex + 1].id);
                   } else {
-                    alert('Form submitted successfully!');
+                    const saved = saveFormDataAsJson();
+                    if (saved) {
+                      alert('Form submitted successfully! Client data has been saved as a JSON file.');
+                    } else {
+                      alert('There was an error saving the client data. Please try again.');
+                    }
                   }
                 }}
               >
@@ -2505,6 +2753,13 @@ const IndividualOnboarding = () => {
         </p>
                     </div>
       <Footer />
+      
+      {/* Signature Canvas Popup */}
+      <SignatureCanvas
+        isOpen={isSignaturePopupOpen}
+        onClose={() => setIsSignaturePopupOpen(false)}
+        onSave={handleSaveSignature}
+      />
                   </div>
   );
 };

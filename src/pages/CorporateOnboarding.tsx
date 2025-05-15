@@ -998,7 +998,7 @@ const CorporateOnboarding = () => {
                               <td className="py-3 px-4 border-b text-center"><input type="radio" name="hedge-funds-know" className="h-5 w-5" /></td>
                             </tr>
                             <tr>
-                              <td className="py-3 px-4 border-b text-center">4</td>
+                              <td className="py-3 px-4 border-b text-center">5</td>
                               <td className="py-3 px-4 border-b">Accumulators and Decumulators</td>
                               <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-exp" className="h-5 w-5" /></td>
                               <td className="py-3 px-4 border-b text-center"><input type="radio" name="accumulators-exp" className="h-5 w-5" /></td>
